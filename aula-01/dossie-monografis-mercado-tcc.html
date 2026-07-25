@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dossie: Mercado de TCC Digital no Brasil</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #f5f4f0;
+    color: #1a1a1a;
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .header {
+    background: #1a1a1a;
+    color: #f5f4f0;
+    padding: 48px 40px 40px;
+  }
+  .header-inner { max-width: 860px; margin: 0 auto; }
+  .skill-badge {
+    display: inline-block;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: #aaa;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    color: #f5f4f0;
+  }
+  .header h2 {
+    font-size: 16px;
+    font-weight: normal;
+    color: #888;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+  .meta-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .meta-item { font-size: 13px; color: #999; }
+  .meta-item span { color: #ddd; font-weight: bold; }
+  .content { max-width: 860px; margin: 0 auto; padding: 48px 40px; }
+
+  .callout {
+    background: #fff8e1;
+    border-left: 4px solid #f0b429;
+    padding: 16px 20px;
+    margin-bottom: 40px;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  .callout strong { color: #333; }
+
+  h2 {
+    font-size: 22px;
+    font-weight: normal;
+    color: #1a1a1a;
+    margin: 52px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    letter-spacing: 0.01em;
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: bold;
+    color: #2a2a2a;
+    margin: 32px 0 12px;
+  }
+  p { margin-bottom: 16px; color: #333; }
+  ul { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; color: #333; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 28px;
+    font-size: 14px;
+  }
+  th {
+    background: #1a1a1a;
+    color: #f5f4f0;
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Courier New', monospace;
+    font-weight: normal;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e8e8e8;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tr:nth-child(even) td { background: #f9f9f7; }
+  tr:last-child td { border-bottom: none; }
+
+  .hook {
+    background: #f7f5f0;
+    border-left: 3px solid #bbb;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-style: italic;
+    color: #444;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .hook cite {
+    display: block;
+    margin-top: 8px;
+    font-style: normal;
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Courier New', monospace;
+  }
+
+  .brecha {
+    background: #f0faf2;
+    border: 1px solid #a8d5b2;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .brecha h3 {
+    color: #1a5c30;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .brecha p { margin-bottom: 10px; }
+  .brecha .acao {
+    background: #1a5c30;
+    color: #fff;
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 8px;
+  }
+  .brecha .acao-text { color: #2a5c30; font-size: 14px; }
+
+  .jogada {
+    background: #1a1a1a;
+    color: #f5f4f0;
+    padding: 24px 28px;
+    margin: 16px 0;
+    border-radius: 4px;
+  }
+  .jogada-num {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .jogada h3 {
+    color: #f5f4f0;
+    font-size: 16px;
+    margin: 0 0 10px;
+  }
+  .jogada p { color: #bbb; font-size: 14px; margin-bottom: 0; }
+
+  .footer {
+    background: #1a1a1a;
+    color: #666;
+    text-align: center;
+    padding: 32px 40px;
+    font-size: 13px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.04em;
+    margin-top: 80px;
+  }
+  .status-parcial {
+    display: inline-block;
+    background: #fff3cd;
+    border: 1px solid #f0b429;
+    color: #856404;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'Courier New', monospace;
+    margin-left: 8px;
+  }
+  code {
+    background: #f0ede8;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-size: 13px;
+    font-family: 'Courier New', monospace;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="skill-badge">Skill 2/5 · Espiao do Concorrente · Aula 01</div>
+    <h1>Dossie: Mercado de TCC Digital no Brasil</h1>
+    <h2>Foco: Monografis (Douglas Tybel) + Ecossistema B2C</h2>
+    <div class="meta-row">
+      <div class="meta-item">Data: <span>27 de junho de 2026</span></div>
+      <div class="meta-item">Modo: <span>Rede (3 frentes)</span></div>
+      <div class="meta-item">Amostra: <span>~18 pecas</span> <span class="status-parcial">Parcial</span></div>
+      <div class="meta-item">Lente: <span>Avatar Dr. Marcelo (professor orientador federal)</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="callout">
+    <strong>Aviso de amostra:</strong> Meta Ad Library bloqueou acesso direto. Instagram nao forneceu dados textuais. A analise se baseia em landing pages, busca organica e reviews publicos. Padroes de copy e oferta sao confirmados; dados de anuncios pagos sao parciais.
+  </div>
+
+  <h2>1. Resumo Executivo</h2>
+  <p>O mercado de cursos e ferramentas de TCC no Brasil e <strong>100% B2C</strong>: todos os produtos existentes vendem para o aluno, nao para o professor. O lider de mercado e o <strong>Monografis (Douglas Tybel)</strong>, com 30 mil+ alunos, preco de R$297-397 e presenca dominante no YouTube (maior canal sobre TCC no Brasil, 2M+ visualizacoes).</p>
+  <p>A maior forca do Monografis e tambem sua maior brecha para o Pesquisador Aumentado: o produto promete ao aluno "fazer o TCC sem depender do orientador" usando IA, o que na pratica <strong>piora o ciclo corretivo do professor</strong> (o aluno entrega texto gerado por IA sem raciocinio proprio, e o professor ainda precisa corrigir, agora sem saber que o aluno nao entendeu o metodo). <strong>Nenhum produto no mercado fala COM o professor. Todos falam do professor como obstaculo.</strong></p>
+
+  <h2>2. Fontes Consultadas</h2>
+  <table>
+    <tr><th>Frente</th><th>Fonte</th><th>O que rendeu</th></tr>
+    <tr><td>Landing pages</td><td>douglastybel.com.br</td><td>Headline verbatim, proposta de valor, publico-alvo</td></tr>
+    <tr><td>Landing pages</td><td>smarttcc.com.br</td><td>Preco (R$189), IA + ChatGPT, mencao ao professor como secundario</td></tr>
+    <tr><td>Landing pages</td><td>hotmart.com (Monografis, TCC Sem Neura, TCC Agora Vai)</td><td>Mapeamento de produtos e posicionamentos</td></tr>
+    <tr><td>Reviews/organico</td><td>pensabonete.com</td><td>Preco (R$297-397), prova social (30k+ alunos), garantia 30 dias</td></tr>
+    <tr><td>Reviews/organico</td><td>Busca organica multifonte</td><td>Mapeamento do ecossistema, players, metodologia Monografis</td></tr>
+    <tr><td>Anuncios</td><td>Meta Ad Library</td><td>BLOQUEADO — dados parciais nao contabilizados</td></tr>
+    <tr><td>Social</td><td>Instagram @tccsemneura_</td><td>INACESSIVEL via WebFetch — sem dados textuais</td></tr>
+  </table>
+
+  <h2>3. Ganchos</h2>
+
+  <div class="hook">
+    "DESCUBRA OS SEGREDOS PARA FAZER UM TCC PROFISSIONAL EM 7 DIAS!"
+    <cite>douglastybel.com.br · Score: 7/10 · Tipo: Atalho + Resultado</cite>
+  </div>
+
+  <div class="hook">
+    "os estudantes possam confeccionar seus proprios trabalhos sozinhos de forma rapida e sem depender exclusivamente do Orientador"
+    <cite>douglastybel.com.br · Score: 6/10 · Tipo: Libertacao</cite>
+  </div>
+
+  <div class="hook">
+    "Fazer a Pesquisa. Redigir a Monografia. Passo a Passo. A orientacao definitiva para escrever seu trabalho academico. Com apoio de IA."
+    <cite>smarttcc.com.br · Score: 5/10 · Tipo: Tutorial + Autoridade</cite>
+  </div>
+
+  <div class="hook">
+    "desenvolva sua monografia de forma rapida e sem estresse"
+    <cite>smarttcc.com.br · Score: 5/10 · Tipo: Alivio emocional</cite>
+  </div>
+
+  <p><strong>Padrao dominante:</strong> o hook mais forte no mercado e "numero de dias + sem depender do orientador." O angulo emocional (sem neura, sem estresse) e o segundo mais comum. <strong>Nenhum hook fala PARA o professor.</strong></p>
+
+  <h2>4. Ofertas e Precos</h2>
+  <table>
+    <tr><th>Produto</th><th>Preco</th><th>Garantia</th><th>Escassez</th><th>Score Valor</th></tr>
+    <tr>
+      <td><strong>Monografis</strong> (Douglas Tybel)</td>
+      <td>R$297–397 (promos ate R$249)</td>
+      <td>30 dias incondicional</td>
+      <td>Ofertas temporarias recorrentes</td>
+      <td>7/10</td>
+    </tr>
+    <tr>
+      <td><strong>Smart TCC</strong></td>
+      <td>R$189</td>
+      <td>2 anos de acesso</td>
+      <td>Nao identificada</td>
+      <td>6/10</td>
+    </tr>
+    <tr>
+      <td><strong>TCC Sem Neura</strong> (Camila Isaton)</td>
+      <td>Nao identificado</td>
+      <td>Nao identificado</td>
+      <td>Nao identificado</td>
+      <td>Parcial</td>
+    </tr>
+  </table>
+
+  <p><strong>Variavel mais fraca do lider (Monografis):</strong> garantia de resultado — promete "TCC profissional em 7 dias" mas a garantia e devolucao de dinheiro, nao entrega do TCC. A promessa e de velocidade, nao de aprovacao.</p>
+  <p><strong>Variavel mais fraca do mercado todo:</strong> nenhum produto promete ao professor que a orientacao vai melhorar. O beneficio e sempre para o aluno. O professor nao e cliente — e obstaculo.</p>
+
+  <h2>5. Angulos de Copy</h2>
+  <p><strong>Nivel de consciencia atacado por todos:</strong> consciente do problema (aluno sabe que tem TCC e esta travado). Nenhum produto ataca o nivel "inconsciente do problema" — o professor que nao sabe que seu metodo de orientacao e o problema, nao o aluno.</p>
+
+  <h3>Angulos recorrentes no mercado B2C</h3>
+  <ul>
+    <li>Velocidade/prazo: "em 7 dias", "rapido", "em poucas semanas"</li>
+    <li>Alivio emocional: "sem neura", "sem estresse", "sem drama"</li>
+    <li>Independencia: "sem depender do orientador", "sozinho"</li>
+    <li>IA como atalho: "com apoio de IA", "ChatGPT"</li>
+    <li>Metodologia proprietaria: "metodo TCC em blocos", "tecnica TSAC"</li>
+    <li>Passo a passo: "passo a passo", "do zero"</li>
+  </ul>
+
+  <h3>Angulos que NENHUM player usa (livres para pegar)</h3>
+  <ul>
+    <li>Falar COM o professor (B2B totalmente desocupado)</li>
+    <li>Metodo socratico como ferramenta do orientador</li>
+    <li>IA do lado do professor (para fazer perguntas, nao para escrever)</li>
+    <li>"Pare de corrigir o que o aluno traz"</li>
+    <li>Autonomia intelectual do pesquisador (vocabulario que o professor valoriza)</li>
+    <li>Resultado para o professor: menos reunioes corretivas, mais pesquisa propria</li>
+  </ul>
+
+  <h2>6. Formatos e Canais</h2>
+  <table>
+    <tr><th>Canal</th><th>Monografis</th><th>Smart TCC</th><th>TCC Sem Neura</th><th>Vazio</th></tr>
+    <tr><td>YouTube</td><td>FORTE (2M+ views)</td><td>Nao identificado</td><td>Nao identificado</td><td>Videos para professor</td></tr>
+    <tr><td>Hotmart</td><td>Produto listado</td><td>Nao identificado</td><td>Produto listado</td><td>Produto B2B para professor</td></tr>
+    <tr><td>Instagram</td><td>Ativo (inacessivel)</td><td>Nao identificado</td><td>Ativo (@tccsemneura_)</td><td>Professor como seguidor</td></tr>
+    <tr><td>LinkedIn</td><td>Ativo (posts para aluno)</td><td>Nao identificado</td><td>Nao identificado</td><td>Audiencia de professor sem conteudo</td></tr>
+    <tr><td>Site proprio</td><td>douglastybel.com.br</td><td>smarttcc.com.br</td><td>Nao identificado</td><td>Site B2B para professor</td></tr>
+  </table>
+
+  <p><strong>Canal que os players ignoram:</strong> LinkedIn e grupos de professores universitarios no Facebook. O Douglas Tybel tem LinkedIn ativo mas posta sobre TCC para alunos. A audiencia de professores no LinkedIn esta sem conteudo sobre metodo de orientacao.</p>
+
+  <h2>7. Reputacao</h2>
+  <h3>O que reviews revelam</h3>
+  <ul>
+    <li>30k+ alunos usaram o Monografis (confirmado em 2 fontes)</li>
+    <li>Alunos relatam conclusao em 7, 15 e 30 dias (depoimentos em video mencionados)</li>
+    <li>Garantia de 30 dias considerada ponto forte</li>
+    <li>Acesso vitalicio e atualizacoes gratuitas = argumento de seguranca</li>
+  </ul>
+  <h3>O que os reviews NAO revelam</h3>
+  <ul>
+    <li>Taxa de aprovacao real (quantos dos 30k+ foram aprovados na banca?)</li>
+    <li>O que o professor orientador pensa do trabalho gerado pelo Monografis</li>
+    <li>Se o aluno realmente aprendeu pesquisa ou apenas gerou texto</li>
+  </ul>
+  <p><strong>Reclame Aqui:</strong> nao foi encontrado perfil especifico para Monografis ou TCC Sem Neura. Os perfis encontrados (TCC Brasil, Compre TCC, etc.) sao servicos de ghost-writing, nao cursos metodologicos.</p>
+  <p><strong>Insight critico via lente do avatar:</strong> o Monografis promete ao aluno fazer o TCC "sem depender do orientador". Da perspectiva do professor Dr. Marcelo, isso significa: o aluno vai chegar na reuniao com texto gerado por IA, sem ter pensado nos argumentos, e o professor vai continuar corrigindo. O ciclo corretivo nao melhora — piora, porque o texto parece "pronto" mas nao tem raciocinio por tras.</p>
+
+  <h2>8. Brechas e Oportunidades</h2>
+
+  <div class="brecha">
+    <h3>Brecha 1 — Vacuo B2B Total (confirmada em todas as fontes)</h3>
+    <p>Nenhum produto no mercado e direcionado ao professor orientador como cliente. O professor aparece na copy dos concorrentes apenas como: obstaculo (algo que o aluno precisa "conduzir"), beneficiario secundario (Smart TCC: "o professor pode se concentrar nos aspectos teoricos"), ou personagem de autoridade.</p>
+    <p class="acao-text"><span class="acao">Acao</span> O Pesquisador Aumentado ocupa um espaco vazio. Nao ha concorrente direto. O risco e de categoria nova (precisa educar o mercado), nao de competicao direta.</p>
+  </div>
+
+  <div class="brecha">
+    <h3>Brecha 2 — Monografis Agrava o Problema do Professor</h3>
+    <p>A proposta de valor "sem depender do orientador" + "IA escreve com voce" significa, na pratica, que o aluno entrega texto gerado sem pensar no argumento. O ciclo corretivo nao diminui, muda de forma.</p>
+    <p class="acao-text"><span class="acao">Acao</span> Usar isso na copy: "As ferramentas de IA para TCC resolveram o problema do aluno. Mas nao resolveram o seu." Posicionar sem citar concorrente: "IA do lado do aluno gera texto. IA do lado do orientador gera pensamento."</p>
+  </div>
+
+  <div class="brecha">
+    <h3>Brecha 3 — Angulo Socratico Totalmente Desocupado</h3>
+    <p>Nenhum player usa a palavra "socratico", "maieutica", "dialogo de pesquisa" ou qualquer referencia a metodo de orientacao ativo. O vocabulario academico que o professor respeita esta completamente livre.</p>
+    <p class="acao-text"><span class="acao">Acao</span> Usar vocabulario de metodo (maieutica, orientacao heuristica, pensamento critico) posiciona o produto no nivel de seriedade que o avatar exige. Depois confirmar com beneficio concreto.</p>
+  </div>
+
+  <div class="brecha">
+    <h3>Brecha 4 — Canal LinkedIn Sem Conteudo para Professor Orientador</h3>
+    <p>Douglas Tybel tem LinkedIn ativo mas posta sobre TCC para alunos. Nao ha produtor de conteudo relevante postando sobre metodo de orientacao para esse publico. Canal vazio = organico alto nos primeiros posts.</p>
+    <p class="acao-text"><span class="acao">Acao</span> Publicar 1 post/semana no LinkedIn com angulo do orientador: "Por que corrigir o mesmo capitulo 5 vezes nao ensina o aluno a pesquisar", "O que a maieutica de Socrates tem a ver com orientacao de TCC".</p>
+  </div>
+
+  <div class="brecha">
+    <h3>Brecha 5 — Prova Social de Professor Inexistente no Mercado</h3>
+    <p>Todos os depoimentos dos produtos concorrentes sao de alunos. Nenhum tem depoimento de professor dizendo "meu metodo de orientacao melhorou". Esse tipo de prova social nao existe no mercado.</p>
+    <p class="acao-text"><span class="acao">Acao</span> Coletar depoimentos de professores orientadores que testaram o metodo socratico com IA (mesmo em beta). Um depoimento de "professor da UFMG reduziu de 6 para 2 as rodadas de correcao" vale mais para o avatar racional do que 30k de alunos.</p>
+  </div>
+
+  <div class="brecha">
+    <h3>Brecha 6 — Precificacao B2B Mais Alta e Menos Comparavel</h3>
+    <p>Aluno compra por R$127-397. Professor compra por outro criterio: custo de oportunidade. Se o professor orienta 20 alunos e perde 4 horas por aluno por semestre em correcoes repetidas (80h/semestre), R$127 e irrisorio.</p>
+    <p class="acao-text"><span class="acao">Acao</span> Na pagina de vendas, mostrar o calculo antes do preco: "Se voce tem 15 orientandos e passa 3h por aluno em ciclos de correcao repetida, sao 45h por semestre. A que valor voce coloca sua hora?" Isso transforma R$127 de "e caro?" para "e o mais barato possivel."</p>
+  </div>
+
+  <h2>9. Tres Jogadas para Amanha</h2>
+
+  <div class="jogada">
+    <div class="jogada-num">Jogada 01</div>
+    <h3>Publicar 1 post no LinkedIn com angulo de professor</h3>
+    <p>Titulo sugerido: "Por que corrigir o mesmo capitulo 3 vezes nao ensina o aluno a pensar (e o que fazer em vez disso)." Nao mencionar o produto ainda. Objetivo: atrair professores orientadores que reconhecem o problema. Canal vazio = organico alto nos primeiros posts.</p>
+  </div>
+
+  <div class="jogada">
+    <div class="jogada-num">Jogada 02</div>
+    <h3>Reescrever a headline usando a brecha 2 contra o mercado B2C</h3>
+    <p>Versao testavel: "As ferramentas de IA ensinaram o aluno a gerar texto. Nenhuma ensinou voce a fazer as perguntas certas." Essa headline usa o contexto do mercado sem citar concorrente e posiciona o Pesquisador Aumentado como a proxima camada logica apos o aluno ja ter IA.</p>
+  </div>
+
+  <div class="jogada">
+    <div class="jogada-num">Jogada 03</div>
+    <h3>Calcular o ROI e colocar na pagina de vendas antes do preco</h3>
+    <p>Formato: "15 orientandos x 3 rodadas de correcao por capitulo x [horas por rodada] = X horas por semestre. Isso vale R$127?" Esse calculo faz o preco parecer inevitavel para o decisor racional, que e quem mais resiste sem prova de valor.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  dossie gerado por /espiao-do-concorrente &middot; skill 2/5 &middot; aula 01 do cohort de marketing<br>
+  lente: avatar Dr. Marcelo (relatorio-avatar.md) &middot; 27 jun 2026
+</div>
+
+</body>
+</html>

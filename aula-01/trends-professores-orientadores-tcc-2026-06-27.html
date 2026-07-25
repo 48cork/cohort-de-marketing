@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trend Hunting — Professores Orientadores de TCC</title>
+<style>
+  :root {
+    --bg: #f5f5f0;
+    --surface: #fff;
+    --dark: #1a1a1a;
+    --header: #1a2744;
+    --accent: #1565c0;
+    --accent-light: #e3f2fd;
+    --accent-border: #90caf9;
+    --emergente: #1b5e20;
+    --emergente-bg: #e8f5e9;
+    --emergente-border: #a5d6a7;
+    --em-alta: #e65100;
+    --em-alta-bg: #fff3e0;
+    --em-alta-border: #ffcc80;
+    --saturado: #b71c1c;
+    --saturado-bg: #ffebee;
+    --border: #e0e0e0;
+    --muted: #757575;
+    --font-body: Georgia, serif;
+    --font-ui: 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--dark); font-family: var(--font-body); font-size: 15px; line-height: 1.75; }
+
+  header { background: var(--header); color: #fff; padding: 36px 40px 28px; border-bottom: 4px solid #1565c0; }
+  header .eyebrow { font-family: var(--font-ui); font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: #90caf9; margin-bottom: 6px; }
+  header h1 { font-size: 22px; font-weight: normal; margin-bottom: 4px; line-height: 1.3; }
+  header .sub { font-family: var(--font-ui); font-size: 13px; color: #90caf9; margin-bottom: 16px; }
+  header .meta { display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--font-ui); font-size: 12px; color: #90caf9; }
+  header .meta strong { color: #bbdefb; }
+
+  .nota { background: #fff8e1; border-left: 4px solid #f9a825; padding: 10px 16px; font-family: var(--font-ui); font-size: 12px; color: #5d4037; }
+
+  .content { max-width: 820px; margin: 0 auto; padding: 40px 32px 80px; }
+
+  .resumo { background: var(--accent-light); border: 1px solid var(--accent-border); border-left: 5px solid var(--accent); padding: 20px 22px; border-radius: 0 4px 4px 0; margin-bottom: 36px; }
+  .resumo h2 { font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .resumo p { font-size: 14px; }
+
+  h2 { font-size: 18px; font-weight: bold; margin: 40px 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+  h3 { font-size: 15px; font-weight: bold; margin: 20px 0 8px; }
+  h4 { font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin: 14px 0 5px; }
+  p { margin-bottom: 12px; }
+  ul, ol { margin-left: 22px; margin-bottom: 12px; }
+  li { margin-bottom: 5px; }
+
+  .timing-badge { display: inline-block; font-family: var(--font-ui); font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 3px; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .emergente { background: var(--emergente-bg); color: var(--emergente); border: 1px solid var(--emergente-border); }
+  .em-alta { background: var(--em-alta-bg); color: var(--em-alta); border: 1px solid var(--em-alta-border); }
+  .saturado { background: var(--saturado-bg); color: var(--saturado); border: 1px solid #ef9a9a; }
+
+  .padrao { background: var(--surface); border: 1px solid var(--border); border-left: 5px solid var(--accent); padding: 20px 22px; margin-bottom: 24px; border-radius: 0 4px 4px 0; }
+  .padrao.p-emergente { border-left-color: var(--emergente); }
+  .padrao.p-em-alta { border-left-color: var(--em-alta); }
+  .padrao.p-saturado { border-left-color: var(--saturado); }
+
+  blockquote { background: #fff8e1; border-left: 4px solid #f9a825; padding: 10px 16px; margin: 10px 0 14px; font-style: italic; font-size: 14px; line-height: 1.6; }
+  blockquote .source { font-style: normal; font-family: var(--font-ui); font-size: 11px; color: var(--muted); margin-top: 5px; display: block; }
+
+  table { width: 100%; border-collapse: collapse; font-family: var(--font-ui); font-size: 13px; margin-bottom: 20px; }
+  thead tr { background: var(--dark); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; }
+  tbody tr:nth-child(even) { background: #fafafa; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+
+  .urgencia { background: #1b5e20; color: #fff; padding: 16px 20px; border-radius: 4px; margin-top: 36px; font-size: 14px; }
+  .urgencia strong { color: #a5d6a7; }
+
+  footer { border-top: 1px solid var(--border); padding: 20px 32px; max-width: 820px; margin: 0 auto; font-family: var(--font-ui); font-size: 12px; color: var(--muted); }
+  .skill-badge { background: var(--dark); color: #fff; font-family: var(--font-ui); font-size: 11px; padding: 3px 9px; border-radius: 3px; display: inline-block; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Cohort de Marketing Lendario — Aula 01 / Skill 3 de 5</div>
+  <h1>Trend Hunting — Professores Orientadores de TCC</h1>
+  <div class="sub">Relatório de Tendências Emergentes · Janela: 14 dias</div>
+  <div class="meta">
+    <span><strong>Data:</strong> 27 jun 2026</span>
+    <span><strong>Fontes:</strong> 8 frentes (web, blogs, jornalismo, regulamentos)</span>
+    <span><strong>Amostra:</strong> ~28 trechos/fontes</span>
+    <span><strong>Canal primário do ICP:</strong> LinkedIn + Twitter/X</span>
+  </div>
+</header>
+
+<div class="nota">
+  Nota metodológica: Apify MCP não ativo — coleta via WebSearch. Instagram/TikTok omitidos (ICP B2B acadêmico não está nessas plataformas). Amostra parcial (~28 trechos). Padrões são hipóteses a testar, não certezas.
+</div>
+
+<div class="content">
+
+  <div class="resumo">
+    <h2>Resumo Executivo</h2>
+    <p>Todo conteúdo de TCC existe para o aluno. Nenhum existe para o professor orientador. Esse vácuo B2B está começando a ser percebido — e é o timing ideal de entrada. O padrão mais urgente: professor sem método para lidar com aluno que usa IA. O segundo mais urgente: debate sobre autoria e pensamento crítico em TCCs. O Pesquisador Aumentado™ entra na interseção exata.</p>
+  </div>
+
+  <h2>Classificação por Timing</h2>
+  <table>
+    <thead><tr><th>Padrão</th><th>Timing</th><th>Ação</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Professor sem política de IA</strong></td><td><span class="timing-badge emergente">EMERGENTE</span></td><td>Entrar agora — primeiros 14 dias são ouro</td></tr>
+      <tr><td><strong>Texto sem pensamento do autor</strong></td><td><span class="timing-badge emergente">EMERGENTE</span></td><td>Entrar agora — alta identificação do avatar</td></tr>
+      <tr><td><strong>Lista: o que irrita o orientador</strong></td><td><span class="timing-badge em-alta">EM ALTA</span></td><td>Explorar — ainda há espaço no LinkedIn B2B</td></tr>
+      <tr><td><strong>Contra-narrativa IA vs. orientador</strong></td><td><span class="timing-badge em-alta">EM ALTA</span></td><td>Explorar como segundo ângulo</td></tr>
+      <tr><td><strong>IA para fazer TCC (B2C)</strong></td><td><span class="timing-badge saturado">SATURADO</span></td><td>NÃO entrar — professor não está nesse ângulo</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Padrão 1 — Professor sem política de IA para orientação</h2>
+  <div class="padrao p-emergente">
+    <span class="timing-badge emergente">EMERGENTE — entrar agora</span>
+    <h3>Plataforma primária: LinkedIn + blogs acadêmicos</h3>
+    <h4>Sinal de campo</h4>
+    <blockquote>"A maioria dos orientadores em 2026 não proíbe o uso de IA — mas muitos ainda não têm uma política clara sobre como lidar com trabalhos assistidos por ferramentas digitais."<span class="source">Fonte: Tesify.pt / compilação de políticas institucionais 2026</span></blockquote>
+    <blockquote>"Os professores orientadores têm autoridade de definir regras adicionais para os seus orientandos."<span class="source">Fonte: Guia completo IA + TCC, 2026</span></blockquote>
+    <h4>Forma que performa</h4>
+    <p>Post longo no LinkedIn com dado de pesquisa + pergunta direta ao professor no final. "Como você está lidando com isso?" → alto engajamento de comentários.</p>
+    <h4>Vácuo identificado</h4>
+    <p>Existe conteúdo para o aluno sobre "como usar IA sem plagiar". Zero conteúdo para o professor sobre "como construir metodologia de orientação quando o aluno usa IA."</p>
+  </div>
+
+  <h2>Padrão 2 — Texto sem pensamento do autor</h2>
+  <div class="padrao p-emergente">
+    <span class="timing-badge emergente">EMERGENTE — entrar agora</span>
+    <h3>Plataforma primária: LinkedIn + blogs de professores</h3>
+    <h4>Sinal de campo</h4>
+    <blockquote>"Uma banca experiente percebe quando o texto não tem marca de pensamento do autor. Desenvolvimento de argumento, escolhas de ênfase, posicionamento claro, conexões não óbvias entre ideias: isso é o que demonstra que você pensou."<span class="source">Dra. Nathalia Cavichiolli, blog, abril 2026</span></blockquote>
+    <blockquote>"O TCC em 2026 avalia o pensamento do aluno, não a capacidade de formatar margens."<span class="source">Compilação de diretrizes institucionais, 2026</span></blockquote>
+    <h4>Forma que performa</h4>
+    <p>Post curto + revelação + pergunta reflexiva. Formato "o que aprendi depois de orientar X TCCs". Carousel antes/depois de argumento com e sem pensamento.</p>
+    <h4>Vácuo identificado</h4>
+    <p>Conteúdo sobre "como ENSINAR o aluno a ter pensamento próprio" não existe para o professor. Só existe sobre "como DETECTAR se o aluno pensou". O Pesquisador Aumentado™ resolve o lado do método.</p>
+  </div>
+
+  <h2>Padrão 3 — Lista do que irrita o orientador</h2>
+  <div class="padrao p-em-alta">
+    <span class="timing-badge em-alta">EM ALTA — ainda vale entrar</span>
+    <h4>Sinal de campo</h4>
+    <blockquote>"5 coisas que IRRITAM o ORIENTADOR do TCC" — um dos artigos de maior tráfego do Guia da Monografia.<span class="source">Guia da Monografia, 2025-2026</span></blockquote>
+    <blockquote>"Outro ponto que irrita muito os orientadores é um aluno do ensino superior não saber escrever de forma dissertativa argumentativa."<span class="source">Guia da Monografia</span></blockquote>
+    <h4>Forma que performa</h4>
+    <p>Lista numerada (3, 5, 7 itens) + dor real por item + solução/reflexão no final. LinkedIn post ou carousel PDF.</p>
+    <h4>Vácuo identificado</h4>
+    <p>As listas existem no lado do aluno ("coisas que irritam o orientador") mas nenhuma B2B existe para ajudar o professor a resolver esses irritantes com método.</p>
+  </div>
+
+  <h2>Padrão 4 — Contra-narrativa: IA não substitui o orientador</h2>
+  <div class="padrao p-em-alta">
+    <span class="timing-badge em-alta">EM ALTA — explorar como segundo ângulo</span>
+    <h4>Sinal de campo</h4>
+    <blockquote>"Nenhuma ferramenta substitui o orientador. O orientador conhece o campo, conhece a banca, conhece as expectativas do programa."<span class="source">Guia IA para TCC, 2026</span></blockquote>
+    <blockquote>"O papel do professor ganha ainda mais relevância. Ele é o mediador que ajuda o estudante a entender o que está por trás desses sistemas."<span class="source">Educação em 2026 — Escolas Conectadas</span></blockquote>
+    <h4>Vácuo identificado</h4>
+    <p>"IA não substitui o orientador" existe como argumento — mas ninguém entregou o próximo passo: "então o que o orientador faz diferente agora que o aluno tem IA?"</p>
+  </div>
+
+  <h2>Padrão 5 — IA para fazer TCC (EVITAR)</h2>
+  <div class="padrao p-saturado">
+    <span class="timing-badge saturado">PICO / DECLÍNIO — não entrar</span>
+    <p>Tesify.pt, Monografis, TCC Sem Drama, GuiaDaMonografia — todos competindo pelo mesmo ângulo B2C. Professor não está nesse espaço de busca. Custo de atenção altíssimo para o ICP errado.</p>
+  </div>
+
+  <div class="urgencia">
+    <strong>Janela de entrada urgente:</strong> Os padrões 1 e 2 estão emergentes agora. Buscar "IA para professor orientador TCC" no Google retorna zero resultados relevantes — a página 1 é 100% conteúdo para aluno. Publicar nos próximos 7-14 dias captura atenção antes da saturação atingir o lado acadêmico.
+  </div>
+
+</div>
+
+<footer>
+  <span class="skill-badge">Skill 3/5 — /trend-hunting</span>
+  &nbsp; Fontes: 8 frentes de pesquisa pública · Amostra parcial (~28 trechos) · Canal primário do ICP: LinkedIn
+</footer>
+
+</body>
+</html>

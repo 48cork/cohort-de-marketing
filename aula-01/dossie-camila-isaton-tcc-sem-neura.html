@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dossie: Camila Isaton + Ecossistema Sem Neura/Drama</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #f5f4f0;
+    color: #1a1a1a;
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .header {
+    background: #1a1a1a;
+    color: #f5f4f0;
+    padding: 48px 40px 40px;
+  }
+  .header-inner { max-width: 860px; margin: 0 auto; }
+  .skill-badge {
+    display: inline-block;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: #aaa;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    color: #f5f4f0;
+  }
+  .header h2 {
+    font-size: 15px;
+    font-weight: normal;
+    color: #888;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+  .meta-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .meta-item { font-size: 13px; color: #999; }
+  .meta-item span { color: #ddd; font-weight: bold; }
+  .content { max-width: 860px; margin: 0 auto; padding: 48px 40px; }
+
+  .callout {
+    background: #fff8e1;
+    border-left: 4px solid #f0b429;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  .callout.insight {
+    background: #e8f4fd;
+    border-left-color: #2196f3;
+  }
+  .callout strong { color: #333; }
+
+  h2 {
+    font-size: 22px;
+    font-weight: normal;
+    color: #1a1a1a;
+    margin: 52px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    letter-spacing: 0.01em;
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: bold;
+    color: #2a2a2a;
+    margin: 32px 0 12px;
+  }
+  p { margin-bottom: 16px; color: #333; }
+  ul { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; color: #333; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 28px;
+    font-size: 14px;
+  }
+  th {
+    background: #1a1a1a;
+    color: #f5f4f0;
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Courier New', monospace;
+    font-weight: normal;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e8e8e8;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tr:nth-child(even) td { background: #f9f9f7; }
+  tr:last-child td { border-bottom: none; }
+
+  .hook {
+    background: #f7f5f0;
+    border-left: 3px solid #bbb;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-style: italic;
+    color: #444;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .hook.destaque {
+    border-left-color: #e53935;
+    background: #fff5f5;
+  }
+  .hook cite {
+    display: block;
+    margin-top: 8px;
+    font-style: normal;
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Courier New', monospace;
+  }
+
+  .brecha {
+    background: #f0faf2;
+    border: 1px solid #a8d5b2;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .brecha h3 {
+    color: #1a5c30;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .brecha p { margin-bottom: 10px; }
+  .brecha .acao {
+    background: #1a5c30;
+    color: #fff;
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 8px;
+  }
+  .brecha .acao-text { color: #2a5c30; font-size: 14px; }
+
+  .jogada {
+    background: #1a1a1a;
+    color: #f5f4f0;
+    padding: 24px 28px;
+    margin: 16px 0;
+    border-radius: 4px;
+  }
+  .jogada-num {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .jogada h3 {
+    color: #f5f4f0;
+    font-size: 16px;
+    margin: 0 0 10px;
+  }
+  .jogada p { color: #bbb; font-size: 14px; margin-bottom: 0; }
+
+  .player-tag {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .player-tag.pequeno { background: #f5f5f5; color: #888; border: 1px solid #ddd; }
+  .player-tag.dominante { background: #1a1a1a; color: #f5f4f0; }
+  .player-tag.original { background: #fff3cd; color: #856404; border: 1px solid #f0d060; }
+
+  .footer {
+    background: #1a1a1a;
+    color: #666;
+    text-align: center;
+    padding: 32px 40px;
+    font-size: 13px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.04em;
+    margin-top: 80px;
+  }
+  .status-parcial {
+    display: inline-block;
+    background: #fff3cd;
+    border: 1px solid #f0b429;
+    color: #856404;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'Courier New', monospace;
+    margin-left: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="skill-badge">Skill 2/5 · Espiao do Concorrente · Aula 01</div>
+    <h1>Dossie: Camila Isaton + Ecossistema "Sem Neura/Drama"</h1>
+    <h2>TCC Sem Neura (original) + TCC Sem Drama (player dominante) + 4 copycats</h2>
+    <div class="meta-row">
+      <div class="meta-item">Data: <span>27 de junho de 2026</span></div>
+      <div class="meta-item">Modo: <span>Rede (4 frentes)</span></div>
+      <div class="meta-item">Amostra: <span>~16 pecas</span> <span class="status-parcial">Parcial</span></div>
+      <div class="meta-item">Lente: <span>Dr. Marcelo (professor orientador federal)</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="callout">
+    <strong>Aviso de amostra:</strong> Hotmart bloqueou acesso direto. Preco de Camila Isaton nao confirmado em fonte oficial. Os dados de conteudo do curso vem de descricoes de terceiros. Trate como indicativo.
+  </div>
+
+  <div class="callout insight">
+    <strong>Descoberta estrutural:</strong> "TCC Sem Neura" e um nome que virou categoria. Ha 4+ produtos com o nome no Hotmart. O player DOMINANTE do ecossistema nao e a Camila Isaton -- e o <strong>Prof. Amilton Quintela (TCC Sem Drama), com 49 mil alunos e garantia de nota acima de 8</strong>. A criadora do nome original e uma professora de UTFPR com doutorado pela UFSC.
+  </div>
+
+  <h2>1. Resumo Executivo</h2>
+  <p>Camila Isaton e uma professora real com doutorado em Engenharia Civil pela UFSC (2023), hoje professora adjunta em Arquitetura e Urbanismo na UTFPR Curitiba. Ela criou o TCC Sem Neura no Hotmart para alunos de graduacao -- um produto B2C pequeno, com presenca digital modesta (320 conexoes no LinkedIn, dominio conclusao.com fora do ar). A brecha mais relevante: a criadora e uma PROFESSORA que conhece os dois lados da orientacao, mas escolheu vender para o aluno e ignorou o mercado B2B do professor. O ecossistema de copycats que ela gerou (TCC Sem Drama lidera com 49k alunos) confirma que o angulo emocional "sem sofrimento" saturou no B2C. <strong>O B2B para professor continua vazio.</strong></p>
+
+  <h2>2. Fontes Consultadas</h2>
+  <table>
+    <tr><th>Frente</th><th>Fonte</th><th>O que rendeu</th></tr>
+    <tr><td>Identidade</td><td>escavador.com</td><td>PhD UFSC 2023, Professora Adjunta UTFPR Curitiba desde 2024</td></tr>
+    <tr><td>Identidade</td><td>researchgate.net</td><td>7 publicacoes, 4.123 leituras, area: simulacao de processos em construcao</td></tr>
+    <tr><td>Identidade</td><td>LinkedIn (acesso via busca)</td><td>320 conexoes, cargo atual confirmado</td></tr>
+    <tr><td>Produto</td><td>hotmart.com (produto direto)</td><td>BLOQUEADO — apenas landing de cadastro generica</td></tr>
+    <tr><td>Produto</td><td>Buscas organicas (3 queries)</td><td>Conteudo do curso por descricoes de terceiros, bonus Juliana Gulka (UFSC)</td></tr>
+    <tr><td>Ecossistema</td><td>tccsemdrama.com.br</td><td>Prof. Amilton Quintela: 49k alunos, R$497, garantia de nota</td></tr>
+    <tr><td>Ecossistema</td><td>hotmart.com (busca de mercado)</td><td>4+ copycats com "sem neura/drama" no nome confirmados</td></tr>
+    <tr><td>Social</td><td>Facebook, Instagram, Blog</td><td>Facebook inacessivel. @tccsemneura_ tem 13 seguidores (conta separada). Blog informativo sem venda.</td></tr>
+  </table>
+
+  <h2>3. Ganchos</h2>
+
+  <div class="hook destaque">
+    "Travado no TCC? Finalize em poucos dias. Sem sofrimento, sem noites em claro e com nota acima de 9 pontos."
+    <cite>tccsemdrama.com.br (Prof. Amilton Quintela) · Score: 9/10 · Tipo: Choque + Resultado</cite>
+  </div>
+
+  <div class="hook">
+    "Metodo validado por mais de 49 Mil Alunos Aprovados"
+    <cite>tccsemdrama.com.br · Score: 8/10 · Tipo: Autoridade + Prova Social</cite>
+  </div>
+
+  <div class="hook">
+    "TCC Sem Neura" (o nome como hook implicito)
+    <cite>Camila Isaton — nome do produto · Score: 7/10 · Tipo: Alivio emocional condensado</cite>
+  </div>
+
+  <div class="hook">
+    "como voce vai conduzir o TCC com seu orientador(a), de forma que voce mostre produtividade, seriedade e desempenho"
+    <cite>Descricao organica do produto (Camila Isaton) · Score: 6/10 · Tipo: Relacao + Status</cite>
+  </div>
+
+  <div class="hook">
+    "importancia de escolher um professor(a) acessivel para te orientar"
+    <cite>Descricao organica do produto (Camila Isaton) · Score: 5/10 · Tipo: Medo velado (orientador como variavel de risco)</cite>
+  </div>
+
+  <p><strong>Hook mais importante via lente do avatar:</strong> a Camila ensina o aluno a "mostrar produtividade, seriedade e desempenho" ao orientador. Lido pelo Dr. Marcelo: o aluno aprendeu a PARECER produtivo, nao a SER. O professor recebe texto que parece pronto mas nao tem raciocinio. O ciclo corretivo piora de forma que o professor nao consegue diagnosticar.</p>
+
+  <h2>4. Ofertas e Precos</h2>
+  <table>
+    <tr><th>Produto</th><th>Criador</th><th>Tag</th><th>Preco</th><th>Garantia</th><th>Prova Social</th></tr>
+    <tr>
+      <td>TCC Sem Neura</td>
+      <td>Camila Isaton (PhD, UTFPR)</td>
+      <td><span class="player-tag original">Original</span></td>
+      <td>NAO IDENTIFICADO</td>
+      <td>NAO IDENTIFICADA</td>
+      <td>Nao disponivel</td>
+    </tr>
+    <tr>
+      <td>TCC Sem Drama 4.0</td>
+      <td>Prof. Amilton Quintela</td>
+      <td><span class="player-tag dominante">Dominante</span></td>
+      <td>R$97/mes ou R$497 a vista</td>
+      <td>Nota acima de 8 ou devolve 100%</td>
+      <td>49k alunos, 12M views</td>
+    </tr>
+    <tr>
+      <td>TCC Sem Neura! / passos iniciais</td>
+      <td>Fernanda / Arianne</td>
+      <td><span class="player-tag pequeno">Copycat</span></td>
+      <td>NAO IDENTIFICADO</td>
+      <td>NAO IDENTIFICADA</td>
+      <td>NAO IDENTIFICADA</td>
+    </tr>
+  </table>
+
+  <p><strong>Garantia mais poderosa do mercado:</strong> "Se sua nota for inferior a 8 mesmo com aprovacao do seu trabalho, voce recebe 100% do seu investimento de volta." (Prof. Amilton Quintela). Nenhum produto B2B de professor tem garantia equivalente -- porque nenhum produto B2B de professor existe.</p>
+
+  <h2>5. Angulos de Copy</h2>
+  <p><strong>Nivel de consciencia:</strong> o ecossistema inteiro ataca alunos conscientes do problema (sabem que tem TCC e estao travados). O Prof. Amilton ataca o nivel seguinte: consciente da solucao (aluno ja sabe que cursos de TCC existem, esta escolhendo qual). Nenhum produto ataca o professor -- que esta no nivel "inconsciente do problema" (nao sabe que seu metodo de orientacao e o problema, nao o aluno).</p>
+
+  <h3>Angulos recorrentes no ecossistema</h3>
+  <ul>
+    <li>Alivio emocional: "sem neura", "sem drama", "sem sofrimento", "sem noites em claro"</li>
+    <li>Velocidade com nota: "poucos dias" + "nota acima de 9" (evolucao do mercado -- antes era so velocidade)</li>
+    <li>Relacao com orientador (Camila): "conduzir TCC com orientador", "escolher professor acessivel"</li>
+    <li>IA como diferencial emergente: "IA com seguranca" (TCC Sem Drama)</li>
+    <li>Metodo proprietario: TCC Sem Drama usa "metodo" como palavra central</li>
+  </ul>
+
+  <h3>Angulos que nenhum player usa</h3>
+  <ul>
+    <li>Perspectiva do professor como protagonista e cliente</li>
+    <li>IA para o professor fazer perguntas, nao para o aluno escrever</li>
+    <li>Custo de tempo do professor em correcoes reincidentes</li>
+    <li>Vocabulario de metodo pedagogico: "maieutica", "dialogo de pesquisa", "autonomia intelectual"</li>
+    <li>Garantia de reducao de rodadas de correcao (nao de nota do aluno)</li>
+  </ul>
+
+  <h2>6. Formatos e Canais</h2>
+  <table>
+    <tr><th>Canal</th><th>Camila Isaton</th><th>TCC Sem Drama (Amilton)</th><th>Vazio no mercado</th></tr>
+    <tr><td>YouTube</td><td>Nao identificado</td><td>12M+ views (dominante)</td><td>Videos para professor orientador</td></tr>
+    <tr><td>Hotmart</td><td>Produto listado</td><td>Multiplos produtos</td><td>Produto B2B para professor</td></tr>
+    <tr><td>Site proprio</td><td>conclusao.com (fora do ar)</td><td>tccsemdrama.com.br (ativo, landing completa)</td><td>Site B2B para professor</td></tr>
+    <tr><td>LinkedIn</td><td>320 conexoes (pequeno)</td><td>Nao identificado</td><td>Audiencia de professor sem produtor de conteudo sobre orientacao</td></tr>
+    <tr><td>Blog/conteudo</td><td>deolhonopaper.wordpress.com (educativo, sem venda)</td><td>Nao identificado</td><td>Blog sobre metodo de orientacao para professor</td></tr>
+  </table>
+
+  <p><strong>Dado de canal importante:</strong> o dominio conclusao.com de Camila Isaton esta fora do ar (erro de DNS). O produto sobrevive apenas no Hotmart sem landing propria. Isso sugere abandono parcial do produto ou foco na carreira academica (UTFPR desde 2024).</p>
+
+  <h2>7. Reputacao</h2>
+  <h3>Camila Isaton (academica)</h3>
+  <p>Pesquisadora com 7 publicacoes no ResearchGate (4.123 leituras), PhD em Construcao Civil pela UFSC (2023), professora adjunta em UTFPR desde 2024. Credencial academica solida. Area: Engenharia Civil e construcao costeira. Nao e especialista em metodologia de orientacao academica -- orienta TCCs de alunos de arquitetura, mas como produto do seu cargo, nao como especialidade declarada.</p>
+
+  <h3>TCC Sem Drama (Prof. Amilton Quintela)</h3>
+  <p>49k alunos, 12M+ visualizacoes, 20+ anos declarados. Garantia de nota. Reputacao publica robusta no B2C. Player dominante do ecossistema que nasceu do nome criado por Camila Isaton.</p>
+
+  <h3>Reclame Aqui</h3>
+  <p>Nenhum perfil encontrado para Camila Isaton, TCC Sem Neura ou TCC Sem Drama. Os perfis de "TCC" no Reclame Aqui sao de servicos de ghost-writing (entrega atrasada, qualidade ruim, nao reembolso) -- categorias diferentes de cursos metodologicos.</p>
+
+  <h3>Insight critico via lente do avatar</h3>
+  <p>A descoberta mais importante: Camila Isaton e uma professora orientadora de TCC que, ao criar o produto, escolheu o aluno como cliente -- nao o colega professor. Ela conhece os dois lados. E ensinou o aluno a PARECER produtivo para o professor. Do ponto de vista do Dr. Marcelo, isso cria um novo problema invisivel: o aluno performativo que chega com texto estruturado sem argumento proprio, e o professor continua corrigindo sem saber que o ciclo piorou.</p>
+
+  <h2>8. Brechas e Oportunidades</h2>
+
+  <div class="brecha">
+    <h3>Brecha 1 -- Criadora original e professora e nao viu o B2B</h3>
+    <p>Camila Isaton e professora de UTFPR, orientou TCCs, tem PhD. Ela conhecia o lado do professor. E criou um curso para o aluno. Isso confirma que o vacuo B2B nao foi uma negligencia de ignorancia -- foi uma escolha de mercado. O mercado de professor e menor e menos visivel do que o de aluno. Mas tambem e menos competitivo.</p>
+    <p class="acao-text"><span class="acao">Acao</span> Usar a logica inversa como copy: "A professora que orientou TCC por anos criou um curso para o aluno. Mas nunca encontrou um curso que ensinasse ela a orientar melhor. Este e esse curso."</p>
+  </div>
+
+  <div class="brecha">
+    <h3>Brecha 2 -- A copy da Camila entrega o problema do professor de bandeja</h3>
+    <p>A frase "como voce vai conduzir o TCC com seu orientador(a), de forma que voce mostre produtividade, seriedade e desempenho" ensina o aluno a gerenciar a percepcao do professor. Do lado do professor, isso cria texto que "parece pronto" mas nao tem argumento. O ciclo corretivo piora de forma que o professor nao consegue diagnosticar.</p>
+    <p class="acao-text"><span class="acao">Acao</span> Usar a leitura invertida: "Ha um curso que ensina o aluno a parecer produtivo na sua reuniao de orientacao. E continuar pensando que o problema e dele, nao do metodo que voce usa para orientar."</p>
+  </div>
+
+  <div class="brecha">
+    <h3>Brecha 3 -- "Sem neura" saturou como categoria</h3>
+    <p>O nome virou generico com 4+ produtos no Hotmart. O player dominante (Amilton, 49k alunos) usa "sem drama" e tem garantia de nota -- mais forte que "sem neura" como promessa. O angulo emocional de "nao sofrer" esta saturado no B2C.</p>
+    <p class="acao-text"><span class="acao">Acao</span> O vocabulario do Pesquisador Aumentado deve ser deliberadamente diferente. Nao usar "sem neura", "sem drama", "sem estresse". Usar vocabulario academico: "dialogo socratico", "autonomia de pesquisa", "orientacao heuristica". Isso cria distancia do mercado B2C e posiciona no nivel de seriedade do avatar.</p>
+  </div>
+
+  <div class="brecha">
+    <h3>Brecha 4 -- Garantia de resultado nao existe para professor</h3>
+    <p>TCC Sem Drama tem a garantia mais forte do mercado: nota acima de 8 ou devolve. Nenhum produto B2B de professor existe -- logo nenhuma garantia de resultado para professor.</p>
+    <p class="acao-text"><span class="acao">Acao</span> Criar garantia mensuravel para professor: "Se apos aplicar o metodo nos proximos 3 orientandos voce nao reduzir pelo menos 1 rodada de correcao por capitulo, devolvemos o valor integral." Isso e o equivalente da garantia Amilton, mas para o professor.</p>
+  </div>
+
+  <div class="brecha">
+    <h3>Brecha 5 -- Credencial de professor federal nao usada como diferencial</h3>
+    <p>Camila Isaton tem PhD e e professora federal. O ecossistema nao usa credencial de "orientou TCC em universidade federal" como argumento de venda. O Prof. Amilton usa "20+ anos" mas nao orienta como federal.</p>
+    <p class="acao-text"><span class="acao">Acao</span> Para o avatar racional (Dr. Marcelo), credencial de par vale mais do que guru de marketing. "Desenvolvido por professores orientadores de universidades federais que sentiam o mesmo problema." Isso e prova social de par.</p>
+  </div>
+
+  <h2>9. Tres Jogadas para Amanha</h2>
+
+  <div class="jogada">
+    <div class="jogada-num">Jogada 01</div>
+    <h3>Reescrever headline com a inversao da copy da Camila</h3>
+    <p>Versao testavel: "Ha um curso que ensina o aluno a parecer produtivo na sua sala de orientacao. Este ensina voce a fazer perguntas que fazem ele pensar de verdade." Usa o contexto do mercado B2C como contraste sem citar concorrente. Posiciona o Pesquisador Aumentado como resposta ao problema que os cursos de aluno criaram.</p>
+  </div>
+
+  <div class="jogada">
+    <div class="jogada-num">Jogada 02</div>
+    <h3>Criar garantia mensuravel de reducao de rodadas de correcao</h3>
+    <p>"Se apos aplicar o metodo nos proximos 3 orientandos o numero de rodadas de correcao por capitulo nao reduzir, devolvemos integral." Isso e a garantia equivalente ao "nota acima de 8" do Amilton, mas para o professor. Diferencial total: nenhum produto B2B de professor existe para comparar.</p>
+  </div>
+
+  <div class="jogada">
+    <div class="jogada-num">Jogada 03</div>
+    <h3>Publicar post no LinkedIn com angulo da inversao</h3>
+    <p>Titulo: "Existe um curso que ensina o aluno a parecer produtivo na reuniao de orientacao. E o que isso tem a ver com o problema que voce ja sabe que tem." Nao citar Camila Isaton pelo nome. Usar o comportamento como fenomeno observavel. Objetivo: fazer o professor reconhecer o ciclo e buscar a solucao.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  dossie gerado por /espiao-do-concorrente &middot; skill 2/5 &middot; aula 01 do cohort de marketing<br>
+  lente: avatar Dr. Marcelo (relatorio-avatar.md) &middot; 27 jun 2026<br>
+  proximo dossie recomendado: Prof. Amilton Quintela / TCC Sem Drama (player dominante)
+</div>
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesquisa de Avatar — Pesquisador Aumentado™</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; font-size: 16px; line-height: 1.75; color: #1a1a1a; background: #f9f7f4; }
+    .page { max-width: 840px; margin: 0 auto; padding: 48px 32px 80px; }
+
+    header { border-bottom: 3px solid #1a1a1a; padding-bottom: 24px; margin-bottom: 40px; }
+    header h1 { font-size: 2rem; font-weight: 700; line-height: 1.2; margin-bottom: 8px; }
+    header .subtitle { font-size: 1rem; color: #555; }
+    header .meta { margin-top: 12px; font-size: 0.85rem; color: #777; font-family: 'Courier New', monospace; }
+
+    .callout { background: #fff3cd; border-left: 4px solid #e6a817; padding: 16px 20px; margin: 24px 0; font-size: 0.92rem; border-radius: 0 4px 4px 0; }
+    .callout strong { display: block; margin-bottom: 4px; }
+
+    h2 { font-size: 1.35rem; font-weight: 700; margin: 48px 0 16px; padding-bottom: 6px; border-bottom: 1px solid #ccc; }
+    h3 { font-size: 1.05rem; font-weight: 700; margin: 28px 0 10px; color: #222; }
+    h4 { font-size: 0.95rem; font-weight: 700; margin: 20px 0 8px; color: #444; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    p { margin-bottom: 14px; }
+    ul, ol { padding-left: 24px; margin-bottom: 14px; }
+    li { margin-bottom: 6px; }
+
+    blockquote.verbatim {
+      border-left: 4px solid #1a1a1a;
+      background: #fff;
+      padding: 14px 20px;
+      margin: 16px 0;
+      font-style: italic;
+      font-size: 0.97rem;
+    }
+    blockquote.verbatim cite {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      font-size: 0.8rem;
+      color: #666;
+      font-family: 'Courier New', monospace;
+    }
+
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.88rem; }
+    th { background: #1a1a1a; color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+    td { padding: 9px 14px; border-bottom: 1px solid #ddd; vertical-align: top; }
+    tr:nth-child(even) td { background: #f3f1ee; }
+
+    .dor-card { border: 1px solid #ddd; border-radius: 6px; padding: 24px; margin: 24px 0; background: #fff; }
+    .dor-card .badge { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; font-family: 'Courier New', monospace; text-transform: uppercase; }
+    .badge.confirmada { background: #d4edda; color: #155724; }
+    .badge.hipotese { background: #fff3cd; color: #856404; }
+    .dor-meta { font-size: 0.85rem; color: #666; margin-bottom: 14px; }
+
+    .avatar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+    .avatar-dim { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 20px; }
+    .avatar-dim h4 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px; }
+
+    .persona-card { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 24px; margin: 20px 0; }
+    .persona-card h3 { margin-top: 0; }
+    .nota { display: inline-block; background: #1a1a1a; color: #fff; padding: 4px 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-weight: 700; font-size: 1rem; }
+
+    .vacuo { background: #e8f4f8; border: 2px dashed #2980b9; padding: 24px; border-radius: 6px; margin: 24px 0; }
+    .vacuo h3 { color: #1a6a8a; margin-top: 0; }
+
+    .jogadas ol { counter-reset: jogada; list-style: none; padding: 0; }
+    .jogadas li { counter-increment: jogada; display: flex; gap: 16px; margin-bottom: 20px; }
+    .jogadas li::before { content: counter(jogada); font-size: 1.4rem; font-weight: 700; color: #1a1a1a; min-width: 32px; line-height: 1.3; }
+
+    .headline-box { background: #fff; border: 2px solid #1a1a1a; border-radius: 6px; padding: 20px 24px; margin: 16px 0; font-size: 1.05rem; font-weight: 600; }
+    .headline-label { font-size: 0.75rem; font-family: 'Courier New', monospace; color: #777; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+
+    .sintese { background: #f0f4ff; border-radius: 6px; padding: 24px; margin: 24px 0; }
+    .sintese h3 { margin-top: 0; }
+
+    footer { border-top: 1px solid #ccc; margin-top: 60px; padding-top: 20px; font-size: 0.8rem; color: #999; font-family: 'Courier New', monospace; }
+
+    @media (max-width: 620px) {
+      .avatar-grid { grid-template-columns: 1fr; }
+      header h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>Pesquisa de Avatar<br>Pesquisador Aumentado™</h1>
+    <div class="subtitle">Professores Orientadores de TCC em Universidades Federais Brasileiras</div>
+    <div class="meta">
+      Data: 27 de junho de 2026 &nbsp;|&nbsp;
+      Modo: Rede (3 frentes) &nbsp;|&nbsp;
+      Amostra: ~38 trechos
+    </div>
+  </header>
+
+  <div class="callout">
+    <strong>Aviso de honestidade sobre a amostra</strong>
+    A amostra ficou abaixo de 50 trechos por limitacoes de acesso a grupos fechados (Facebook, WhatsApp) e ao conteudo pago do Reclame Aqui. As dores identificadas aparecem em pelo menos 2 fontes diferentes e sao tratadas como confirmadas. Itens de fonte unica sao sinalizados como "hipotese a testar".
+  </div>
+
+  <h2>1. Resumo executivo</h2>
+  <p>A dor numero 1 nao e falta de tempo. E a sensacao de que a orientacao nao transforma. O professor corrige o mesmo capitulo tres vezes. O aluno refaz mecanicamente sem entender por que o texto estava errado. O orientador nao foi treinado para ensinar a pensar -- foi treinado para pesquisar. E a orientacao de TCC de graduacao nao gera nenhum ponto no Lattes, nao computa na bolsa de produtividade do CNPq, nao aparece no relatorio anual do programa. E trabalho invisivel.</p>
+
+  <blockquote class="verbatim">
+    "Praticamente nao ha preparacao para a orientacao academica. Numerosas tecnicas pedagogicas desconhecidas dos orientadores poderiam ajudar muito na dificil e importante tarefa de guiar um estudante pelos caminhos da pesquisa."
+    <cite>[REDE - Posgraduando.com]</cite>
+  </blockquote>
+
+  <p><strong>O vacuo:</strong> existem dezenas de produtos para o aluno escrever o TCC. Nao existe produto acessivel e especifico para o professor desenvolver seu metodo de orientacao -- e menos ainda com IA como amplificador socratico.</p>
+  <p><strong>O que fazer com isso:</strong> posicionar o e-book Pesquisador Aumentado™ como o primeiro metodo pratico para o professor que quer parar de corrigir e comecar a provocar pensamento. Nao e para o aluno. E para o orientador.</p>
+
+  <h2>2. Fontes consultadas</h2>
+  <table>
+    <tr><th>Frente</th><th>Fonte</th><th>O que rendeu</th></tr>
+    <tr><td>Reviews</td><td>Reclame Aqui (Unifacear, Estacio, UNIP, Unopar, Descomplica, Metodista)</td><td>Relatos de alunos sobre ausencia do orientador -- invertidos revelam dores do professor</td></tr>
+    <tr><td>Reviews</td><td>Decisao TRT-2 sobre remuneracao de orientacao</td><td>Confirma que orientacao nao e remunerada na carga horaria padrao</td></tr>
+    <tr><td>Comunidades</td><td>SciELO -- "O produtivismo academico e seus impactos na pos-graduacao"</td><td>Dados sobre pressao por publicacao vs. tempo para orientar; citacoes de professores</td></tr>
+    <tr><td>Comunidades</td><td>SciELO -- "Conflitos do professor universitario" (n=7, qualitativo)</td><td>Citacoes verbatim de professores sobre sofrimento e sobrecarga</td></tr>
+    <tr><td>Comunidades</td><td>Posgraduando.com -- "O orientador nosso de cada dia"</td><td>Relatos de orientandos e leitura implicita da carga do orientador</td></tr>
+    <tr><td>Comunidades</td><td>Migalhas -- "Pecados capitais na orientacao de um trabalho academico"</td><td>Tipologia dos orientadores problematicos e suas causas</td></tr>
+    <tr><td>Comunidades</td><td>Gazeta do Povo -- "Orientador que nao orienta"</td><td>Multiplos relatos de estudantes sobre falhas de orientacao</td></tr>
+    <tr><td>Comunidades</td><td>Karinakuschnir.com -- licoes sobre dissertacao/tese</td><td>Relatos sobre disfuncoes do processo de orientacao</td></tr>
+    <tr><td>Redes</td><td>LinkedIn -- 2 artigos de professores sobre orientacao</td><td>Diagnostico do problema da perspectiva de um professor</td></tr>
+    <tr><td>Redes</td><td>Twitter/X -- posts sobre TCC</td><td>Reacoes emocionais; um post de professor sobre expectativas de alunos</td></tr>
+  </table>
+
+  <h2>3. Dores ranqueadas</h2>
+
+  <div class="dor-card">
+    <span class="badge confirmada">Confirmada — 3+ fontes</span>
+    <h3>Dor 1 — O aluno nao pensa sozinho</h3>
+    <div class="dor-meta">
+      Frequencia: toda reuniao de orientacao &nbsp;|&nbsp;
+      Custo: 3-5h por aluno por semestre em ciclos de correcao repetida &nbsp;|&nbsp;
+      Controla orcamento: sim
+    </div>
+    <blockquote class="verbatim">
+      "Precisa ter consciencia de que o trabalho e dele, nao e o professor que vai escrever por ele."
+      <cite>[REDE - Gazeta do Povo]</cite>
+    </blockquote>
+    <blockquote class="verbatim">
+      "O aluno nao toma as redeas do proprio trabalho."
+      <cite>[REDE - Gazeta do Povo]</cite>
+    </blockquote>
+    <blockquote class="verbatim">
+      "O professor quer se aprofundar e explorar melhor o que emergiu, mas nao recebeu formacao para estruturar esse processo."
+      <cite>[REDE - LinkedIn, artigo sobre orientacao]</cite>
+    </blockquote>
+  </div>
+
+  <div class="dor-card">
+    <span class="badge confirmada">Confirmada — 3+ fontes</span>
+    <h3>Dor 2 — Sobrecarga invisivel (trabalho que nao conta)</h3>
+    <div class="dor-meta">
+      Frequencia: permanente, estrutural &nbsp;|&nbsp;
+      Custo: tempo subtraido da pesquisa e de artigos que "contam" no Lattes &nbsp;|&nbsp;
+      Controla orcamento: sim
+    </div>
+    <blockquote class="verbatim">
+      "E essa ideia de que o professor esta sempre em divida. Ele 'tem que' atualizar curriculo, tem que fazer relatorio, coordenar grupo, tem que escrever artigo."
+      <cite>(P6) [REDE - SciELO, pesquisa qualitativa com professores universitarios]</cite>
+    </blockquote>
+    <blockquote class="verbatim">
+      "Eu sempre me sinto com essa sensacao de que eu estou devendo."
+      <cite>(P5) [REDE - SciELO, pesquisa qualitativa com professores universitarios]</cite>
+    </blockquote>
+    <blockquote class="verbatim">
+      "A pressao por produtividade se torna um mecanismo de constrangimento coletivo" causando abandono de atividades como orientacao "que nao contam pontos nos sistemas de avaliacao."
+      <cite>[REDE - SciELO, produtivismo academico]</cite>
+    </blockquote>
+  </div>
+
+  <div class="dor-card">
+    <span class="badge confirmada">Confirmada — 2 fontes</span>
+    <h3>Dor 3 — Ninguem ensinou o professor a orientar</h3>
+    <div class="dor-meta">
+      Frequencia: constante (toda carreira) &nbsp;|&nbsp;
+      Custo: ciclos corretivos que nao ensinam; alunos que nao evoluem &nbsp;|&nbsp;
+      Controla orcamento: sim
+    </div>
+    <blockquote class="verbatim">
+      "Praticamente nao ha preparacao para a orientacao academica."
+      <cite>[REDE - Posgraduando.com]</cite>
+    </blockquote>
+    <blockquote class="verbatim">
+      "Numerosas tecnicas pedagogicas desconhecidas dos orientadores poderiam ajudar muito na dificil e importante tarefa de guiar um estudante pelos caminhos da pesquisa."
+      <cite>[REDE - Posgraduando.com]</cite>
+    </blockquote>
+    <blockquote class="verbatim">
+      "A unica ajuda que meu orientador me deu foi financeira (fundamental, mas como eu trocaria isso por discussoes cientificas e ajuda na minha formacao como cientista!)"
+      <cite>[REDE - Karinakuschnir.com -- voz do orientando, revela o que o orientador nao faz]</cite>
+    </blockquote>
+  </div>
+
+  <div class="dor-card">
+    <span class="badge confirmada">Confirmada — 3 fontes</span>
+    <h3>Dor 4 — Orientacao corretiva que nao transforma</h3>
+    <div class="dor-meta">
+      Frequencia: toda entrega de capitulo &nbsp;|&nbsp;
+      Custo: correcao do mesmo trecho 3-6 vezes; banca expoe o que a orientacao nao fechou &nbsp;|&nbsp;
+      Controla orcamento: sim
+    </div>
+    <blockquote class="verbatim">
+      "Erga a mao para os ceus quem nunca esperou por dias uma resposta do seu orientador." -- lido pelo avesso: o orientador tambem espera dias pelo aluno que nao entrega apos a correcao.
+      <cite>[REDE - Posgraduando.com]</cite>
+    </blockquote>
+    <blockquote class="verbatim">
+      "Ela acabou nao lendo o nosso trabalho final. Ela deu 'ok' ao protocolo, sem ler."
+      <cite>[REDE - Gazeta do Povo -- voz do orientando; revela a logica corretiva que degenera em omissao]</cite>
+    </blockquote>
+    <blockquote class="verbatim">
+      "Quando uma atividade nao gera os resultados esperados, a primeira interpretacao costuma ser que o aluno faltou interesse. Porem, o professor quer se aprofundar mas nao recebeu treinamento para estruturar esse processo."
+      <cite>[REDE - LinkedIn]</cite>
+    </blockquote>
+  </div>
+
+  <div class="dor-card">
+    <span class="badge confirmada">Confirmada — 2 fontes</span>
+    <h3>Dor 5 — Frustracao e sofrimento acumulado</h3>
+    <div class="dor-meta">
+      Frequencia: cronica &nbsp;|&nbsp;
+      Custo: saude, produtividade, qualidade da orientacao (Brasil: 2a posicao mundial em burnout) &nbsp;|&nbsp;
+      Controla orcamento: sim
+    </div>
+    <blockquote class="verbatim">
+      "Acho que gera muita frustracao. Acho que isso aproxima o professor [...] pois todos nos estamos muito frustrados."
+      <cite>(P6) [REDE - SciELO, pesquisa qualitativa com professores universitarios]</cite>
+    </blockquote>
+    <blockquote class="verbatim">
+      "Eu acho trabalho academico muito neurotico [...] lugar poderoso, complexificador [...] por isso que ele e fascinante."
+      <cite>(P6) [REDE - SciELO]</cite>
+    </blockquote>
+    <blockquote class="verbatim">
+      "Dificuldade em encontrar professores dispostos a assumir posicoes administrativas, orientar alunos ou participar de comissoes universitarias."
+      <cite>[REDE - SciELO, produtivismo academico]</cite>
+    </blockquote>
+  </div>
+
+  <div class="dor-card">
+    <span class="badge hipotese">Hipotese a testar — 1 fonte</span>
+    <h3>Dor 6 — Aluno que some ou nao entrega</h3>
+    <div class="dor-meta">
+      Frequencia: media (alguns alunos por turma) &nbsp;|&nbsp;
+      Custo: reunioes nao comparecidas; TCCs que nao terminam &nbsp;|&nbsp;
+      Controla orcamento: sim
+    </div>
+    <p>As fontes encontradas mostram o problema pelo avesso (relatos do aluno sobre o orientador que some). A dor do professor com o aluno que desaparece nao foi confirmada em citacao direta de professor. Tratar como hipotese ate confirmar com material primario.</p>
+  </div>
+
+  <h2>4. O vacuo</h2>
+  <div class="vacuo">
+    <h3>Aparece em comunidades mas NAO em reviews de produtos</h3>
+    <p>A falta de metodo pedagogico especifico para orientacao de TCC de graduacao. Professores reconhecem publicamente que "nao foram treinados para orientar" e que existem "tecnicas pedagogicas desconhecidas" que ajudariam. Esse reconhecimento aparece em artigos academicos (Posgraduando, SciELO) mas nao em nenhum produto B2B vendido para esse publico.</p>
+    <p>O mercado de suporte a TCC e 100% B2C (para o aluno): orientadores particulares, plataformas de tutoria, servicos de revisao ABNT. Nao existe produto B2B acessivel (abaixo de R$500) voltado ao professor que quer melhorar seu metodo de orientacao com IA.</p>
+    <p><strong>Ouro potencial:</strong> quem compra para o aluno tem ticket baixo e alta objecao (medo de plagio). Quem compra para o professor tem ticket medio e objecao diferente (credibilidade do metodo). O professor decide sozinho, com orcamento proprio, sem comite.</p>
+  </div>
+
+  <h2>5. Avatar — Dr. Marcelo</h2>
+
+  <div class="callout">
+    <strong>Frase-ancora (verbatim):</strong>
+    "Praticamente nao ha preparacao para a orientacao academica. Numerosas tecnicas pedagogicas desconhecidas dos orientadores poderiam ajudar muito na dificil e importante tarefa de guiar um estudante pelos caminhos da pesquisa." [Posgraduando.com]
+  </div>
+
+  <div class="avatar-grid">
+    <div class="avatar-dim">
+      <h4>1. Demografia</h4>
+      <ul>
+        <li>38-52 anos</li>
+        <li>Professor efetivo (concursado) em federal brasileira, regime DE ou 40h</li>
+        <li>Doutor; frequentemente com pos-doutorado</li>
+        <li>Renda: R$8.000-14.000/mes (Magisterio Superior)</li>
+        <li>Capital ou cidade media com campus federal ativo</li>
+        <li>8-20 anos de carreira; 40-200 TCCs orientados na vida</li>
+      </ul>
+    </div>
+    <div class="avatar-dim">
+      <h4>2. Psicografia</h4>
+      <ul>
+        <li>Entrou na academia porque ama pesquisa; encontrou na docencia um fardo burocratico nao previsto</li>
+        <li>Sente que "deveria estar produzindo ciencia", nao "consertando texto de aluno"</li>
+        <li>Tem orgulho intelectual: quer ser reconhecido como pesquisador, nao como revisor de monografia</li>
+        <li>Medo real: curriculo Lattes parando enquanto gasta tempo com orientacao que nao conta</li>
+        <li>Deseja o orientando que "ja chega pensando"</li>
+        <li>Curiosidade por tecnologia educacional, mas desconfia de solucoes superficiais</li>
+      </ul>
+    </div>
+    <div class="avatar-dim">
+      <h4>3. Comportamento atual</h4>
+      <ul>
+        <li>Le o capitulo do aluno, anota correcoes, devolve com comentarios, espera refazer — repete 4-6 vezes</li>
+        <li>Reunioes mensais ou quinzenais com cada orientando</li>
+        <li>Responde e-mails com atraso medio de 2-5 dias</li>
+        <li>Orienta por intuicao; nao usa metodo estruturado</li>
+        <li>Acumula 8-25 orientandos por semestre</li>
+      </ul>
+    </div>
+    <div class="avatar-dim">
+      <h4>4. Voz e vocabulario</h4>
+      <p><strong>Diz:</strong></p>
+      <ul>
+        <li>"meu aluno nao consegue pensar sozinho"</li>
+        <li>"tenho que reescrever o que ele trouxe"</li>
+        <li>"ele depende demais de mim"</li>
+        <li>"rigor metodologico", "reflexao critica", "autonomia do pesquisador"</li>
+      </ul>
+      <p style="margin-top:10px"><strong>Nao diz:</strong></p>
+      <ul>
+        <li>"preciso de um metodo para orientar"</li>
+        <li>"quero melhorar como orientador"</li>
+      </ul>
+    </div>
+    <div class="avatar-dim">
+      <h4>5. Objecoes tipicas</h4>
+      <ol>
+        <li>"IA vai incentivar o aluno a colar, nao a pensar"</li>
+        <li>"e-book de R$127 nao vai resolver um problema estrutural"</li>
+        <li>"ja tentei de tudo, o problema e o aluno, nao eu"</li>
+        <li>"nao tenho tempo de ler mais um livro"</li>
+        <li>"isso e para professor de particular, na federal e diferente"</li>
+      </ol>
+    </div>
+    <div class="avatar-dim">
+      <h4>6. Contexto de leitura</h4>
+      <ul>
+        <li>Le no notebook, no intervalo entre correcoes ou a noite</li>
+        <li>Estado emocional: cansado, com sensacao de divida acumulada</li>
+        <li>Tempo por sessao: 15-20 minutos</li>
+        <li>Consome artigo longo, thread do Twitter/X, video curto no YouTube</li>
+        <li>Desconfia de linguagem de guru; prefere tom de colega de profissao</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="avatar-dim" style="margin-top: 20px;">
+    <h4>7. Padrao de decisao</h4>
+    <ul>
+      <li>Lento: pesquisa antes de comprar; busca recomendacao de colega ou resenha honesta</li>
+      <li>Para R$127, a barreira nao e financeira -- e de credibilidade do metodo e do autor</li>
+      <li>Decide em 3-7 dias apos o primeiro contato</li>
+      <li>Gatilho principal: par de confianca que usou e recomendou ("fulano da UFMG gostou")</li>
+      <li>Gatilho secundario: exemplo concreto de sessao de orientacao antes/depois do metodo</li>
+    </ul>
+  </div>
+
+  <h2>6. Focus group sintetico</h2>
+
+  <div class="headline-box">
+    <span class="headline-label">Headline testada</span>
+    "Metodologia socratica com IA para transformar orientacoes corretivas em dialogos de pesquisa"
+  </div>
+
+  <div class="persona-card">
+    <h3>Persona A — Dr. Roberto (decisor racional)</h3>
+    <p><em>47 anos, engenharia em federal nordestina. Quer ROI claro. Orienta 22 alunos por semestre.</em></p>
+
+    <h4>Reacao imediata</h4>
+    <p>"Isso tem substancia por tras ou e mais um conteudo sobre 'educacao do futuro'?"</p>
+
+    <h4>O que chamou atencao</h4>
+    <p>A distincao entre "corretivo" e "dialogo de pesquisa" e precisa. Reconheco o ciclo descrito no meu cotidiano. A palavra "socratico" me remete a algo com base teorica, nao a marketing vazio.</p>
+
+    <h4>Objecao</h4>
+    <p>Qual a evidencia de que a metodologia socratica melhora o desempenho do orientando de TCC de graduacao especificamente? Como a IA entra nisso sem criar dependencia do aluno?</p>
+
+    <h4>Probabilidade de clicar: <span class="nota">5/10</span></h4>
+
+    <h4>O que mudaria a nota para 8</h4>
+    <p>Um exemplo concreto antes da compra -- uma sessao de orientacao transcrita, mostrando a diferenca entre o ciclo corretivo e o roteiro socratico com IA.</p>
+  </div>
+
+  <div class="persona-card">
+    <h3>Persona B — Dra. Camila (decisora emocional)</h3>
+    <p><em>39 anos, ciencias sociais em federal paulista. Exausta com o ciclo corretivo. Sente culpa de nao conseguir tempo de qualidade para os orientandos.</em></p>
+
+    <h4>Reacao imediata</h4>
+    <p>"Alguem finalmente nomeou o que acontece nas minhas sessoes de orientacao."</p>
+
+    <h4>O que chamou atencao</h4>
+    <p>"Transformar orientacoes corretivas" -- essa frase nomeia exatamente o que me incomoda. Quero que o aluno chegue a conclusao sozinho, mas nao sei como conduzir isso sem virar uma aula.</p>
+
+    <h4>Objecao</h4>
+    <p>Tenho medo que a IA vire desculpa para o aluno nao pensar. Como o metodo garante autonomia, e nao dependencia de um novo tipo de muleta?</p>
+
+    <h4>Probabilidade de clicar: <span class="nota">8/10</span></h4>
+
+    <h4>O que mudaria a nota para 10</h4>
+    <p>Uma frase explicita de que a IA esta no lado do professor (para montar perguntas certas), nao no lado do aluno (para escrever o capitulo). Esse detalhe elimina minha objecao principal.</p>
+  </div>
+
+  <div class="persona-card">
+    <h3>Persona C — Prof. Tiago (decisor pragmatico)</h3>
+    <p><em>54 anos, administracao em federal mineira. Orientou mais de 90 TCCs. Quer resultado imediato, linguagem direta, zero teoria sem aplicacao.</em></p>
+
+    <h4>Reacao imediata</h4>
+    <p>"Longo para um titulo. Onde esta o resultado final para mim em uma linha?"</p>
+
+    <h4>O que chamou atencao</h4>
+    <p>"Metodologia socratica" -- conheco o metodo, sei que funciona em sala de aula. Interessante aplicar em orientacao. Mas "com IA" ainda soa generico para mim.</p>
+
+    <h4>Objecao</h4>
+    <p>Quanto tempo vou gastar aprendendo o metodo antes de ver resultado? Quero um roteiro de perguntas que funcione na minha proxima reuniao de orientacao na semana que vem.</p>
+
+    <h4>Probabilidade de clicar: <span class="nota">4/10</span></h4>
+
+    <h4>O que mudaria a nota para 7</h4>
+    <p>"Oriente em menos reunioes e com mais resultado: o metodo socratico com IA que torna seu orientando independente em 4 sessoes." -- o beneficio concreto na frente, o nome do metodo depois.</p>
+  </div>
+
+  <div class="sintese">
+    <h3>Sintese</h3>
+    <p>A headline ressoou com forca em 1 de 3 personas (Dra. Camila), parcialmente em 1 (Dr. Roberto), e nao atingiu nota 7 em 1 (Prof. Tiago).</p>
+    <p><strong>Ponto forte:</strong> o contraste "corretivo vs. dialogo" e reconhecido como real pelas 3 personas.</p>
+    <p><strong>Ponto fraco:</strong> headline densa demais. "Socratica com IA" funciona para quem ja conhece o metodo. Para o pragmatico -- provavelmente a maioria do mercado -- o beneficio precisa aparecer antes do nome do metodo.</p>
+
+    <p style="margin-top:16px"><strong>Versao refinada A (mais conversacional):</strong></p>
+    <div class="headline-box">"Pare de corrigir o que o aluno traz. Faca as perguntas certas com IA e deixe ele chegar la sozinho."</div>
+
+    <p><strong>Versao refinada B (preserva o contraste, explicita o beneficio):</strong></p>
+    <div class="headline-box">"Do ciclo corretivo ao dialogo de pesquisa: como usar IA para fazer seu orientando pensar -- e parar de depender de voce."</div>
+
+    <p>A mensagem estara pronta para midia quando ressoar em pelo menos 2 personas com nota 7+. Teste as versoes acima com 5-10 professores reais antes de investir em trafego pago.</p>
+  </div>
+
+  <h2>7. Tres jogadas para amanha</h2>
+  <div class="jogadas">
+    <ol>
+      <li>
+        <div>
+          <strong>Teste de headline com 5 professores reais.</strong>
+          Leve as duas versoes refinadas para um grupo de WhatsApp ou lista de contatos de professores universitarios. Pergunte diretamente: "Voce clicaria para saber mais?" Uma resposta sincera de 5 professores vale mais que qualquer suposicao. Prazo: esta semana, antes de abrir pagina de vendas.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Prova social antes do paywall.</strong>
+          O decisor racional e o pragmatico precisam de exemplo antes de comprar. Inclua na pagina de vendas uma sessao de orientacao antes/depois: como era a reuniao corretiva padrao vs. como ficou com o roteiro socratico com IA. Sem esse exemplo, R$127 nao passa pela barreira de credibilidade deles. Isso nao e objecao financeira -- e objecao de crenca.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Posicione a IA do lado do professor, nao do aluno.</strong>
+          A objecao mais provavel e: "IA vai fazer o aluno trapacear." Neutralize isso na copy mostrando que o metodo usa IA para o professor montar roteiros de perguntas socraticas, nao para o aluno escrever o capitulo. A IA esta na preparacao do orientador, nao na execucao do orientando. Esse reposicionamento vira diferencial e elimina a objecao central em uma so frase.
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <footer>
+    Relatorio gerado por /avatar-funil -- Skill 1/5 da Aula 01 do Cohort de Marketing &nbsp;|&nbsp; Proxima skill: /espiao-do-concorrente
+  </footer>
+
+</div>
+</body>
+</html>

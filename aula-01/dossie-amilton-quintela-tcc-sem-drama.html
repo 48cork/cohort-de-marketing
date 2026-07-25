@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dossie — Prof. Amilton Quintela / TCC Sem Drama 4.0</title>
+<style>
+  :root {
+    --bg: #f9f7f4;
+    --surface: #ffffff;
+    --dark: #1a1a1a;
+    --accent-header: #1a1a1a;
+    --brecha-bg: #f0faf0;
+    --brecha-border: #2e7d32;
+    --brecha-title: #1b5e20;
+    --jogada-bg: #1a1a1a;
+    --jogada-text: #f0f0f0;
+    --jogada-num: #c8e6c9;
+    --hook-bg: #fff8e1;
+    --hook-border: #f9a825;
+    --tag-dominante-bg: #b71c1c;
+    --tag-dominante-text: #fff;
+    --tag-mestre-bg: #e65100;
+    --tag-mestre-text: #fff;
+    --tag-concorrente-bg: #1565c0;
+    --tag-concorrente-text: #fff;
+    --warning-bg: #fff3e0;
+    --warning-border: #e65100;
+    --muted: #6b6b6b;
+    --border: #e0e0e0;
+    --font-body: Georgia, 'Times New Roman', serif;
+    --font-ui: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--dark);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  header {
+    background: var(--accent-header);
+    color: #fff;
+    padding: 40px 32px 32px;
+    border-bottom: 4px solid #b71c1c;
+  }
+
+  header .eyebrow {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 8px;
+  }
+
+  header h1 {
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  header h1 em {
+    font-style: normal;
+    color: #c8e6c9;
+  }
+
+  header .subtitle {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: #bbb;
+    margin-bottom: 16px;
+  }
+
+  header .meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: #999;
+  }
+
+  header .meta span strong { color: #eee; }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .tag-dominante { background: var(--tag-dominante-bg); color: var(--tag-dominante-text); }
+  .tag-mestre { background: var(--tag-mestre-bg); color: var(--tag-mestre-text); }
+  .tag-concorrente { background: var(--tag-concorrente-bg); color: var(--tag-concorrente-text); }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  .aviso {
+    background: var(--warning-bg);
+    border-left: 4px solid var(--warning-border);
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: #5d4037;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+
+  section { margin-bottom: 52px; }
+
+  section h2 {
+    font-size: 11px;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+
+  section h3 {
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: var(--dark);
+  }
+
+  p { margin-bottom: 14px; }
+
+  ul, ol {
+    margin-left: 20px;
+    margin-bottom: 14px;
+  }
+
+  li { margin-bottom: 5px; }
+
+  .executivo-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 5px solid #b71c1c;
+    padding: 22px 24px;
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .executivo-box strong { color: #b71c1c; }
+
+  /* Stats strip */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .stat-card .num {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--dark);
+    line-height: 1.2;
+  }
+
+  .stat-card .label {
+    display: block;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  /* Hook cards */
+  .hook {
+    background: var(--hook-bg);
+    border-left: 4px solid var(--hook-border);
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border-radius: 0 4px 4px 0;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .hook .hook-meta {
+    font-style: normal;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  .hook .hook-meta strong { color: var(--dark); }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  thead tr { background: var(--dark); color: #fff; }
+  thead th { padding: 10px 14px; text-align: left; font-weight: 600; }
+  tbody tr:nth-child(even) { background: #fafafa; }
+  tbody td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+
+  /* Oferta box */
+  .oferta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 600px) { .oferta-grid { grid-template-columns: 1fr; } }
+
+  .oferta-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 16px 18px;
+    border-radius: 4px;
+  }
+
+  .oferta-item .oferta-label {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .oferta-item .oferta-val {
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--dark);
+  }
+
+  .oferta-item .oferta-sub {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .garantia-box {
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    border-left: 5px solid #2e7d32;
+    padding: 16px 20px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+
+  .garantia-box .garantia-label {
+    font-style: normal;
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #2e7d32;
+    margin-bottom: 6px;
+  }
+
+  .fraqueza-box {
+    background: #fff3e0;
+    border: 1px solid #ffcc80;
+    border-left: 5px solid #e65100;
+    padding: 16px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    font-family: var(--font-ui);
+    line-height: 1.6;
+  }
+
+  .fraqueza-box .fraqueza-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #e65100;
+    margin-bottom: 6px;
+  }
+
+  /* Brechas */
+  .brecha {
+    background: var(--brecha-bg);
+    border: 1px solid #a5d6a7;
+    border-left: 5px solid var(--brecha-border);
+    padding: 18px 22px;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 16px;
+  }
+
+  .brecha .brecha-title {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--brecha-title);
+    margin-bottom: 8px;
+  }
+
+  .brecha p { margin-bottom: 10px; }
+
+  .brecha .acao {
+    background: #fff;
+    border: 1px solid #a5d6a7;
+    padding: 10px 14px;
+    border-radius: 3px;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: #1b5e20;
+    margin-top: 8px;
+  }
+
+  .brecha .acao::before {
+    content: "Acao: ";
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* Jogadas */
+  .jogada {
+    background: var(--jogada-bg);
+    color: var(--jogada-text);
+    padding: 22px 24px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+
+  .jogada .jogada-num {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--jogada-num);
+    margin-bottom: 8px;
+  }
+
+  .jogada .jogada-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .jogada p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #ccc;
+  }
+
+  /* Footer */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: 60px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .skill-badge {
+    display: inline-block;
+    background: var(--dark);
+    color: #fff;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Cohort de Marketing Lendario — Aula 01 / Skill 2 de 5</div>
+  <h1>Prof. Amilton Quintela / <em>TCC Sem Drama 4.0</em></h1>
+  <div class="subtitle">
+    <span class="tag tag-dominante">Player Dominante</span>&nbsp;
+    <span class="tag tag-mestre">Mestre (nao Doutor)</span>&nbsp;
+    <span class="tag tag-concorrente">Concorrente Principal</span>
+  </div>
+  <div class="meta">
+    <span><strong>Data:</strong> 27 jun 2026</span>
+    <span><strong>Fontes:</strong> ~22 pecas — landing pages, reviews, social, Reclame Aqui via busca</span>
+    <span><strong>Lente:</strong> Dr. Marcelo (professor orientador federal)</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="aviso">
+    <strong>Nota de coleta:</strong> Reclame Aqui bloqueou acesso direto (403). Dados de reclamacoes individuais vieram de buscas organicas com descricao resumida. Temas de reclamacao sao indicativos, nao verbatim confirmado de pagina oficial. Anuncios pagos (Meta Ad Library) retornaram socket hang-up. Instagram inacessivel para leitura textual via WebFetch.
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stat-card"><span class="num">49 mil</span><span class="label">alunos aprovados</span></div>
+    <div class="stat-card"><span class="num">260 k+</span><span class="label">inscritos YouTube</span></div>
+    <div class="stat-card"><span class="num">300 k+</span><span class="label">seguidores totais</span></div>
+    <div class="stat-card"><span class="num">12 M</span><span class="label">visualizacoes</span></div>
+    <div class="stat-card"><span class="num">34</span><span class="label">paises atendidos</span></div>
+    <div class="stat-card"><span class="num">27 dias</span><span class="label">media para concluir</span></div>
+    <div class="stat-card"><span class="num">MEC</span><span class="label">pos-grad reconhecida 2022</span></div>
+    <div class="stat-card"><span class="num">R$ 497</span><span class="label">preco a vista</span></div>
+  </div>
+
+  <!-- 1. RESUMO EXECUTIVO -->
+  <section>
+    <h2>1. Resumo Executivo</h2>
+    <div class="executivo-box">
+      O Prof. Amilton Quintela e o <strong>player dominante</strong> do mercado B2C de TCC no Brasil. Com 49 mil alunos, 260 mil+ inscritos no YouTube, metodo reconhecido pelo MEC (2022) e pos-graduacao em parceria com Unifast, ele opera na escala que nenhum outro player alcancou. Sua forca e a garantia de resultado mais ousada do mercado: <strong>nota acima de 8 ou devolucao de 100%</strong>. Sua fraqueza principal para o Pesquisador Aumentado: a garantia de nota pressupoe a aprovacao do professor orientador, mas o professor nao e cliente, nao tem voz no produto e nao controla o resultado. <strong>O Amilton transformou o professor em variavel de risco do seu produto sem nunca perguntar ao professor se isso faz sentido.</strong> Esse e o vacuo que o Pesquisador Aumentado explora.
+    </div>
+  </section>
+
+  <!-- 2. GANCHOS -->
+  <section>
+    <h2>2. Ganchos Identificados</h2>
+
+    <div class="hook">
+      "Travado no TCC? Finalize em poucos dias. Sem sofrimento, sem noites em claro e com nota acima de 9 pontos."
+      <div class="hook-meta"><strong>Fonte:</strong> tccsemdrama.com.br — headline principal &bull; <strong>Score:</strong> 9/10 &bull; <strong>Tipo:</strong> Problema + Prazo + Emocao + Resultado numerico</div>
+    </div>
+
+    <div class="hook">
+      "Chega de travar na pagina em branco. O seu TCC nao precisa prejudicar a sua rotina ou atrapalhar sua vida."
+      <div class="hook-meta"><strong>Fonte:</strong> tccsemdrama.com.br — subheadline &bull; <strong>Score:</strong> 8/10 &bull; <strong>Tipo:</strong> Alivio + Permissao social</div>
+    </div>
+
+    <div class="hook">
+      "Agora voce tem um orientador online para ajudar a criar seu trabalho academico."
+      <div class="hook-meta"><strong>Fonte:</strong> tccsemdrama.net (afiliado) &bull; <strong>Score:</strong> 7/10 &bull; <strong>Tipo:</strong> Solucao de identidade — SUBSTITUTO DO PROFESSOR</div>
+    </div>
+
+    <div class="hook">
+      "Criador do maior metodo de producao cientifica do Brasil com 49 mil alunos aprovados em 34 paises."
+      <div class="hook-meta"><strong>Fonte:</strong> tccsemdrama.com.br — credencial do Prof. Amilton &bull; <strong>Score:</strong> 8/10 &bull; <strong>Tipo:</strong> Autoridade + Prova social massiva</div>
+    </div>
+
+    <div class="hook">
+      "produzir o texto de seu TCC 10 vezes mais rapido"
+      <div class="hook-meta"><strong>Fonte:</strong> tccsemdrama.net &bull; <strong>Score:</strong> 7/10 &bull; <strong>Tipo:</strong> Resultado numerico</div>
+    </div>
+
+    <p><strong>Padrao dominante:</strong> o hook mais forte combina PROBLEMA + NUMERO + ALIVIO EMOCIONAL. O hook mais revelador via lente do avatar: "Agora voce tem um orientador online" posiciona o produto como substituto do professor. Para o Dr. Marcelo, o mercado vendeu ao aluno um sustituto para ele.</p>
+  </section>
+
+  <!-- 3. OFERTA E PRECO -->
+  <section>
+    <h2>3. Oferta e Preco</h2>
+
+    <div class="oferta-grid">
+      <div class="oferta-item">
+        <div class="oferta-label">Plano Mensal</div>
+        <div class="oferta-val">R$ 97/mes</div>
+        <div class="oferta-sub">de R$ 197 — cancelavel</div>
+      </div>
+      <div class="oferta-item">
+        <div class="oferta-label">Plano Completo</div>
+        <div class="oferta-val">R$ 497 a vista</div>
+        <div class="oferta-sub">12x R$ 51,10 — de R$ 1.297</div>
+      </div>
+      <div class="oferta-item">
+        <div class="oferta-label">Acesso</div>
+        <div class="oferta-val">1 ano</div>
+        <div class="oferta-sub">Permanece ate conclusao se ultrapassar</div>
+      </div>
+      <div class="oferta-item">
+        <div class="oferta-label">Prova social</div>
+        <div class="oferta-val">49k alunos</div>
+        <div class="oferta-sub">34 paises, media 27 dias para conclusao</div>
+      </div>
+    </div>
+
+    <div class="garantia-box">
+      <div class="garantia-label">Garantia (a mais forte do mercado)</div>
+      "Se sua nota for inferior a 8 mesmo com aprovacao do seu trabalho, voce recebe 100% do seu investimento de volta. Sem letras pequenas. Sem burocracia."
+    </div>
+
+    <p><strong>Bonus inclusos:</strong> Masterclass IA, prompts validados, roteiro e cronograma, modelos de referencia, estruturas pre-montadas, certificado 60h complementares.</p>
+
+    <div class="fraqueza-box">
+      <div class="fraqueza-label">Fraqueza estrutural da oferta</div>
+      A garantia de nota (acima de 8) pressupoe a aprovacao do professor orientador. Se o professor reprovar ou dar nota 6, o aluno reclama do produto e pede reembolso. O Amilton criou uma garantia que depende do desempenho de um terceiro que nao e cliente, nao treinou no metodo e nao concordou com os criterios. O professor e a variavel de risco da oferta mais forte do mercado B2C.
+    </div>
+  </section>
+
+  <!-- 4. CREDENCIAIS E CANAIS -->
+  <section>
+    <h2>4. Credenciais e Canais</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Canal</th>
+          <th>Escala</th>
+          <th>O que produz</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>YouTube /c/tccsemdrama</td>
+          <td><strong>260k+ inscritos</strong></td>
+          <td>Videos educativos + vendas; titulos de SEO ("O que e monografia?", "Como fazer TCC em 9 dias")</td>
+        </tr>
+        <tr>
+          <td>Instagram @oficial tccsemdrama</td>
+          <td>48k seguidores</td>
+          <td>Reels de depoimentos de aprovados, prompts de IA, urgencia de oferta</td>
+        </tr>
+        <tr>
+          <td>Instagram @tcc.sem.drama</td>
+          <td>20k seguidores</td>
+          <td>Conta secundaria — conteudo educativo</td>
+        </tr>
+        <tr>
+          <td>Facebook @TCCSEMDRAMAJA</td>
+          <td>Nao mapeado</td>
+          <td>Presente e ativo</td>
+        </tr>
+        <tr>
+          <td>Site tccsemdrama.com.br</td>
+          <td>Landing principal</td>
+          <td>3 pilares: Metodo + Mentoria + IA</td>
+        </tr>
+        <tr>
+          <td>Site tccsemdrama.net</td>
+          <td>Afiliados</td>
+          <td>Versao mais antiga, bonus diferentes</td>
+        </tr>
+        <tr>
+          <td><strong>LinkedIn</strong></td>
+          <td><strong>AUSENTE</strong></td>
+          <td><strong>Canal com audiencia de professor — sem conteudo B2B</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Credenciais declaradas:</strong> "Professor Mestre com mais de 20 anos de experiencia em docencia e orientacao cientifica." MEC reconhecimento em 2022 — pos-graduacao em Producao e Orientacao Cientifica (parceria Unifast). Nota: Mestre, nao Doutor.</p>
+  </section>
+
+  <!-- 5. ANGULOS DE COPY -->
+  <section>
+    <h2>5. Angulos de Copy</h2>
+
+    <h3>O que o Amilton usa</h3>
+    <ul>
+      <li>Aprovacao academica com numero (nota acima de 8, 9 pontos, 9.7)</li>
+      <li>Velocidade especifica (27 dias, 7-15 dias em depoimentos)</li>
+      <li>Prova massiva (49k alunos, 34 paises)</li>
+      <li>Autoridade institucional (MEC, pos-graduacao Unifast)</li>
+      <li>Substituto do orientador ("orientador online")</li>
+      <li>IA como diferencial de seguranca ("sem risco de plagio")</li>
+      <li>Permissao para ter vida ("nao precisa prejudicar sua rotina")</li>
+    </ul>
+
+    <h3>O que o Amilton NAO usa (livre para pegar)</h3>
+    <ul>
+      <li>Perspectiva do professor orientador como cliente</li>
+      <li>O professor como parceiro do sucesso do aluno</li>
+      <li>IA do lado do professor (para fazer melhores perguntas)</li>
+      <li>Vocabulario de metodologia pedagogica: "dialogo socratico", "maieutica", "autonomia de pesquisa"</li>
+      <li>Resultado para o professor: menos correcoes, mais pesquisa propria</li>
+    </ul>
+  </section>
+
+  <!-- 6. REPUTACAO -->
+  <section>
+    <h2>6. Reputacao</h2>
+
+    <h3>Positiva</h3>
+    <ul>
+      <li>Perfil no Reclame Aqui com reclamacoes respondidas e alta taxa de resolucao</li>
+      <li>Amilton declara que responde pessoalmente e reembolsa sem questionar</li>
+      <li>Reviews organicos: "conteudo direto ao ponto", "suporte responsivo", "garantia sem restricoes"</li>
+      <li>49k alunos e prova social pesada — dificil de contestar</li>
+    </ul>
+
+    <h3>Negativa (via busca organica — nao verbatim de pagina oficial)</h3>
+    <ul>
+      <li>Titulo de reclamacao: <em>"TCC Sem Drama nao cumpre o que promete"</em></li>
+      <li>Titulo de reclamacao: <em>"Nao existe TCC sem drama"</em> — a promessa emocional nao se cumpre</li>
+      <li>Acesso prometido como vitalicio, entregue como temporario</li>
+      <li>Orientacao personalizada prometida por Amilton, entregue pela equipe</li>
+      <li>Reviews criticos: "expectativa de solucao magica nao atendida"</li>
+    </ul>
+
+    <div class="fraqueza-box">
+      <div class="fraqueza-label">Insight critico via lente do avatar</div>
+      A reclamacao "Nao existe TCC sem drama" e o dado mais valioso deste dossie. O drama no TCC nao some quando o aluno aprende a escrever mais rapido. Some quando o orientador aprende a fazer as perguntas certas antes de o aluno escrever. O produto do Amilton tem uma dependencia estrutural do professor que nunca foi resolvida.
+    </div>
+  </section>
+
+  <!-- 7. BRECHAS -->
+  <section>
+    <h2>7. Brechas e Oportunidades</h2>
+
+    <div class="brecha">
+      <div class="brecha-title">Brecha 1 — A garantia de nota depende do professor mas o professor nao e cliente</div>
+      <p>A garantia "nota acima de 8 ou devolve" pressupoe que o professor aprovara o trabalho. Se o professor reprovar, o aluno reclama do produto. Amilton nao controla o professor. O professor e a variavel de risco da oferta mais forte do mercado B2C.</p>
+      <div class="acao">usar na copy do Pesquisador Aumentado: "Ha um produto que garante nota acima de 8 para o aluno. Essa nota, voce da. Voce pode aprender a diagnosticar se o aluno realmente entendeu o problema de pesquisa -- ou so aprendeu a escrever sobre ele."</div>
+    </div>
+
+    <div class="brecha">
+      <div class="brecha-title">Brecha 2 — Amilton se posiciona como substituto do orientador</div>
+      <p>O hook "Agora voce tem um orientador online" posiciona o produto como alternativa ao professor. Para o Dr. Marcelo, o mercado ensinou o aluno a nao precisar dele. A resposta nao e defender o territorio -- e criar um produto que torne o professor melhor do que qualquer substituto digital.</p>
+      <div class="acao">headline testavel: "Existe um produto que ensina o aluno a nao precisar de voce. Aqui e diferente: voce aprende a ser insubstituivel."</div>
+    </div>
+
+    <div class="brecha">
+      <div class="brecha-title">Brecha 3 — Amilton e Mestre, nao Doutor (credencial mais fraca que o avatar do PA)</div>
+      <p>O Prof. Amilton e Mestre. Para o avatar Dr. Marcelo (professor de federal), a credencial "Mestre com 20 anos" e menos impressionante do que "professor orientador de federal que sentiu o mesmo problema que voce". Pares convencem mais do que gurus de metodo.</p>
+      <div class="acao">usar credencial de par na copy: "Desenvolvido por professores orientadores de universidades federais que testaram o metodo em bancas reais."</div>
+    </div>
+
+    <div class="brecha">
+      <div class="brecha-title">Brecha 4 — Metodo virou pos-graduacao mas ainda ignora o professor orientador</div>
+      <p>O metodo TCC Sem Drama foi reconhecido pelo MEC em 2022 e virou pos-graduacao (Unifast). Mas a pos-graduacao ainda e sobre producao cientifica, nao sobre orientacao de pesquisadores. Amilton chegou perto do mercado institucional mas ainda nao falou com o professor orientador.</p>
+      <div class="acao">para o professor, MEC como referencia nao impressiona -- ele JA trabalha em instituicao MEC. O que impressiona: "metodo testado em 15 bancas de TCC na UFRJ reduziu o numero de rejeicoes em 60%."</div>
+    </div>
+
+    <div class="brecha">
+      <div class="brecha-title">Brecha 5 — Reclame Aqui revela que a promessa emocional falha quando o orientador e variavel</div>
+      <p>A reclamacao "Nao existe TCC sem drama" revela que o drama permanece quando o orientador reprova, quando a banca rejeita, quando o metodo de escrita rapida nao substitui o raciocinio metodologico. O produto e culpado -- mas a raiz e o professor nao ter sido incluido na equacao.</p>
+      <div class="acao">usar na copy sem citar o Amilton: "O drama do TCC nao some quando o aluno aprende a escrever mais rapido. Some quando o orientador aprende a fazer as perguntas certas antes de o aluno escrever."</div>
+    </div>
+  </section>
+
+  <!-- 8. JOGADAS -->
+  <section>
+    <h2>8. Tres Jogadas para Amanha</h2>
+
+    <div class="jogada">
+      <div class="jogada-num">Jogada 1</div>
+      <div class="jogada-title">Reescrever a oferta usando a fraqueza estrutural da garantia de nota</div>
+      <p>A garantia do Amilton depende do professor. Criar copy que explore isso: "Ha um produto que garante ao aluno nota acima de 8. Essa nota, voce da. Antes de o aluno chegar com o texto do metodo, voce pode aprender a diagnosticar se ele realmente entendeu o problema de pesquisa -- ou so aprendeu a escrever sobre ele." Isso transforma a garantia do concorrente em argumento de venda para o professor.</p>
+    </div>
+
+    <div class="jogada">
+      <div class="jogada-num">Jogada 2</div>
+      <div class="jogada-title">Publicar no LinkedIn: "Por que o maior curso de TCC do Brasil depende de voce sem te pagar"</div>
+      <p>Post sem citar o Amilton pelo nome. Angulo: "Ha um produto com 49 mil alunos aprovados. A nota que esses alunos tiram, um professor da. Quando o trabalho nao atinge a nota prometida, o aluno pede reembolso. O professor que reprovaria o trabalho nunca e mencionado. Mas e voce quem da a nota." Isso cria tensao e curiosidade para o professor e posiciona o Pesquisador Aumentado como resposta.</p>
+    </div>
+
+    <div class="jogada">
+      <div class="jogada-num">Jogada 3</div>
+      <div class="jogada-title">Landing page de entrada: "Voce ja recebeu um TCC feito por IA?"</div>
+      <p>Essa pergunta e topica (2024-2026), cria identificacao imediata com o avatar, e posiciona o professor como agente que precisa de ferramenta propria -- nao como variavel de risco do produto do aluno. Landing minima: headline + 3 bullets + video de 2 minutos + R$127. A entrada pelo problema (IA do aluno) e mais facil do que pela solucao (metodologia socratica).</p>
+    </div>
+  </section>
+
+  <div class="footer">
+    <span class="skill-badge">Skill 2/5 — /espiao-do-concorrente</span>
+    <p style="margin-top:12px;">
+      Dossie gerado por /espiao-do-concorrente — Aula 01 do Cohort de Marketing Lendario.<br>
+      Lente: avatar Dr. Marcelo (professor orientador federal). Produto: Pesquisador Aumentado™ R$127.<br>
+      3 dossies entregues: <strong>mercado geral (Monografis)</strong> + <strong>Camila Isaton</strong> + <strong>Prof. Amilton Quintela (este)</strong>. Base de comparacao completa.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

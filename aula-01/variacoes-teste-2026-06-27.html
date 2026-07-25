@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variações para Teste — Professores Orientadores de TCC</title>
+<style>
+  :root {
+    --bg: #f5f5f0;
+    --surface: #fff;
+    --dark: #1a1a1a;
+    --header: #0d2b0d;
+    --accent: #2e7d32;
+    --v1: #1565c0;
+    --v2: #4a148c;
+    --v3: #e65100;
+    --v4: #00695c;
+    --v5: #b71c1c;
+    --border: #e0e0e0;
+    --muted: #757575;
+    --font-body: Georgia, serif;
+    --font-ui: 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--dark); font-family: var(--font-body); font-size: 15px; line-height: 1.75; }
+
+  header { background: var(--header); color: #fff; padding: 32px 40px 26px; border-bottom: 4px solid var(--accent); }
+  header .eyebrow { font-family: var(--font-ui); font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: #81c784; margin-bottom: 6px; }
+  header h1 { font-size: 20px; font-weight: normal; margin-bottom: 4px; }
+  header .sub { font-family: var(--font-ui); font-size: 13px; color: #81c784; margin-bottom: 14px; }
+  header .meta { display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--font-ui); font-size: 12px; color: #81c784; }
+  header .meta strong { color: #c8e6c9; }
+
+  .content { max-width: 860px; margin: 0 auto; padding: 40px 32px 80px; }
+
+  .ranking { background: #1a1a1a; color: #fff; border-radius: 4px; padding: 20px 24px; margin-bottom: 36px; }
+  .ranking h2 { font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #a5d6a7; margin-bottom: 12px; }
+  .ranking table { width: 100%; border-collapse: collapse; font-family: var(--font-ui); font-size: 12px; color: #ccc; }
+  .ranking thead th { color: #a5d6a7; padding: 7px 10px; text-align: left; border-bottom: 1px solid #333; }
+  .ranking tbody td { padding: 7px 10px; border-bottom: 1px solid #222; }
+  .ranking tbody td:first-child { color: #fff; font-weight: 700; }
+
+  .padrao-header { margin: 36px 0 16px; }
+  .padrao-header h2 { font-size: 16px; font-weight: bold; }
+  .padrao-num { font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+
+  .variacao { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 20px 24px; margin-bottom: 18px; position: relative; overflow: hidden; }
+  .variacao::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
+  .v1 .variacao::before { background: var(--v1); }
+  .v2 .variacao::before { background: var(--v2); }
+  .v3 .variacao::before { background: var(--v3); }
+  .v4 .variacao::before { background: var(--v4); }
+  .v5 .variacao::before { background: var(--v5); }
+  .variacao.hibrida { border-style: dashed; }
+  .variacao.hibrida::before { background: linear-gradient(var(--v5), var(--v2)); }
+
+  .var-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px; }
+  .var-num { font-family: var(--font-ui); font-size: 11px; font-weight: 700; color: var(--muted); }
+  .var-label { font-size: 15px; font-weight: bold; }
+  .var-meta { font-family: var(--font-ui); font-size: 11px; color: var(--muted); margin-bottom: 12px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .var-meta span { background: #f0f0f0; padding: 2px 7px; border-radius: 2px; }
+
+  .hook-box { background: #1a1a1a; color: #fff; border-radius: 3px; padding: 12px 16px; margin-bottom: 12px; font-size: 15px; font-weight: bold; line-height: 1.4; }
+
+  h4 { font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin: 12px 0 5px; }
+  ul, ol { margin-left: 20px; margin-bottom: 10px; }
+  li { margin-bottom: 4px; font-size: 14px; }
+  p { margin-bottom: 10px; font-size: 14px; }
+  .cta-box { background: #e8f5e9; border: 1px solid #a5d6a7; border-radius: 3px; padding: 8px 12px; font-family: var(--font-ui); font-size: 12px; font-weight: 700; color: #1b5e20; margin-top: 10px; }
+
+  .prioridade-badge { display: inline-block; background: #b71c1c; color: #fff; font-family: var(--font-ui); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 2px; letter-spacing: 1px; margin-left: 6px; }
+
+  .criterio { background: #fff3e0; border: 1px solid #ffcc80; border-left: 5px solid #e65100; padding: 16px 20px; border-radius: 0 4px 4px 0; margin-top: 40px; }
+  .criterio h2 { font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e65100; margin-bottom: 10px; }
+  .criterio table { width: 100%; border-collapse: collapse; font-family: var(--font-ui); font-size: 12px; }
+  .criterio th { text-align: left; padding: 7px 10px; background: #e65100; color: #fff; }
+  .criterio td { padding: 7px 10px; border-bottom: 1px solid #ffcc80; }
+
+  footer { border-top: 1px solid var(--border); padding: 20px 32px; max-width: 860px; margin: 0 auto; font-family: var(--font-ui); font-size: 12px; color: var(--muted); }
+  .skill-badge { background: var(--dark); color: #fff; font-family: var(--font-ui); font-size: 11px; padding: 3px 9px; border-radius: 3px; display: inline-block; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Cohort de Marketing Lendario — Aula 01 / Skill 3 de 5</div>
+  <h1>Variações para Teste — Professores Orientadores de TCC</h1>
+  <div class="sub">12 variações prontas para teste A/B · âncora: Dr. Marcelo, professor federal, 8-25 orientandos</div>
+  <div class="meta">
+    <span><strong>Data:</strong> 27 jun 2026</span>
+    <span><strong>Plataforma primária:</strong> LinkedIn (orgânico primeiro)</span>
+    <span><strong>Padrões de origem:</strong> 4 (2 emergentes, 2 em alta)</span>
+  </div>
+</header>
+
+<div class="content">
+
+  <div class="ranking">
+    <h2>Ranking — Ordem de Teste (testar nesta sequência)</h2>
+    <table>
+      <thead><tr><th>Prioridade</th><th>Variação</th><th>Razão</th></tr></thead>
+      <tbody>
+        <tr><td>#1</td><td>V5 — "IA não vai substituir..."</td><td>Máximo alcance, compartilhamento alto, não precisa de LP pronta</td></tr>
+        <tr><td>#2</td><td>V1A — Sem política de IA (post longo)</td><td>Dado + identificação + padrão emergente</td></tr>
+        <tr><td>#3</td><td>V2A — Texto sem pensamento (post curto)</td><td>Alta identificação, ritmo rápido para testar</td></tr>
+        <tr><td>#4</td><td>V3A — Lista + inversão</td><td>Formato de alto engajamento confirmado</td></tr>
+        <tr><td>#5</td><td>V1B — Carousel 3 perguntas</td><td>Salva e compartilha alto no LinkedIn</td></tr>
+        <tr><td>#6</td><td>V4A — Contra-narrativa mercado</td><td>Debate + polarização produtiva</td></tr>
+        <tr><td>#7-12</td><td>Demais variações</td><td>Usar nas semanas 2-4 dependendo do que performar</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- HIBRIDAS PRIMEIRO (prioridade 1) -->
+  <div class="v5">
+  <div class="padrao-header">
+    <div class="padrao-num">Híbrida (padrões 2+4) · Prioridade</div>
+    <h2>Variação 5 <span class="prioridade-badge">#1 — TESTAR PRIMEIRO</span></h2>
+  </div>
+
+  <div class="variacao hibrida">
+    <div class="var-header">
+      <span class="var-num">V5</span>
+      <span class="var-label">"IA não vai substituir o orientador. Mas vai substituir o orientando que não pensa."</span>
+    </div>
+    <div class="var-meta">
+      <span>Post curto · LinkedIn</span>
+      <span>~100 palavras</span>
+      <span>Todas as personas</span>
+      <span>Timing: AGORA</span>
+    </div>
+    <div class="hook-box">"A IA não vai substituir o professor orientador. Mas pode substituir o orientando que não pensa."</div>
+    <h4>Estrutura</h4>
+    <ul>
+      <li>Revelação: "Se o aluno pode gerar texto sem pensar, e o professor continua só corrigindo texto, o aluno aprende que pensar não é necessário."</li>
+      <li>Virada: "O professor que faz perguntas socráticas é insubstituível. O aluno que responde a perguntas socráticas é insubstituível."</li>
+    </ul>
+    <div class="cta-box">CTA: "Você faz perguntas nas suas sessões de orientação? Ou só corrige o que o aluno trouxe?"</div>
+  </div>
+  </div>
+
+  <!-- PADRÃO 1 -->
+  <div class="v1">
+  <div class="padrao-header">
+    <div class="padrao-num">Padrão 1 — Professor sem política de IA · EMERGENTE</div>
+    <h2>Variações 1A e 1B</h2>
+  </div>
+
+  <div class="variacao">
+    <div class="var-header">
+      <span class="var-num">V1A</span>
+      <span class="var-label">Post LinkedIn longo — sem política de IA</span>
+      <span class="prioridade-badge">#2</span>
+    </div>
+    <div class="var-meta">
+      <span>Post texto · LinkedIn</span>
+      <span>300-500 palavras</span>
+      <span>Dr. Roberto + Dra. Camila</span>
+      <span>Timing: AGORA</span>
+    </div>
+    <div class="hook-box">"A maioria dos orientadores em 2026 não proíbe o uso de IA no TCC. Mas também não tem nenhum método para lidar com o aluno que usa."</div>
+    <h4>Estrutura</h4>
+    <ul>
+      <li>Dado: maioria das federais não proibiu IA, só exige declaração</li>
+      <li>Problema: texto chega mais polido, raciocínio não mudou</li>
+      <li>Tensão: como distinguir o que o aluno pensou do que a IA gerou? Sem método, você avalia texto, não pesquisador</li>
+      <li>Reframing: a pergunta certa não é "o aluno usou IA?" — é "o aluno sabe defender o argumento oralmente?"</li>
+      <li>Gancho: a sessão socrática resolve isso — você pergunta, o aluno fala, em 5 minutos sabe quem pensou</li>
+    </ul>
+    <div class="cta-box">CTA: "Como você está lidando com isso? Conta nos comentários."</div>
+  </div>
+
+  <div class="variacao">
+    <div class="var-header">
+      <span class="var-num">V1B</span>
+      <span class="var-label">Carousel LinkedIn — 3 perguntas para detectar pensamento</span>
+      <span class="prioridade-badge">#5</span>
+    </div>
+    <div class="var-meta">
+      <span>Carousel 6 slides · LinkedIn</span>
+      <span>Prof. Tiago (pragmático)</span>
+      <span>Timing: AGORA</span>
+    </div>
+    <div class="hook-box">Slide 1: "Como saber se o TCC foi feito pelo aluno ou pela IA: 3 perguntas para a próxima sessão de orientação"</div>
+    <h4>Estrutura dos slides</h4>
+    <ol>
+      <li>Slide 1: Hook (acima)</li>
+      <li>Slide 2: Pergunta 1 — "Explica com suas palavras por que você escolheu esse método"</li>
+      <li>Slide 3: Pergunta 2 — "Qual foi a parte mais difícil de argumentar? O que você tentou que não funcionou?"</li>
+      <li>Slide 4: Pergunta 3 — "Se eu te der mais 15 minutos agora, o que você mudaria nessa seção?"</li>
+      <li>Slide 5: O que cada resposta revela (aluno que pensou vs. aluno que gerou texto)</li>
+      <li>Slide 6: "Existem 47 variações de perguntas por tipo de bloqueio. [CTA]"</li>
+    </ol>
+    <div class="cta-box">CTA: "Salva esse carrossel pra sua próxima orientação"</div>
+  </div>
+  </div>
+
+  <!-- PADRÃO 2 -->
+  <div class="v2">
+  <div class="padrao-header">
+    <div class="padrao-num">Padrão 2 — Texto sem pensamento do autor · EMERGENTE</div>
+    <h2>Variações 2A e 2B</h2>
+  </div>
+
+  <div class="variacao">
+    <div class="var-header">
+      <span class="var-num">V2A</span>
+      <span class="var-label">Post curto LinkedIn — revelação + identificação</span>
+      <span class="prioridade-badge">#3</span>
+    </div>
+    <div class="var-meta">
+      <span>Post texto · LinkedIn</span>
+      <span>100-150 palavras</span>
+      <span>Dra. Camila (emocional)</span>
+      <span>Timing: AGORA</span>
+    </div>
+    <div class="hook-box">"Uma banca experiente percebe quando o texto não tem marca de pensamento do autor."</div>
+    <h4>Estrutura</h4>
+    <ul>
+      <li>Linha 1: hook (acima)</li>
+      <li>Linha 2: "Desenvolvimento de argumento. Escolhas de ênfase. Posicionamento claro. Conexões não óbvias entre ideias."</li>
+      <li>Linha 3: "Isso não se ensina corrigindo texto. Se ensina fazendo o aluno falar sobre o que escreveu."</li>
+      <li>Linha 4: "A pergunta certa na sessão de orientação faz mais do que a correção mais detalhada."</li>
+    </ul>
+    <div class="cta-box">CTA: "Qual é a pergunta que você faz quando o aluno entrega um texto que 'passou na autocorreção mas falhou na banca'?"</div>
+  </div>
+
+  <div class="variacao">
+    <div class="var-header">
+      <span class="var-num">V2B</span>
+      <span class="var-label">Thread LinkedIn — 5 posts encadeados (dado + argumento)</span>
+    </div>
+    <div class="var-meta">
+      <span>Thread · LinkedIn</span>
+      <span>5 posts × 80-150 palavras</span>
+      <span>Dr. Roberto (racional)</span>
+      <span>Timing: AGORA</span>
+    </div>
+    <div class="hook-box">Post 1: "Orientei X TCCs. Aprendi que corrigir texto é o método mais ineficiente que existe para ensinar a pesquisar. [Thread]"</div>
+    <h4>Sequência</h4>
+    <ol>
+      <li>Post 1 (hook): "Orientei X TCCs..."</li>
+      <li>Post 2: O ciclo corretivo — o que acontece quando você só corrige</li>
+      <li>Post 3: O que a banca vê que o orientador não vê: pensamento vs. texto</li>
+      <li>Post 4: A pergunta que mudou minha prática (exemplo concreto antes/depois)</li>
+      <li>Post 5 (CTA): "Se você quiser o banco completo de perguntas para cada tipo de bloqueio, [CTA]"</li>
+    </ol>
+    <div class="cta-box">CTA: Link para lista de espera / LP</div>
+  </div>
+  </div>
+
+  <!-- PADRÃO 3 -->
+  <div class="v3">
+  <div class="padrao-header">
+    <div class="padrao-num">Padrão 3 — Lista do que irrita o orientador · EM ALTA</div>
+    <h2>Variações 3A e 3B</h2>
+  </div>
+
+  <div class="variacao">
+    <div class="var-header">
+      <span class="var-num">V3A</span>
+      <span class="var-label">Post lista — dor + identificação + inversão de perspectiva</span>
+      <span class="prioridade-badge">#4</span>
+    </div>
+    <div class="var-meta">
+      <span>Post texto com lista · LinkedIn</span>
+      <span>400-600 palavras</span>
+      <span>Todos os 3 perfis</span>
+      <span>Timing: EM ALTA</span>
+    </div>
+    <div class="hook-box">"4 comportamentos do orientando que irritam o professor orientador — e o que fazer em vez de só se irritar"</div>
+    <h4>Estrutura (lista com inversão)</h4>
+    <ol>
+      <li>O orientando que entrega o mesmo erro pela 4a vez → "o que faz a diferença: perguntar 'o que você quis dizer com isso?'"</li>
+      <li>O orientando que some entre entregas → "o que faz a diferença: perguntas que guiam o processo, não só o produto"</li>
+      <li>O orientando que 'leu mas não entendeu' → "o que faz a diferença: 'explica o argumento com suas palavras'"</li>
+      <li>O orientando que entrega texto polido sem argumento → "o que faz a diferença: sessão oral de 10 minutos"</li>
+    </ol>
+    <p>Fechamento: "O comum entre as 4 situações: o método corretivo não resolve nenhuma delas. Perguntas resolvem."</p>
+    <div class="cta-box">CTA: "Qual dessas te identifica mais? Conta nos comentários."</div>
+  </div>
+
+  <div class="variacao">
+    <div class="var-header">
+      <span class="var-num">V3B</span>
+      <span class="var-label">Carousel "Antes × Depois" — formato pedagógico visual</span>
+    </div>
+    <div class="var-meta">
+      <span>Carousel 7 slides · LinkedIn</span>
+      <span>Prof. Tiago (pragmático)</span>
+      <span>Timing: EM ALTA</span>
+    </div>
+    <div class="hook-box">Slide 1: "Antes × depois: o que muda quando você troca correção por pergunta"</div>
+    <h4>Estrutura dos slides</h4>
+    <ol>
+      <li>Slide 1: Hook</li>
+      <li>Slides 2-6: 5 situações antes/depois (correção → pergunta socrática)</li>
+      <li>Slide 7: CTA + resultado esperado</li>
+    </ol>
+    <p>Exemplo de slide 2:<br>
+    <strong>Situação:</strong> "Seu referencial não está articulado com a metodologia"<br>
+    <strong>Antes:</strong> "Precisa reescrever o capítulo 2"<br>
+    <strong>Depois:</strong> "Você consegue me explicar como esse autor apoia o método que você escolheu?"</p>
+    <div class="cta-box">CTA: "Salva esse carrossel pra sua próxima sessão"</div>
+  </div>
+  </div>
+
+  <!-- PADRÃO 4 -->
+  <div class="v4">
+  <div class="padrao-header">
+    <div class="padrao-num">Padrão 4 — Contra-narrativa IA vs. orientador · EM ALTA</div>
+    <h2>Variações 4A e 4B</h2>
+  </div>
+
+  <div class="variacao">
+    <div class="var-header">
+      <span class="var-num">V4A</span>
+      <span class="var-label">Post provocação — abertura de debate</span>
+      <span class="prioridade-badge">#6</span>
+    </div>
+    <div class="var-meta">
+      <span>Post curto · LinkedIn</span>
+      <span>80-120 palavras</span>
+      <span>Dr. Roberto (debate de ideias)</span>
+      <span>Timing: EM ALTA</span>
+    </div>
+    <div class="hook-box">"Enquanto o mercado criou dezenas de ferramentas de IA para o aluno fazer TCC, nenhuma foi criada para o professor orientar melhor."</div>
+    <h4>Estrutura</h4>
+    <ul>
+      <li>Dado: "49 mil alunos compraram um produto que os ensina a usar IA para TCC. Quantos professores compraram um produto que os ensina a orientar melhor?"</li>
+      <li>Virada: "O problema não é que a IA está do lado do aluno. É que o professor ainda não tem um método que funcione quando o aluno usa IA."</li>
+      <li>Aposta: "O próximo grande produto de educação não vai ser para o aluno. Vai ser para quem orienta."</li>
+    </ul>
+    <div class="cta-box">CTA: "Você concorda ou discorda?"</div>
+  </div>
+
+  <div class="variacao">
+    <div class="var-header">
+      <span class="var-num">V4B</span>
+      <span class="var-label">Artigo longo LinkedIn — argumento completo</span>
+    </div>
+    <div class="var-meta">
+      <span>Artigo LinkedIn</span>
+      <span>800-1200 palavras</span>
+      <span>Dr. Roberto (leitura profunda)</span>
+      <span>Timing: EM ALTA</span>
+    </div>
+    <div class="hook-box">"Por que o professor orientador é o único ator do ecossistema TCC que não tem uma ferramenta de método — e o que isso está custando"</div>
+    <h4>Estrutura do artigo</h4>
+    <ol>
+      <li>Lead: o mercado de TCC para aluno (números de mercado B2C)</li>
+      <li>O vácuo: nenhum produto B2B existe para o orientador</li>
+      <li>Custo: horas de retrabalho, ciclo corretivo, orientandos que desistem</li>
+      <li>Princípio: orientação precisa de método pedagógico, não só domínio do conteúdo</li>
+      <li>O que funciona: pergunta vs. correção (exemplo concreto)</li>
+      <li>CTA: link para Pesquisador Aumentado™</li>
+    </ol>
+    <div class="cta-box">CTA: Link para LP (só depois que LP estiver pronta)</div>
+  </div>
+  </div>
+
+  <!-- VARIAÇÃO 6 -->
+  <div class="v5">
+  <div class="padrao-header">
+    <div class="padrao-num">Híbrida (padrões 2+3)</div>
+    <h2>Variação 6</h2>
+  </div>
+  <div class="variacao hibrida">
+    <div class="var-header">
+      <span class="var-num">V6</span>
+      <span class="var-label">"A pergunta que você nunca fez ao orientando (mas deveria)"</span>
+    </div>
+    <div class="var-meta">
+      <span>Post curto + exemplo · LinkedIn</span>
+      <span>150 palavras</span>
+      <span>Dra. Camila + Prof. Tiago</span>
+      <span>Timing: AGORA</span>
+    </div>
+    <div class="hook-box">"A pergunta que muda tudo na orientação de TCC:"</div>
+    <h4>Estrutura</h4>
+    <ul>
+      <li>Pergunta revelada: "Qual foi o momento em que você mais duvidou do seu argumento? O que você pensou nesse momento?"</li>
+      <li>Por que funciona: força o aluno a reconstruir o raciocínio, não o texto</li>
+      <li>Resultado: "O aluno que responde essa pergunta aprendeu algo que não pode ser gerado por IA: a sua própria incerteza acadêmica como motor de pesquisa."</li>
+    </ul>
+    <div class="cta-box">CTA: "Qual é a sua pergunta favorita para destravar o orientando?"</div>
+  </div>
+  </div>
+
+  <!-- CRITÉRIO DE VENCEDOR -->
+  <div class="criterio">
+    <h2>Critério de Vencedor</h2>
+    <table>
+      <thead><tr><th>Sinal</th><th>Significa</th><th>Ação</th></tr></thead>
+      <tbody>
+        <tr><td>3+ comentários "isso acontece comigo"</td><td>Ângulo validado</td><td>Preparar ad com esse hook</td></tr>
+        <tr><td>10+ compartilhamentos em 48h</td><td>Hook forte</td><td>Escalar para LinkedIn Ads</td></tr>
+        <tr><td>50+ reações em 72h (perfil 500-2k)</td><td>Padrão vencedor</td><td>Variação A do ad criativo</td></tr>
+        <tr><td>Curtidas sem comentários</td><td>Simpatia, não dor real</td><td>Não escalar ainda</td></tr>
+        <tr><td>0 comentários + baixo engajamento</td><td>Ângulo errado</td><td>Passar para próxima variação</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<footer>
+  <span class="skill-badge">Skill 3/5 — /trend-hunting</span>
+  &nbsp; 12 variações · 4 padrões de origem · Âncora: relatorio-avatar.md (Dr. Marcelo)
+</footer>
+
+</body>
+</html>

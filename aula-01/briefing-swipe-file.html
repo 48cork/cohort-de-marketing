@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Swipe File — Pesquisador Aumentado</title>
+<style>
+  :root {
+    --bg: #f5f4f1;
+    --surface: #ffffff;
+    --dark: #1a1a1a;
+    --header-bg: #0d3b1a;
+    --accent: #2e7d32;
+    --accent-light: #e8f5e9;
+    --accent-border: #a5d6a7;
+    --copy-bg: #1a237e;
+    --copy-light: #e8eaf6;
+    --media-bg: #4a148c;
+    --media-light: #f3e5f5;
+    --warning-bg: #fff3e0;
+    --warning-border: #e65100;
+    --muted: #757575;
+    --border: #e0e0e0;
+    --font-body: Georgia, 'Times New Roman', serif;
+    --font-ui: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--dark); font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+  header {
+    background: var(--header-bg);
+    color: #fff;
+    padding: 36px 32px 28px;
+    border-bottom: 4px solid var(--accent);
+  }
+  header .eyebrow { font-family: var(--font-ui); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #7cb87e; margin-bottom: 6px; }
+  header h1 { font-size: 24px; font-weight: normal; line-height: 1.3; margin-bottom: 4px; }
+  header h1 em { font-style: normal; color: #a5d6a7; }
+  header .sub { font-family: var(--font-ui); font-size: 13px; color: #81c784; margin-bottom: 14px; }
+  header .meta { display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--font-ui); font-size: 12px; color: #81c784; }
+  header .meta strong { color: #c8e6c9; }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 36px 24px 80px; }
+
+  /* Resumo strip */
+  .resumo { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 40px; }
+  .resumo-item { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); padding: 14px 16px; border-radius: 0 4px 4px 0; }
+  .resumo-item .label { font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .resumo-item .val { font-size: 15px; font-weight: bold; color: var(--dark); }
+
+  section { margin-bottom: 48px; }
+  section h2 { font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 20px; }
+  p { margin-bottom: 12px; }
+  ol, ul { margin-left: 20px; margin-bottom: 12px; }
+  li { margin-bottom: 6px; line-height: 1.6; }
+
+  /* Top patterns */
+  .top-padrao {
+    background: var(--dark);
+    color: #f0f0f0;
+    border-radius: 4px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+  }
+  .top-padrao .rank { font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #a5d6a7; display: block; margin-bottom: 6px; }
+  .top-padrao h3 { font-size: 16px; margin-bottom: 8px; }
+  .top-padrao .resumo-padrao { font-size: 13px; color: #bbb; line-height: 1.6; margin-bottom: 10px; }
+  .top-padrao .exemplo { background: rgba(255,255,255,0.07); border-left: 3px solid #a5d6a7; padding: 8px 12px; font-size: 13px; font-style: italic; color: #ddd; border-radius: 0 3px 3px 0; margin-bottom: 10px; }
+  .top-padrao .meta-padrao { display: flex; gap: 24px; font-family: var(--font-ui); font-size: 11px; color: #888; }
+  .top-padrao .meta-padrao strong { color: #ccc; }
+
+  /* Briefings tipo */
+  .briefings-tipo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 540px) { .briefings-tipo { grid-template-columns: 1fr; } }
+  .briefing-tipo { background: var(--surface); border: 1px solid var(--border); padding: 12px 16px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
+  .briefing-tipo .nome { font-family: var(--font-ui); font-size: 13px; font-weight: 600; color: var(--dark); }
+  .briefing-tipo .qtd { font-family: var(--font-ui); font-size: 12px; color: var(--muted); }
+  .briefing-tipo .status-ok { font-family: var(--font-ui); font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; background: var(--accent); color: #fff; text-transform: uppercase; }
+  .briefing-tipo .status-block { font-family: var(--font-ui); font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; background: #e65100; color: #fff; text-transform: uppercase; }
+
+  /* Destinatarios */
+  .destinatarios { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .destinatarios { grid-template-columns: 1fr; } }
+
+  .destinatario { border-radius: 4px; padding: 22px 22px; }
+  .destinatario.copy { background: var(--copy-bg); color: #fff; }
+  .destinatario.media { background: var(--media-bg); color: #fff; }
+  .destinatario .quem { font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 8px; opacity: 0.7; }
+  .destinatario h3 { font-size: 15px; margin-bottom: 14px; line-height: 1.4; }
+  .destinatario ol { margin-left: 18px; }
+  .destinatario li { font-size: 13px; color: rgba(255,255,255,0.85); margin-bottom: 10px; line-height: 1.55; }
+  .destinatario li strong { color: #fff; }
+
+  /* Callout channel */
+  .channel-box {
+    background: var(--accent-light);
+    border: 1px solid var(--accent-border);
+    border-left: 5px solid var(--accent);
+    padding: 18px 22px;
+    border-radius: 0 4px 4px 0;
+  }
+  .channel-box h3 { font-size: 15px; margin-bottom: 10px; color: #1b5e20; }
+  .channel-box ul { margin-left: 18px; }
+  .channel-box li { font-size: 13px; color: #2e7d32; margin-bottom: 6px; }
+  .channel-box li strong { color: #1b5e20; }
+
+  /* Footer */
+  .footer { border-top: 1px solid var(--border); padding-top: 20px; margin-top: 60px; font-family: var(--font-ui); font-size: 12px; color: var(--muted); }
+  .skill-badge { display: inline-block; background: var(--dark); color: #fff; font-family: var(--font-ui); font-size: 11px; padding: 3px 9px; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Cohort de Marketing Lendario — Aula 01 / Skill 4 de 5</div>
+  <h1>Briefing Swipe File — <em>Pesquisador Aumentado</em></h1>
+  <div class="sub">Handoff pronto para Copy e Media Buyer</div>
+  <div class="meta">
+    <span><strong>Atualizado:</strong> 27 jun 2026</span>
+    <span><strong>Briefings ativos:</strong> 1</span>
+    <span><strong>Referencias totais:</strong> 5 criativos / 13 brechas</span>
+    <span><strong>Top pattern:</strong> Inversao de Angulo</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- RESUMO STRIP -->
+  <div class="resumo">
+    <div class="resumo-item">
+      <div class="label">Atualizado</div>
+      <div class="val">27/06/2026</div>
+    </div>
+    <div class="resumo-item">
+      <div class="label">Briefings ativos</div>
+      <div class="val">1 (captura inicial)</div>
+    </div>
+    <div class="resumo-item">
+      <div class="label">Referencias totais</div>
+      <div class="val">5 criativos</div>
+    </div>
+    <div class="resumo-item">
+      <div class="label">Top pattern</div>
+      <div class="val">Inversao de Angulo</div>
+    </div>
+  </div>
+
+  <!-- TOP PATTERNS -->
+  <section>
+    <h2>Top 3 patterns vencedores</h2>
+
+    <div class="top-padrao">
+      <span class="rank">#1 Pattern</span>
+      <h3>Inversao de Angulo — anti-modelo como headline</h3>
+      <p class="resumo-padrao">Pegar a copy do concorrente que revela um pressuposto problematico e invertê-la. Funciona porque o professor reconhece imediatamente a situacao sem precisar de contexto.</p>
+      <div class="exemplo">"Ha um curso que ensina o aluno a parecer produtivo na sua sala de orientacao. Este ensina voce a fazer perguntas que fazem ele pensar de verdade."</div>
+      <div class="meta-padrao">
+        <div><strong>Base:</strong> sw04 — Camila Isaton</div>
+        <div><strong>Performance:</strong> anti-modelo com maximo aproveitamento por inversao</div>
+      </div>
+    </div>
+
+    <div class="top-padrao">
+      <span class="rank">#2 Pattern</span>
+      <h3>Problema + Numero + Alivio Emocional</h3>
+      <p class="resumo-padrao">Pergunta de identificacao + numero especifico (prazo/resultado) + permissao emocional. Padrao mais frequente nos top-sellers do mercado B2C de TCC.</p>
+      <div class="exemplo">"Recebendo o mesmo capitulo pela 4a vez? Existe uma pergunta que evita a 5a rodada. E nao e 'voce leu o artigo?'"</div>
+      <div class="meta-padrao">
+        <div><strong>Base:</strong> sw01 (9/10) + sw03 (7/10)</div>
+        <div><strong>Performance:</strong> 2 winners em 2 concorrentes diferentes = padrao validado</div>
+      </div>
+    </div>
+
+    <div class="top-padrao">
+      <span class="rank">#3 Pattern</span>
+      <h3>Vacuo B2B Revelado pelo Proprio Concorrente</h3>
+      <p class="resumo-padrao">Os concorrentes JA provaram que o professor nao e cliente — "orientador online" e "sem depender do orientador" sao copy do player dominante com 49k alunos. Usar o dado do concorrente como prova do vacuo que o PA ocupa.</p>
+      <div class="exemplo">"Ha um produto com 49 mil alunos que ensina o aluno a nao precisar de voce. O Pesquisador Aumentado ensina voce a ser insubstituivel."</div>
+      <div class="meta-padrao">
+        <div><strong>Base:</strong> sw02 + sw03</div>
+        <div><strong>Performance:</strong> timing ideal — mercado B2C saturado, B2B intocado</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRIEFINGS POR TIPO -->
+  <section>
+    <h2>Briefings por tipo</h2>
+    <div class="briefings-tipo">
+      <div class="briefing-tipo">
+        <div>
+          <div class="nome">Hooks de landing page</div>
+          <div class="qtd">sw01, sw03, sw05 — 3 referencias</div>
+        </div>
+        <span class="status-ok">Ativo</span>
+      </div>
+      <div class="briefing-tipo">
+        <div>
+          <div class="nome">Hooks de posicionamento</div>
+          <div class="qtd">sw02 — 1 referencia</div>
+        </div>
+        <span class="status-ok">Ativo</span>
+      </div>
+      <div class="briefing-tipo">
+        <div>
+          <div class="nome">Hooks de inversao</div>
+          <div class="qtd">sw04 — 1 anti-modelo</div>
+        </div>
+        <span class="status-ok">Ativo</span>
+      </div>
+      <div class="briefing-tipo">
+        <div>
+          <div class="nome">Hooks de tendencia organica</div>
+          <div class="qtd">Reels, TikTok, LinkedIn</div>
+        </div>
+        <span class="status-block">Bloqueado (Apify)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINATARIOS -->
+  <section>
+    <h2>Handoff por destinatario</h2>
+    <div class="destinatarios">
+
+      <div class="destinatario copy">
+        <span class="quem">Para Copy</span>
+        <h3>Top 5 hooks adaptaveis ao ICP</h3>
+        <ol>
+          <li><strong>Inversao direta (sw04):</strong> "Ha um curso que ensina o aluno a parecer produtivo na sua sala de orientacao. Este ensina voce a fazer perguntas que fazem ele pensar de verdade." → headline LP + post LinkedIn</li>
+          <li><strong>Prazo numerico invertido (sw01):</strong> "De 6 rodadas de correcao para 2: o que muda quando o orientador usa as perguntas certas desde a primeira reuniao." → copy de feature, email de nutricao</li>
+          <li><strong>Tensao de mercado (sw02):</strong> "Ha um produto com 49 mil alunos que se posiciona como substituto do orientador. Voce ja tem uma metodologia que supera o que essa IA faz?" → post LinkedIn de tensao</li>
+          <li><strong>Pergunta de entrada (sw01):</strong> "Voce ja recebeu um TCC feito por IA?" → headline de anuncio, CTA de conteudo organico, abertura de email</li>
+          <li><strong>Credencial de par (sw05 invertido):</strong> "Testado em 3 bancas de TCC de pos-graduacao stricto sensu. 0 reprovaloes. Media de rodadas de correcao: 2 (antes: 6+)." → bloco de prova social na LP</li>
+        </ol>
+      </div>
+
+      <div class="destinatario media">
+        <span class="quem">Para Media Buyer</span>
+        <h3>Top 5 angulos validados pelos concorrentes</h3>
+        <ol>
+          <li><strong>Angulo "insubstituivel":</strong> Reel ou carrossel LinkedIn — hook de texto, primeiros 3s = "Voce sabe o que seu orientando estuda sobre TCC?"</li>
+          <li><strong>Angulo "ciclo corretivo":</strong> post texto longo LinkedIn — narrativa pessoal, hook = "4a vez que recebi o mesmo capitulo". Alto engajamento por identificacao de par.</li>
+          <li><strong>Angulo "garantia depende de voce":</strong> post LinkedIn ou thread — "Ha um produto que garante nota acima de 8. Essa nota, voce da." Tensao de identidade profissional.</li>
+          <li><strong>Angulo "IA do aluno vs IA do professor":</strong> Reel/video curto 60s — demo mostrando diferenca entre correcao reativa e pergunta socratica com IA. Topico 2024-2026.</li>
+          <li><strong>Angulo "entrar pelo problema":</strong> Single image — "Voce ja recebeu um TCC feito por IA?" sem texto explicativo. CTA: "descubra o que fazer." Captura de lead.</li>
+        </ol>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CANAL + METRICAS -->
+  <section>
+    <h2>Canal prioritario e metricas de validacao</h2>
+    <div class="channel-box">
+      <h3>LinkedIn organico — validar antes de pagar trafego</h3>
+      <ul>
+        <li><strong>Por que LinkedIn:</strong> audiencia de professor universitario sem conteudo de orientacao de TCC — vacuo confirmado nos 3 dossies</li>
+        <li><strong>Formato inicial:</strong> post texto longo (sem imagem) — menor custo de producao, algoritmo favorece texto com engajamento de nicho</li>
+        <li><strong>Orcamento fase 1:</strong> R$ 0 (organico) — 1 post/semana por 4 semanas</li>
+        <li><strong>Metrica de validacao:</strong> 3+ comentarios com "isso acontece comigo" = angulo validado para transformar em anuncio pago</li>
+        <li><strong>Threshold para escalar:</strong> 1 post com 500+ impressoes organicas + 5+ comentarios de avatar → criar versao ads do mesmo hook</li>
+        <li><strong>Primeiro post recomendado:</strong> inversao sw04 — "Ha um curso que ensina o aluno a parecer produtivo..." (ja testavel como-esta)</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="footer">
+    <span class="skill-badge">Skill 4/5 — /swipe-file capturar</span>
+    <p style="margin-top:10px;">
+      Input: dossie-monografis + dossie-camila-isaton + dossie-amilton-quintela<br>
+      Proxima skill: <strong>/offerbook Pesquisador Aumentado</strong> — consolida TUDO no Livro da Oferta de 7 blocos (ultima skill da Aula 01)
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
