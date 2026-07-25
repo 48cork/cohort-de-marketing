@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Fundação de Copy — Pesquisador Aumentado™</title>
+<style>
+  :root{
+    --primary:#d97757;
+    --secondary:#141413;
+    --tertiary:#f0eee6;
+    --neutral:#5e5d59;
+    --surface:#faf9f5;
+    --text:#141413;
+    --text-muted:#5e5d59;
+    --border:#e3e2de;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--surface);
+    color:var(--text);
+    font-family:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    font-size:1.05rem;
+    line-height:1.68;
+  }
+  .page{
+    max-width:920px;
+    margin:0 auto;
+    padding:72px 24px 96px;
+  }
+  .label-mono{
+    font-family:ui-monospace,"SF Mono","Roboto Mono","JetBrains Mono","Consolas",monospace;
+    font-size:0.74rem;
+    font-weight:500;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--primary);
+  }
+  h1{
+    font-size:2.55rem;
+    font-weight:700;
+    line-height:1.12;
+    letter-spacing:-0.02em;
+    margin:12px 0 6px;
+  }
+  h2.subtitle{
+    font-size:1.26rem;
+    font-weight:500;
+    color:var(--text-muted);
+    margin:0 0 32px;
+  }
+  h2{
+    font-size:1.9rem;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    margin:56px 0 18px;
+    padding-bottom:10px;
+    border-bottom:2px solid var(--secondary);
+  }
+  h3{
+    font-size:1.18rem;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    margin:32px 0 12px;
+    color:var(--primary);
+  }
+  p{margin:0 0 16px;}
+  .meta-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:24px 28px;
+    margin-bottom:8px;
+  }
+  .meta-card p{margin:4px 0;font-size:0.97rem;}
+  .meta-card strong{color:var(--secondary);}
+  .callout{
+    background:var(--tertiary);
+    border-left:4px solid var(--primary);
+    border-radius:0 8px 8px 0;
+    padding:20px 24px;
+    margin:18px 0 28px;
+    font-size:0.99rem;
+  }
+  .callout p{margin:0 0 10px;}
+  .callout p:last-child{margin-bottom:0;}
+  .checkpoint{
+    background:var(--card);
+    border:2px solid var(--secondary);
+    border-radius:8px;
+    padding:26px 28px;
+    margin:32px 0;
+  }
+  .checkpoint h2{
+    border:none;
+    margin-top:0;
+    font-size:1.4rem;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:18px 0 28px;
+    font-size:0.95rem;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    overflow:hidden;
+  }
+  th,td{
+    text-align:left;
+    padding:10px 14px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+  }
+  th{
+    background:var(--secondary);
+    color:var(--surface);
+    font-family:ui-monospace,"SF Mono","Roboto Mono","JetBrains Mono","Consolas",monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  tr:last-child td{border-bottom:none;}
+  tr:nth-child(even) td{background:var(--tertiary);}
+  blockquote{
+    font-family:"Iowan Old Style","Palatino Linotype",Georgia,"Times New Roman",serif;
+    font-size:1.35rem;
+    line-height:1.5;
+    color:var(--secondary);
+    border-left:4px solid var(--primary);
+    margin:24px 0;
+    padding:6px 0 6px 24px;
+  }
+  .big-idea{
+    background:var(--secondary);
+    color:var(--surface);
+    border-radius:8px;
+    padding:32px;
+    margin:24px 0;
+    font-family:"Iowan Old Style","Palatino Linotype",Georgia,"Times New Roman",serif;
+    font-size:1.35rem;
+    line-height:1.5;
+  }
+  .tag{
+    display:inline-block;
+    font-family:ui-monospace,"SF Mono","Roboto Mono","JetBrains Mono","Consolas",monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:var(--primary);
+    background:var(--tertiary);
+    border-radius:4px;
+    padding:2px 8px;
+    margin-left:6px;
+  }
+  hr{
+    border:none;
+    border-top:1px solid var(--border);
+    margin:40px 0;
+  }
+  .footer{
+    margin-top:56px;
+    padding-top:20px;
+    border-top:1px solid var(--border);
+    font-size:0.85rem;
+    color:var(--text-muted);
+  }
+  @media (prefers-color-scheme: dark){
+    body{background:#141413;color:#f0eee6;}
+    .meta-card,table,.checkpoint{background:#1e1d1b;border-color:#33322f;}
+    tr:nth-child(even) td{background:#26241f;}
+    td,th{border-color:#33322f;}
+    .callout{background:#26241f;}
+    h2{border-bottom-color:#f0eee6;}
+    .big-idea{background:#d97757;color:#141413;}
+    .footer{color:#9a9890;border-top-color:#33322f;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="label-mono">Fundação de Copy · Fases 1-3 · Modo retroativo</div>
+  <h1>Pesquisador Aumentado™</h1>
+  <h2 class="subtitle">O Método Socrático com IA para Professores Orientadores de TCC</h2>
+
+  <div class="meta-card">
+    <p><strong>Skill:</strong> /copy-funil (Fases 1 a 3, modo retroativo)</p>
+    <p><strong>Data:</strong> 25 de julho de 2026</p>
+    <p><strong>Fonte:</strong> offerbook.md (aprovado pelo dono da oferta em 25/07/2026) + relatorio-avatar.md + funil.md + swipe-file-index.md + 3 dossiês de concorrente</p>
+    <p><strong>Status:</strong> Fundação aprovada como fonte única de mensagem. Fases 4 e 5 nascem em /pagina-vendas-funil e /email-funil, lendo este documento. Fase 6 (validação) fica pendente até essas peças estarem publicadas.</p>
+  </div>
+
+  <div class="callout">
+    <p><strong>Nota de modo retroativo.</strong> Este projeto já tinha copy escrita antes desta fundação existir: três versões de headline de LP, quatro anúncios e uma sequência de 10 e-mails, todos registrados no offerbook. Esta fundação não descarta esse material: formaliza o raciocínio por trás dele e expande o banco de headlines e bullets para dar mais opções às skills de peça.</p>
+  </div>
+
+  <h2>Gate de compliance e honestidade de prova</h2>
+  <p>Nicho (educação superior / orientação acadêmica) não é regulado. Números de ROI (R$4,23/hora, R$22/aluno) são estimativas declaradas, nunca promessas de resultado.</p>
+  <ul>
+    <li>O depoimento do Pedro (UFCG) é prova do <strong>mecanismo</strong>, não do <strong>comprador</strong>. Sempre rotulado assim.</li>
+    <li>Depoimento direto de professor: <span class="tag">SEM PROVA AINDA</span></li>
+    <li>Bônus de lançamento: <span class="tag">A DEFINIR PELO DONO DA OFERTA</span></li>
+  </ul>
+
+  <h2>Fase 1 — Fundação (Schwartz → Hopkins)</h2>
+
+  <h3>Nível de consciência (multi-fase)</h3>
+  <table>
+    <tr><th>Fase do funil</th><th>Nível dominante</th><th>Por quê</th></tr>
+    <tr><td>LinkedIn orgânico (rede do autor)</td><td>2 → 3</td><td>Já viu posts nomeando o ciclo corretivo; parte já suspeita que existe um jeito diferente.</td></tr>
+    <tr><td>LinkedIn Ads frio (por cargo)</td><td><strong>2 — Consciente do problema</strong></td><td>Sente a dor, mas costuma culpar o aluno. Não conhece o produto nem o mecanismo.</td></tr>
+    <tr><td>Google Ads (busca ativa)</td><td>3 — Consciente da solução</td><td>Já busca resposta; só não conhece o produto.</td></tr>
+  </table>
+  <p><strong>Diagnóstico primário:</strong> Nível 2. É o canal de maior escala e o mais exigente: nomear a dor antes de vender solução ou mecanismo.</p>
+
+  <h3>Estágio de sofisticação</h3>
+  <p>Estágio 1 (Primeiro no mercado) para o ângulo B2B professor. Vácuo confirmado: mercado de suporte a TCC é 100% B2C. O contraste "eles vendem pro aluno, isto é pra você" funciona como diferenciação clássica em mercado adjacente saturado.</p>
+
+  <h3>Desejo de massa a canalizar</h3>
+  <p>Reconhecimento intelectual e legado como orientador, não produtividade. Tempo recuperado é a métrica racional; identidade de bom orientador é o motor emocional.</p>
+
+  <h3>Direção de headline e implicações</h3>
+  <p>Nível 2 pede identificação direta da dor antes de mecanismo/produto. O banco de headlines reserva a maior fatia para nível 2 (identificação + emocional) e um bloco menor de mecanismo para nível 3 (Google Ads).</p>
+
+  <h3>Base científica (Hopkins)</h3>
+  <table>
+    <tr><th>Item</th><th>Conteúdo</th></tr>
+    <tr><td>Resultados mensuráveis</td><td>CTR por ângulo, opt-in da isca, abertura/clique de e-mail, conversão da LP, CAC vs. ticket R$127</td></tr>
+    <tr><td>Baselines</td><td>3+ comentários / 10+ compartilhamentos em 48h / 50+ reações em 72h (orgânico); conversão de LP 1-3% (a confirmar)</td></tr>
+    <tr><td>Hipóteses de teste</td><td>H1: contraste B2C-vs-B2B converte mais que identidade em tráfego frio · H2: R$/hora converte mais no emocional, R$/aluno no racional · H3: reforçar garantia recupera o cético</td></tr>
+    <tr><td>Princípios aplicados</td><td>Especificidade (45h, R$4,23, 5-7 perguntas) · Reason-why (IA do lado do professor) · Prova (Pedro, autoridade, garantia)</td></tr>
+  </table>
+
+  <h2>Fase 2 — Estratégia (Kennedy → Todd Brown)</h2>
+
+  <h3>3M's de Kennedy</h3>
+  <p><strong>Mercado:</strong> Dr. Marcelo, 38-52 anos, professor federal concursado, doutor, R$8.000-14.000/mês, 8-25 orientandos/semestre.</p>
+  <p><strong>Mensagem:</strong> parar de corrigir e provocar pensamento, com IA do lado do professor. Urgência real (o próximo ciclo já está a caminho), não artificial.</p>
+  <p><strong>Mídia:</strong> LinkedIn orgânico → LinkedIn Ads frio → Google Ads, em ordem de aquecimento.</p>
+  <p><strong>Oferta:</strong> e-book (intro + 5 capítulos) + isca digital gratuita + bônus <span class="tag">A DEFINIR</span> + garantia 7 dias + R$127 à vista.</p>
+
+  <h3>Mecanismo do Problema — "Corretor Compulsivo"</h3>
+  <p>O professor não vira corretor por escolha. O doutorado ensinou a fazer pesquisa, não a ensinar alguém a fazer pesquisa, e a orientação de TCC não conta ponto em lugar nenhum do sistema. Corrigir o texto que chegou é a única ferramenta que sobrou.</p>
+
+  <h3>Mecanismo da Solução — "Roteiro Socrático + IA"</h3>
+  <p>A IA entra do lado do professor, antes da sessão: descreve o bloqueio, recebe um roteiro de 5 a 7 perguntas calibradas. Na reunião, o professor pergunta, não corrige. O aluno nunca vê a IA, o que neutraliza de saída a objeção "vai incentivar a colar".</p>
+
+  <h3>Big Marketing Idea</h3>
+  <div class="big-idea">
+    "Você não tem um aluno que não pensa. Você tem um método que ninguém te ensinou a trocar: de corretor para questionador. E a pergunta certa, feita no minuto certo, faz mais numa sessão do que a sexta correção nunca fez."
+  </div>
+  <p>Intelectualmente interessante (reformula quem é o problema), emocionalmente irresistível (remove a culpa, aponta identidade desejada), impossível de ignorar (é um espelho de uma cena que todo orientador já viveu).</p>
+
+  <h3>Arquitetura de prova</h3>
+  <ol>
+    <li>Autoridade de par: professor concursado, doutorado na França, pós-doutorado em Paris.</li>
+    <li>Prova de mecanismo: depoimento do Pedro (rotulado, não é prova de comprador).</li>
+    <li>Redução de risco: garantia incondicional de 7 dias.</li>
+    <li>Especificidade declarada, nunca prometida: ROI em R$/hora ou R$/aluno.</li>
+  </ol>
+
+  <div class="checkpoint">
+    <h2>Checkpoint — Big Idea, mecanismos e avatar</h2>
+    <p><strong>Avatar:</strong> Dr. Marcelo, professor federal, 38-52 anos, doutor, 8-25 orientandos/semestre.</p>
+    <p><strong>Mecanismo do Problema:</strong> Corretor Compulsivo.</p>
+    <p><strong>Mecanismo da Solução:</strong> Roteiro Socrático + IA.</p>
+    <p><strong>Big Idea:</strong> "Você não tem um aluno que não pensa. Você tem um método que ninguém te ensinou a trocar: de corretor para questionador."</p>
+    <p>Se algo aqui não estiver certo, é o momento de ajustar antes do banco de headlines e bullets.</p>
+  </div>
+
+  <h2>Fase 3 — Criação (Halbert → Bencivenga)</h2>
+
+  <h3>Banco de 25 headlines</h3>
+
+  <p><strong>Bloco A — História/Curiosidade (nível 2)</strong></p>
+  <table>
+    <tr><th>#</th><th>Headline</th></tr>
+    <tr><td>A1</td><td>Você já recebeu o mesmo capítulo pela quarta vez, com o mesmo erro só que com outra roupa?</td></tr>
+    <tr><td>A2</td><td>Eu não sou coach de produtividade. Sou professor concursado que passou anos corrigindo o mesmo erro.</td></tr>
+    <tr><td>A3</td><td>O dia em que percebi que fui treinado para pesquisar, não para ensinar a pesquisar.</td></tr>
+    <tr><td>A4</td><td>Ninguém nunca me ensinou a orientar. Então eu inventei um jeito, e funcionou.</td></tr>
+    <tr><td>A5</td><td>A pergunta que fiz numa reunião de orientação mudou o resto da minha carreira como orientador.</td></tr>
+    <tr><td>A6</td><td>Por que um professor com doutorado na França e pós-doutorado em Paris parou de corrigir texto de aluno.</td></tr>
+    <tr><td>A7</td><td>A diferença entre o professor que o aluno esquece e o que ele lembra 10 anos depois cabe numa pergunta.</td></tr>
+    <tr><td>A8</td><td>O que Sócrates sabia sobre orientação de pesquisa 2.400 anos antes de existir TCC.</td></tr>
+  </table>
+
+  <p><strong>Bloco B — Benefício direto (nível 2-3)</strong></p>
+  <table>
+    <tr><th>#</th><th>Headline</th></tr>
+    <tr><td>B1</td><td>Pare de corrigir o que o aluno traz. Faça as perguntas certas com IA e deixe ele chegar lá sozinho.</td></tr>
+    <tr><td>B2</td><td>De 4-6 rodadas corretivas por capítulo para 1-2. Metodologia socrática com IA para orientador de TCC.</td></tr>
+    <tr><td>B3</td><td>Recupere as horas por semestre que o ciclo corretivo tira da sua pesquisa.</td></tr>
+    <tr><td>B4</td><td>O método que faz o aluno chegar pensando na próxima reunião, não reescrevendo mecanicamente.</td></tr>
+    <tr><td>B5</td><td>Orientações mais curtas, com o aluno levando a conversa, não você levando o texto dele.</td></tr>
+    <tr><td>B6</td><td>Transforme reunião de correção em diálogo de pesquisa, com 5 a 7 perguntas certas.</td></tr>
+    <tr><td>B7</td><td>O e-book que devolve ao professor as horas que a orientação estrutural sempre tomou de graça.</td></tr>
+    <tr><td>B8</td><td>Menos e-mail pedindo "olha meu rascunho de novo". Mais aluno que já chega com resposta própria.</td></tr>
+  </table>
+
+  <p><strong>Bloco C — Baseadas em mecanismo (nível 3)</strong></p>
+  <table>
+    <tr><th>#</th><th>Headline</th></tr>
+    <tr><td>C1</td><td>Roteiro Socrático + IA: a inteligência artificial fica do seu lado, não do lado do aluno.</td></tr>
+    <tr><td>C2</td><td>O único método de orientação que usa IA para o professor montar perguntas, não para o aluno escrever texto.</td></tr>
+    <tr><td>C3</td><td>5 a 7 perguntas calibradas por bloqueio. Isso é o roteiro socrático com IA.</td></tr>
+    <tr><td>C4</td><td>A diferença entre corrigir texto e provocar pensamento cabe numa pergunta bem feita. A IA ajuda a achá-la.</td></tr>
+    <tr><td>C5</td><td>Metodologia socrática existe há 2.400 anos. Aplicada à orientação de TCC com IA, é nova: ninguém tinha empacotado isso ainda.</td></tr>
+  </table>
+
+  <p><strong>Bloco D — Emocionais (nível 2)</strong></p>
+  <table>
+    <tr><th>#</th><th>Headline</th></tr>
+    <tr><td>D1</td><td>Você não quer ser lembrado como o professor que corrigiu o TCC. Quer ser lembrado como o que ensinou a pensar.</td></tr>
+    <tr><td>D2</td><td>Há um curso que ensina o aluno a parecer produtivo na sua sala de orientação. Este ensina você a fazer perguntas que fazem ele pensar de verdade.</td></tr>
+    <tr><td>D3</td><td>O sistema nunca te preparou para orientar. O mercado nunca fez um produto para você. Isso muda agora.</td></tr>
+    <tr><td>D4</td><td>Você entrou na academia pela pesquisa. Não devia estar preso corrigindo o mesmo parágrafo pela quarta vez.</td></tr>
+  </table>
+
+  <h3>Top 5 selecionadas</h3>
+  <table>
+    <tr><th>Ord.</th><th>Headline</th><th>Nível</th><th>Por quê</th></tr>
+    <tr><td>1</td><td>D2 — "Há um curso que ensina o aluno a parecer produtivo..."</td><td>2-3</td><td>Já testada no Focus Group Sintético: 8/10 com a Dra. Camila. Nomeia o vácuo de mercado em uma frase.</td></tr>
+    <tr><td>2</td><td>B1 — "Pare de corrigir o que o aluno traz..."</td><td>2</td><td>Já é a headline da Versão A da LP no offerbook. Benefício direto.</td></tr>
+    <tr><td>3</td><td>D1 — "Você não quer ser lembrado como o professor..."</td><td>2</td><td>Ativa o desejo de massa (reconhecimento/legado), não a dor operacional.</td></tr>
+    <tr><td>4</td><td>C1 — "Roteiro Socrático + IA: a IA fica do seu lado..."</td><td>3</td><td>Neutraliza a objeção #1 na própria headline. Indicada para Google Ads.</td></tr>
+    <tr><td>5</td><td>A1 — "Você já recebeu o mesmo capítulo pela quarta vez..."</td><td>2</td><td>Pergunta de identificação pura, padrão sw01 do swipe file (9/10, já validado).</td></tr>
+  </table>
+
+  <h3>Banco de 50 bullets — Fascinations (30)</h3>
+  <table>
+    <tr><th>ID</th><th>Bullet</th><th>Princípio</th></tr>
+    <tr><td>F1</td><td>Por que corrigir o texto do seu aluno pela quinta vez ensina exatamente zero sobre pensar (e o que fazer no lugar disso)</td><td>Curiosidade + Contraste</td></tr>
+    <tr><td>F2</td><td>A pergunta de uma frase que faz em 30 segundos o que 6 rodadas de correção nunca fizeram</td><td>Especificidade + Curiosidade</td></tr>
+    <tr><td>F3</td><td>O motivo pelo qual "dar mais tempo ao aluno" e "ser mais rígido nas correções" pioram o mesmo problema</td><td>Contraintuitivo</td></tr>
+    <tr><td>F4</td><td>Por que a IA do lado errado do processo de orientação é o motivo do ciclo corretivo nunca acabar</td><td>Causa oculta</td></tr>
+    <tr><td>F5</td><td>O erro que 5 estratégias diferentes de correção têm em comum, e por que nenhuma resolve</td><td>Padrão oculto</td></tr>
+    <tr><td>F6</td><td>A diferença de uma palavra entre "seu referencial teórico está mal articulado" e a pergunta que faz o aluno descobrir sozinho a mesma lacuna</td><td>Prova/Exemplo</td></tr>
+    <tr><td>F7</td><td>Por que "praticamente não há preparação para a orientação acadêmica" não é uma crítica, é um dado de pesquisa</td><td>Reason-why/Prova</td></tr>
+    <tr><td>F8</td><td>O nome que a ciência da educação dá para o ciclo que consome dezenas de horas do seu semestre sem ensinar nada</td><td>Nomeação</td></tr>
+    <tr><td>F9</td><td>Por que um método de 2.400 anos nunca foi empacotado para orientador de TCC de graduação, até agora</td><td>Bambu chinês</td></tr>
+    <tr><td>F10</td><td>A pergunta que separa "aluno que reescreve mecanicamente" de "aluno que chega pensando"</td><td>Contraste</td></tr>
+    <tr><td>F11</td><td>O que muda quando você troca a ferramenta de corretor para questionador, sem mudar o aluno</td><td>Mecanismo</td></tr>
+    <tr><td>F12</td><td>Por que seu doutorado te ensinou a fazer pesquisa, mas nunca a ensinar alguém a fazer pesquisa</td><td>Causa oculta</td></tr>
+    <tr><td>F13</td><td>A frase que dezenas de professores de universidades federais repetiram, sem nunca ter se falado</td><td>Prova social/pesquisa</td></tr>
+    <tr><td>F14</td><td>O motivo pelo qual "os alunos de hoje não sabem pensar" é a armadilha que mantém o ciclo corretivo vivo</td><td>Armadilha nomeada</td></tr>
+    <tr><td>F15</td><td>Por que o mercado de TCC faturou centenas de milhões vendendo para o aluno, e nunca fez um produto para você</td><td>Vácuo/Injustiça</td></tr>
+    <tr><td>F16</td><td>A hora exata da orientação em que o roteiro socrático substitui a correção, e o que fazer nesse minuto</td><td>Especificidade</td></tr>
+    <tr><td>F17</td><td>Por que "IA vai incentivar o aluno a colar" é a objeção errada quando a IA nunca chega perto do aluno</td><td>Neutralização de objeção</td></tr>
+    <tr><td>F18</td><td>O cálculo de uma linha que mostra quanto vale, em reais, cada hora que o ciclo corretivo tira de você</td><td>ROI/Especificidade</td></tr>
+    <tr><td>F19</td><td>Por que orientar 15 alunos com o método corretivo custa mais caro do que orientar 15 com o roteiro socrático, sem gastar um real a mais</td><td>Contraintuitivo</td></tr>
+    <tr><td>F20</td><td>A pergunta que fez um aluno de História, orientado por metodologia socrática, sair da sessão com a própria conclusão sobre Bourdieu</td><td>Prova/Exemplo real</td></tr>
+    <tr><td>F21</td><td>Por que a sétima versão do mesmo capítulo nunca chega, quando a pergunta certa acontece na primeira</td><td>Resultado projetado</td></tr>
+    <tr><td>F22</td><td>O motivo pelo qual rubrica de avaliação ensina o aluno a preencher rubrica, não a pensar</td><td>Contraintuitivo</td></tr>
+    <tr><td>F23</td><td>Por que dar mais exemplos de texto bom ensina o aluno a copiar, não a entender o princípio</td><td>Contraintuitivo</td></tr>
+    <tr><td>F24</td><td>A diferença entre um professor com 200 TCCs orientados na carreira e um professor com um método</td><td>Distinção de status</td></tr>
+    <tr><td>F25</td><td>Por que orientar com menos frequência piora exatamente o problema que deveria resolver</td><td>Contraintuitivo</td></tr>
+    <tr><td>F26</td><td>O nome da situação em que o professor está preso: nem descuidado, nem incompetente, só sem ferramenta</td><td>Absolvição de culpa</td></tr>
+    <tr><td>F27</td><td>Por que o Capítulo 5 do e-book pode ser aplicado na próxima reunião, sem ler o resto antes</td><td>Objeção de tempo resolvida</td></tr>
+    <tr><td>F28</td><td>A garantia que existe porque "orientador sério não compra no escuro"</td><td>Prova/Garantia</td></tr>
+    <tr><td>F29</td><td>Por que R$127 não resolve o sistema, mas resolve as próximas 3 reuniões de orientação</td><td>Reframe de objeção</td></tr>
+    <tr><td>F30</td><td>O que o professor recupera quando para de corrigir texto e começa a fazer perguntas: não é só tempo</td><td>Curiosidade final</td></tr>
+  </table>
+
+  <h3>Benefícios diretos (20)</h3>
+  <table>
+    <tr><th>ID</th><th>Bullet</th><th>Princípio</th></tr>
+    <tr><td>B1</td><td>Um roteiro de 5 a 7 perguntas socráticas calibradas para o bloqueio específico do seu orientando, gerado antes de cada sessão</td><td>Especificidade</td></tr>
+    <tr><td>B2</td><td>Redução das rodadas corretivas por capítulo, de 4-6 para 1-2</td><td>Especificidade/Resultado</td></tr>
+    <tr><td>B3</td><td>Reuniões de orientação mais curtas e mais produtivas, com o aluno levando a conversa</td><td>Benefício direto</td></tr>
+    <tr><td>B4</td><td>Um protocolo de orientação em 3 camadas: antes, durante e depois da sessão</td><td>Estrutura</td></tr>
+    <tr><td>B5</td><td>Templates e prompts prontos para usar com IA na preparação de cada sessão</td><td>Praticidade</td></tr>
+    <tr><td>B6</td><td>Um capítulo (o 5º) que você pode aplicar na próxima reunião de orientação, sem ler o resto do e-book antes</td><td>Objeção de tempo</td></tr>
+    <tr><td>B7</td><td>A distinção exata entre ghostwriter de IA e IA como interlocutor socrático, para você nunca confundir os dois papéis</td><td>Clareza/Reason-why</td></tr>
+    <tr><td>B8</td><td>Os 4 tipos de pergunta socrática (origem, premissa, justificativa metodológica, originalidade) que cobrem qualquer bloqueio de capítulo</td><td>Estrutura</td></tr>
+    <tr><td>B9</td><td>Um e-book de introdução mais 5 capítulos práticos, sem enrolação teórica</td><td>Especificidade</td></tr>
+    <tr><td>B10</td><td>Isca digital com as 7 perguntas socráticas que todo orientador deveria fazer antes de qualquer sessão</td><td>Praticidade</td></tr>
+    <tr><td>B11</td><td>Garantia incondicional de 7 dias: aplique, e se não sentir que valeu, o valor volta sem perguntas</td><td>Redução de risco</td></tr>
+    <tr><td>B12</td><td>Um método que resolve suas próximas 3 reuniões de orientação, não a estrutura da universidade</td><td>Reframe de expectativa</td></tr>
+    <tr><td>B13</td><td>A diferença entre "seu referencial teórico está mal articulado" e a pergunta que faz o aluno achar a lacuna sozinho, com exemplo real</td><td>Prova</td></tr>
+    <tr><td>B14</td><td>Menos e-mails de orientando pedindo "olha meu rascunho de novo"</td><td>Benefício direto</td></tr>
+    <tr><td>B15</td><td>Um aluno que chega à próxima reunião com resposta própria, não com reescrita mecânica do que você apontou</td><td>Resultado</td></tr>
+    <tr><td>B16</td><td>O tempo recuperado do ciclo corretivo, redirecionado para o artigo que estava parado há semanas</td><td>Benefício profundo</td></tr>
+    <tr><td>B17</td><td>Um método construído por quem viveu o mesmo problema: professor concursado, doutorado na França, pós-doutorado em Paris, sem ser coach externo</td><td>Autoridade/Credencial</td></tr>
+    <tr><td>B18</td><td>Vocabulário que você já usa e respeita: socrático, maiêutica, autonomia do pesquisador, rigor metodológico, não jargão de marketing</td><td>Alinhamento de linguagem</td></tr>
+    <tr><td>B19</td><td>Um cálculo de ROI declarado, não prometido: R$4,23 por hora de orientação transformada, para 15 orientandos</td><td>Especificidade/Honestidade</td></tr>
+    <tr><td>B20</td><td>Acesso a um método que nenhum outro produto do mercado de TCC oferece: feito para o professor, não para o aluno</td><td>Vácuo/USP</td></tr>
+  </table>
+
+  <h3>Top 15 selecionados para a peça de vendas</h3>
+  <table>
+    <tr><th>Ord.</th><th>ID</th><th>Bullet</th><th>Princípio</th></tr>
+    <tr><td>1</td><td>F2</td><td>A pergunta de uma frase que faz em 30 segundos o que 6 rodadas de correção nunca fizeram</td><td>Curiosidade + Especificidade</td></tr>
+    <tr><td>2</td><td>F6</td><td>A diferença de uma palavra entre "seu referencial teórico está mal articulado" e a pergunta que faz o aluno descobrir sozinho a mesma lacuna</td><td>Prova/Exemplo</td></tr>
+    <tr><td>3</td><td>F9</td><td>Por que um método de 2.400 anos nunca foi empacotado para orientador de TCC de graduação, até agora</td><td>Bambu chinês</td></tr>
+    <tr><td>4</td><td>F17</td><td>Por que "IA vai incentivar o aluno a colar" é a objeção errada quando a IA nunca chega perto do aluno</td><td>Neutralização de objeção</td></tr>
+    <tr><td>5</td><td>F18</td><td>O cálculo de uma linha que mostra quanto vale, em reais, cada hora que o ciclo corretivo tira de você</td><td>ROI/Especificidade</td></tr>
+    <tr><td>6</td><td>F20</td><td>A pergunta que fez um aluno de História, orientado por metodologia socrática, sair da sessão com a própria conclusão sobre Bourdieu</td><td>Prova/Exemplo real (mecanismo)</td></tr>
+    <tr><td>7</td><td>F26</td><td>O nome da situação em que o professor está preso: nem descuidado, nem incompetente, só sem ferramenta</td><td>Absolvição de culpa</td></tr>
+    <tr><td>8</td><td>F28</td><td>A garantia que existe porque "orientador sério não compra no escuro"</td><td>Prova/Garantia</td></tr>
+    <tr><td>9</td><td>F29</td><td>Por que R$127 não resolve o sistema, mas resolve as próximas 3 reuniões de orientação</td><td>Reframe de objeção</td></tr>
+    <tr><td>10</td><td>B1</td><td>Um roteiro de 5 a 7 perguntas socráticas calibradas para o bloqueio específico do seu orientando, gerado antes de cada sessão</td><td>Especificidade</td></tr>
+    <tr><td>11</td><td>B6</td><td>Um capítulo (o 5º) que você pode aplicar na próxima reunião de orientação, sem ler o resto do e-book antes</td><td>Objeção de tempo</td></tr>
+    <tr><td>12</td><td>B11</td><td>Garantia incondicional de 7 dias: aplique, e se não sentir que valeu, o valor volta sem perguntas</td><td>Redução de risco</td></tr>
+    <tr><td>13</td><td>B17</td><td>Um método construído por quem viveu o mesmo problema: professor concursado, doutorado na França, pós-doutorado em Paris, sem ser coach externo</td><td>Autoridade/Credencial</td></tr>
+    <tr><td>14</td><td>B19</td><td>Um cálculo de ROI declarado, não prometido: R$4,23 por hora de orientação transformada, para 15 orientandos</td><td>Especificidade/Honestidade</td></tr>
+    <tr><td>15</td><td>B20</td><td>Acesso a um método que nenhum outro produto do mercado de TCC oferece: feito para o professor, não para o aluno</td><td>Vácuo/USP</td></tr>
+  </table>
+
+  <h3>Top 5 selecionados para anúncios</h3>
+  <table>
+    <tr><th>Ord.</th><th>ID</th><th>Bullet</th><th>Princípio</th></tr>
+    <tr><td>1</td><td>F1</td><td>Por que corrigir o texto do seu aluno pela quinta vez ensina exatamente zero sobre pensar</td><td>Curiosidade</td></tr>
+    <tr><td>2</td><td>F8</td><td>O nome que a ciência da educação dá para o ciclo que consome dezenas de horas do seu semestre sem ensinar nada</td><td>Nomeação</td></tr>
+    <tr><td>3</td><td>F15</td><td>Por que o mercado de TCC faturou centenas de milhões vendendo para o aluno, e nunca fez um produto para você</td><td>Vácuo/Injustiça</td></tr>
+    <tr><td>4</td><td>B2</td><td>Redução das rodadas corretivas por capítulo, de 4-6 para 1-2</td><td>Resultado/Especificidade</td></tr>
+    <tr><td>5</td><td>F14</td><td>O motivo pelo qual "os alunos de hoje não sabem pensar" é a armadilha que mantém o ciclo corretivo vivo</td><td>Armadilha nomeada</td></tr>
+  </table>
+
+  <div class="checkpoint">
+    <h2>Checkpoint — Headlines e bullets</h2>
+    <p><strong>5 headlines selecionadas:</strong> D2, B1, D1, C1, A1.</p>
+    <p><strong>15 bullets para a peça principal + 5 para anúncios:</strong> ver tabelas acima.</p>
+    <p>Se alguma headline ou bullet não estiver alinhado com a voz que você quer para o Pesquisador Aumentado™, ajuste aqui antes de rodar /pagina-vendas-funil ou /email-funil.</p>
+  </div>
+
+  <h2>Resumo</h2>
+  <p><strong>Fluxo usado:</strong> Lançamento Completo (Fases 1-3 nesta skill; Fases 4-5 nas skills de peça; Fase 6 pendente).</p>
+  <p><strong>Matriz de decisão:</strong> Q1=Consciente do problema (2, multi-fase) · Q2=Primeiro no mercado (1) · Q3=Baixo (R$127) · Q4=Frio (predominante) · Q5=Carta de Vendas.</p>
+  <p><strong>Frameworks aplicados:</strong> Eugene Schwartz, Claude Hopkins, Dan Kennedy, Todd Brown, Gary Halbert, Gary Bencivenga.</p>
+  <p><strong>Nota Hopkins / contagem Sugarman:</strong> pendentes até a Fase 6, depois de /pagina-vendas-funil e /email-funil publicarem as peças finais.</p>
+
+  <h2>Próximos passos</h2>
+  <p>O próximo passo é rodar <strong>/pagina-vendas-funil</strong> para gerar a carta de vendas completa lendo este copy.md (já existem 3 versões de headline de LP no offerbook para confrontar com as 5 selecionadas aqui). Em seguida, <strong>/email-funil</strong> para formalizar a sequência de 10 e-mails já rascunhada. Depois de ambas publicadas, volte para <strong>/copy-funil</strong> para rodar a Fase 6 (validação Hopkins + checklist Sugarman) sobre as peças prontas.</p>
+
+  <div class="footer">
+    <p>Fundação de copy gerada por /copy-funil (modo retroativo) — Skill 4 do Mapa de Execução do /metodo-funil, Aula 02 do Cohort de Marketing.</p>
+    <p>Inputs: offerbook.md + relatorio-avatar.md + funil.md + swipe-file-index.md + 3 dossiês de concorrente.</p>
+    <p>Regra-mãe: a copy aplicada de cada peça (LP, e-mails) nasce nas skills próprias, lendo este arquivo. Não aqui.</p>
+  </div>
+
+</div>
+</body>
+</html>
