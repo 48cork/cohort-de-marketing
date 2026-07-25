@@ -5,7 +5,7 @@
 **Skill:** `/metodo-funil` — método de elevação de consciência (Alan Nicolas), base teórica Hormozi ($100M Offers)
 **Data:** 25 de julho de 2026
 **Fonte:** `offerbook.md` (aprovado pelo dono da oferta em 25/07/2026) + `briefing-media-buyer.md`
-**Status:** Diagnóstico aprovado. Copy (04), E-mail (06) e Recuperação (09, em modo setup) concluídos — ver Mapa de Execução abaixo para o que falta.
+**Status:** Diagnóstico aprovado. Copy (04), E-mail (06), Recuperação (09, em modo setup) e Mockups (11) concluídos — ver Mapa de Execução abaixo para o que falta.
 
 ---
 
@@ -94,10 +94,11 @@ PEÇA            SKILL             STATUS E O QUE FALTA
                                   página de vendas existir.
 
 05 Página       /pagina-vendas-funil   PENDENTE — SEM SKILL neste cohort ainda. Copy já
-                /mockup-produto-funil  escrita (3 versões de headline no offerbook; copy.md
+                                  escrita (3 versões de headline no offerbook; copy.md
                                   selecionou a de contraste como #1 do banco). LP ainda não
-                                  existe no ar — montagem manual por enquanto. Falta também:
-                                  mockup do e-book (capa) e da isca digital (/mockup-produto-funil).
+                                  existe no ar — montagem manual por enquanto. Mockups do
+                                  e-book e da isca já prontos (ver 11 abaixo) pra usar
+                                  assim que a LP existir.
 
 06 Email        /email-funil      FEITO (25/07/2026). 10 e-mails em emails/, com índice
                                   clicável e documento de revisão. Depoimento do E6 usa o
@@ -126,13 +127,21 @@ PEÇA            SKILL             STATUS E O QUE FALTA
                                   briefing-media-buyer.md (CTR, CPL, watch time) — falta só
                                   formalizar a planilha de KPIs por etapa (visitas → cadastros
                                   → oferta → checkout → compras) mencionada no método.
+
+11 Mockups      /mockup-produto-funil  FEITO (25/07/2026). 5 prompts prontos em
+                                  mockups/mockups.md: capa do e-book, box do produto,
+                                  device mockup do índice, capa da isca, bundle produto+isca.
+                                  Falta você gerar as imagens na ferramenta de sua escolha.
+                                  Bônus de lançamento fica de fora do bundle até ser definido
+                                  (pendência 1).
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ordem recomendada a partir daqui:
-04 FEITO → 06 FEITO → 09 FEITO (setup) → 05 (LP, sem skill própria ainda — montagem manual
-usando copy.md) → 07 (publicar 4 posts orgânicos e medir) → 10 (formalizar planilha de KPIs)
-→ só então ativar LinkedIn Ads (fase 2 do briefing). 08 fica para depois da validação inicial.
-VOCÊ ESTÁ AQUI: 09 pronto mas em modo setup (falta confirmar rastreio Hotmart, pendências
-7-9); 05 pendente (sem skill); mockups (/mockup-produto-funil) disponível em paralelo.
+04 FEITO → 06 FEITO → 09 FEITO (setup) → 11 FEITO → 05 (LP, sem skill própria ainda —
+montagem manual usando copy.md + mockups) → 07 (publicar 4 posts orgânicos e medir) →
+10 (formalizar planilha de KPIs) → só então ativar LinkedIn Ads (fase 2 do briefing).
+08 fica para depois da validação inicial.
+VOCÊ ESTÁ AQUI: mockups prontos, esperando você gerar as imagens; 09 esperando
+confirmação de rastreio Hotmart (pendências 7-9); 05 pendente (sem skill neste cohort).
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

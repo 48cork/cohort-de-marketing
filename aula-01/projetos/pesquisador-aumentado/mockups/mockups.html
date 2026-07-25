@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Mockups de Produto — Pesquisador Aumentado™</title>
+<style>
+  :root{
+    --primary:#d97757;--secondary:#141413;--tertiary:#f0eee6;
+    --neutral:#5e5d59;--surface:#faf9f5;--text:#141413;--text-muted:#5e5d59;
+    --border:#e3e2de;--card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--surface);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;font-size:1.02rem;line-height:1.65;}
+  .page{max-width:900px;margin:0 auto;padding:56px 24px 96px;}
+  .back-link{display:inline-block;font-family:ui-monospace,"SF Mono","Roboto Mono","JetBrains Mono","Consolas",monospace;font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--primary);text-decoration:none;margin-bottom:18px;}
+  .back-link:hover{text-decoration:underline;}
+  .label-mono{font-family:ui-monospace,monospace;font-size:0.74rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--primary);}
+  h1{font-size:2.3rem;font-weight:700;letter-spacing:-0.02em;margin:10px 0 6px;}
+  .subtitle{font-size:1.1rem;color:var(--text-muted);margin:0 0 24px;}
+  .meta-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:22px 26px;margin-bottom:24px;font-size:0.95rem;}
+  .meta-card p{margin:4px 0;}
+  .meta-card strong{color:var(--secondary);}
+  .callout{background:var(--tertiary);border-left:4px solid var(--primary);border-radius:0 8px 8px 0;padding:18px 22px;margin:0 0 28px;font-size:0.95rem;}
+  .callout p{margin:0 0 8px;}
+  .callout p:last-child{margin-bottom:0;}
+  h2{font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;margin:44px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--secondary);}
+  table{width:100%;border-collapse:collapse;margin:16px 0 26px;font-size:0.92rem;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+  th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--border);vertical-align:top;}
+  th{background:var(--secondary);color:var(--surface);font-family:ui-monospace,monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;}
+  tr:last-child td{border-bottom:none;}
+  tr:nth-child(even) td{background:var(--tertiary);}
+  code{background:var(--tertiary);padding:1px 6px;border-radius:3px;font-size:0.9em;}
+  .swatch{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:6px;vertical-align:middle;border:1px solid var(--border);}
+  .mock-block{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px 26px;margin:14px 0 28px;}
+  .mock-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:14px;}
+  .mock-num{font-family:ui-monospace,monospace;font-size:1.4rem;font-weight:700;color:var(--primary);}
+  .mock-title{font-size:1.15rem;font-weight:700;letter-spacing:-0.01em;}
+  .mock-tag{font-family:ui-monospace,monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);}
+  .mock-block p{margin:0 0 12px;font-size:0.95rem;}
+  pre.prompt{background:var(--secondary);color:var(--surface);border-radius:8px;padding:20px 22px;font-family:ui-monospace,monospace;font-size:0.86rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;margin:0;position:relative;}
+  .copy-btn{margin-top:10px;background:var(--primary);color:var(--secondary);border:none;border-radius:4px;padding:0.5rem 1.1rem;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;}
+  .copy-btn:hover{opacity:0.9;}
+  ul.checklist{list-style:none;padding:0;margin:0;}
+  ul.checklist li{padding:6px 0 6px 26px;position:relative;font-size:0.94rem;}
+  ul.checklist li::before{content:"\2610";position:absolute;left:0;color:var(--primary);}
+  .footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:0.85rem;color:var(--text-muted);}
+  @media (prefers-color-scheme: dark){
+    body{background:#141413;color:#f0eee6;}
+    .meta-card,.mock-block,table{background:#1e1d1b;border-color:#33322f;}
+    tr:nth-child(even) td{background:#26241f;}
+    td,th{border-color:#33322f;}
+    h2{border-bottom-color:#f0eee6;}
+    .mock-head{border-bottom-color:#33322f;}
+    .callout{background:#26241f;}
+    code{background:#26241f;}
+    .footer{color:#9a9890;border-top-color:#33322f;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back-link" href="../index.html">&larr; Book do Funil</a>
+  <div class="label-mono">/mockup-produto-funil</div>
+  <h1>Mockups de Produto</h1>
+  <p class="subtitle">Pesquisador Aumentado™: prompts prontos pra gerar, na identidade da sua marca</p>
+
+  <div class="meta-card">
+    <p><strong>Skill:</strong> /mockup-produto-funil</p>
+    <p><strong>Data:</strong> 25 de julho de 2026</p>
+    <p><strong>Fonte dos itens:</strong> offerbook.md BLOCO 2 (produto, módulos, isca digital, bônus)</p>
+    <p><strong>Fonte da identidade visual:</strong> DESIGN.md (cores, fontes, raio de borda, tom visual)</p>
+    <p><strong>Status:</strong> Prompts prontos. Esta skill não gera imagem nem publica: você gera na ferramenta de sua escolha e aprova.</p>
+  </div>
+
+  <h2>Mapa de tokens usados</h2>
+  <table>
+    <tr><th>Token</th><th>Valor</th><th>Uso nos prompts</th></tr>
+    <tr><td><code>cor-fundo</code></td><td><span class="swatch" style="background:#faf9f5;"></span>#faf9f5</td><td>Fundo liso de todos os mockups</td></tr>
+    <tr><td><code>cor-primaria</code></td><td><span class="swatch" style="background:#141413;"></span>#141413</td><td>Título, texto principal, cor de ação dominante</td></tr>
+    <tr><td><code>cor-secundaria</code></td><td><span class="swatch" style="background:#d97757;"></span>#d97757</td><td>Acento/marca apenas, nunca preenchimento (regra do DESIGN.md)</td></tr>
+    <tr><td><code>cor-texto</code></td><td><span class="swatch" style="background:#5e5d59;"></span>#5e5d59</td><td>Subtítulo, texto secundário</td></tr>
+    <tr><td><code>fonte-titulo</code></td><td>system-ui 700</td><td>Títulos, tracking negativo -0.02em a -0.03em</td></tr>
+    <tr><td><code>fonte-corpo</code></td><td>system-ui 400</td><td>Corpo/legendas nas telas</td></tr>
+    <tr><td><code>raio-borda</code></td><td>4px / 8px</td><td>Cantos de cards, telas, botões</td></tr>
+    <tr><td><code>estilo-visual</code></td><td>Editorial minimalista</td><td>Cream + tinta quase preta, terracota só acento, zero gradiente, sombra de estúdio suave</td></tr>
+    <tr><td><code>logo-ou-marca</code></td><td>Pesquisador Aumentado™</td><td>"A" de "Aumentado" destacado em terracota</td></tr>
+  </table>
+
+  <div class="callout">
+    <p><strong>Itens mockupados:</strong> produto principal (e-book Pesquisador Aumentado™) e isca digital (7 Perguntas Socráticas).</p>
+    <p><strong>Item deixado de fora:</strong> o bônus de lançamento pago ainda não foi definido pelo dono da oferta (pendência 1). Sem o item existir no offerbook, não há o que mockupar.</p>
+  </div>
+
+  <h2>1. Capa de ebook — Produto principal</h2>
+  <div class="mock-block">
+    <div class="mock-head"><span class="mock-num">1</span><span class="mock-tag">Capa de ebook / PDF</span></div>
+    <p>O produto principal é entregue como e-book; capa dá "cara de livro" e é a peça mais usada na página de vendas.</p>
+    <pre class="prompt" id="prompt-1">Mockup de capa de ebook 3D, em pé, vista frontal levemente em ângulo, fundo #faf9f5 liso.
+Título "Pesquisador Aumentado" em destaque, tipografia system-ui peso 700 com tracking
+negativo (-0.02em), na cor #141413. O "A" de "Aumentado" destacado na cor #d97757.
+Subtítulo "O Método Socrático com IA para Professores Orientadores de TCC" menor, na
+cor #5e5d59.
+Um único acento gráfico na cor #d97757 (linha ou marca, nunca preenchimento sólido).
+Marca "Pesquisador Aumentado™" no rodapé da capa.
+Estilo visual geral: editorial minimalista, cream quente + tinta quase preta, zero
+gradiente, terracota usado só como marca. Iluminação de estúdio suave, sombra realista
+no chão.
+Sem texto extra, sem marca-d'água, alta resolução, proporção vertical de livro.</pre>
+    <button class="copy-btn" onclick="copyPrompt('prompt-1', this)">Copiar prompt</button>
+  </div>
+
+  <h2>2. Box do produto — Produto principal</h2>
+  <div class="mock-block">
+    <div class="mock-head"><span class="mock-num">2</span><span class="mock-tag">Box / caixa do produto</span></div>
+    <p>Ancora o e-book (100% digital) como algo de valor físico percebido, pra página de vendas e criativos de anúncio.</p>
+    <pre class="prompt" id="prompt-2">Mockup de caixa de produto 3D, fechada, vista frontal em ângulo, sobre superfície
+neutra, fundo #faf9f5.
+A caixa estampa o título "Pesquisador Aumentado™" em tipografia system-ui peso 700,
+tracking negativo, na cor #141413, com o "A" de "Aumentado" destacado em #d97757.
+Acabamento fosco, sem brilho, coerente com um estilo editorial minimalista (não usar
+verniz espelhado nem gradiente colorido).
+Acento gráfico na cor #d97757 usado apenas como uma linha ou marca fina, nunca como
+preenchimento da caixa.
+Iluminação de estúdio, reflexo e sombra realistas. Proporção de caixa de produto,
+alta resolução, sem texto extra.</pre>
+    <button class="copy-btn" onclick="copyPrompt('prompt-2', this)">Copiar prompt</button>
+  </div>
+
+  <h2>3. Device mockup — Índice do e-book</h2>
+  <div class="mock-block">
+    <div class="mock-head"><span class="mock-num">3</span><span class="mock-tag">Device mockup</span></div>
+    <p>O produto é um e-book em PDF, não uma plataforma com área de membros. Por honestidade com o que a oferta é de fato, este mockup mostra o e-book aberto num tablet exibindo o índice, não uma "área de membros" que não existe.</p>
+    <pre class="prompt" id="prompt-3">Mockup de tablet exibindo a tela de um e-book em PDF aberto, vista frontal, fundo #faf9f5
+liso.
+Na tela, um índice/sumário visível com os itens: "Introdução", "Capítulo 1: O Problema
+Estrutural", "Capítulo 2: Metodologia Socrática Aplicada", "Capítulo 3: IA como
+Interlocutor Socrático", "Capítulo 4: Protocolo de Orientação em 3 Camadas",
+"Capítulo 5: Implementação Imediata".
+Cada item do índice em tipografia system-ui, cor #141413, com o número do capítulo em
+#d97757. Cabeçalho da tela com a marca "Pesquisador Aumentado™" na cor #141413.
+Cantos da tela do device com raio de 8px. Estilo visual: editorial minimalista, sem
+gradiente, terracota só como acento.
+Device centralizado, iluminação suave, sombra realista. Alta resolução, sem texto
+fora da tela.</pre>
+    <button class="copy-btn" onclick="copyPrompt('prompt-3', this)">Copiar prompt</button>
+  </div>
+
+  <h2>4. Capa da isca digital — "7 Perguntas Socráticas"</h2>
+  <div class="mock-block">
+    <div class="mock-head"><span class="mock-num">4</span><span class="mock-tag">Capa de ebook / PDF (leve, 1 página)</span></div>
+    <p>A isca já tem o conteúdo escrito; o mockup dá a ela a mesma família visual do produto principal, mas mais simples, coerente com ser gratuita e curta.</p>
+    <pre class="prompt" id="prompt-4">Mockup de folha/PDF de 1 página, vista frontal quase reta (sem ângulo de livro grosso,
+já que é um guia de 1 página, não um ebook espesso), fundo #faf9f5 liso.
+Título "As 7 Perguntas Socráticas que Todo Orientador Deveria Fazer Antes de Qualquer
+Sessão de TCC" em tipografia system-ui peso 700, tracking negativo, na cor #141413,
+quebrado em até 3 linhas.
+Etiqueta pequena acima do título, uppercase, tracking bem aberto, na cor #d97757,
+com o texto "ISCA DIGITAL · MÉTODO SOCRÁTICO COM IA".
+Marca "Pesquisador Aumentado™" no rodapé, com o "A" de "Aumentado" em #d97757.
+Estilo visual: editorial minimalista, mesma família visual do produto principal mas
+mais leve (menos elementos, mais espaço em branco).
+Iluminação de estúdio suave, sombra sutil de papel (não de livro grosso). Alta
+resolução, proporção de folha A4/Letter, sem marca-d'água.</pre>
+    <button class="copy-btn" onclick="copyPrompt('prompt-4', this)">Copiar prompt</button>
+  </div>
+
+  <h2>5. Bundle de bônus empilhado — Produto + isca</h2>
+  <div class="mock-block">
+    <div class="mock-head"><span class="mock-num">5</span><span class="mock-tag">Bundle empilhado</span></div>
+    <p>Mostra o que o professor recebe de uma vez (produto principal + isca). O bônus de lançamento pago fica de fora até ser definido.</p>
+    <pre class="prompt" id="prompt-5">Mockup de bundle/kit: composição com 2 elementos agrupados e levemente sobrepostos —
+1 box de produto fechado com o título "Pesquisador Aumentado™" e 1 folha/PDF de 1
+página com o título "As 7 Perguntas Socráticas...", ambos com a mesma identidade:
+cor de destaque #141413, acento #d97757 usado só como marca, fundo #faf9f5, tipografia
+system-ui peso 700 nos títulos, marca "Pesquisador Aumentado™" visível em cada peça.
+Composição organizada mostrando volume e valor ("tudo que vem junto"), sem
+sobreposição que esconda os títulos. Estilo visual: editorial minimalista, zero
+gradiente, sombras de estúdio suaves e realistas.
+Alta resolução, sem texto solto fora das peças, sem marca-d'água.
+
+Nota: quando o bônus de lançamento pago for definido (pendência 1 em pendencias.md),
+adicionar um terceiro elemento a este bundle mantendo os mesmos tokens de cor e fonte.</pre>
+    <button class="copy-btn" onclick="copyPrompt('prompt-5', this)">Copiar prompt</button>
+  </div>
+
+  <h2>Checklist de qualidade</h2>
+  <p><strong>Legibilidade</strong></p>
+  <ul class="checklist">
+    <li>Título do produto/isca legível, sem corte, sem fundo de baixo contraste</li>
+    <li>Nenhum texto saiu borrado/deformado pelo gerador</li>
+  </ul>
+  <p><strong>Fidelidade à marca</strong></p>
+  <ul class="checklist">
+    <li>Cor primária #141413 e acento #d97757 batem com o DESIGN.md</li>
+    <li>Terracota aparece só como marca/acento, nunca como preenchimento sólido</li>
+    <li>Tipografia lembra system-ui com tracking negativo nos títulos</li>
+    <li>A marca "Pesquisador Aumentado™" aparece corretamente em cada peça</li>
+  </ul>
+  <p><strong>Consistência entre mockups</strong></p>
+  <ul class="checklist">
+    <li>Os 5 mockups usam a mesma paleta e fonte</li>
+    <li>Fundo, iluminação e ângulo coerentes entre as peças</li>
+  </ul>
+  <p><strong>Aderência ao offerbook</strong></p>
+  <ul class="checklist">
+    <li>Os 5 capítulos do índice batem com a estrutura real do e-book</li>
+    <li>Nenhum bônus inventado entrou no bundle</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <ol>
+    <li>Gerar as 5 imagens na ferramenta de geração de imagem de sua escolha, usando os prompts acima.</li>
+    <li>Rodar o checklist de qualidade em cada uma.</li>
+    <li>Quando o bônus de lançamento pago for definido, voltar aqui pra adicionar o mockup dele ao bundle.</li>
+    <li>Usar as imagens aprovadas na página de vendas (quando ela existir) e nos criativos de anúncio.</li>
+  </ol>
+
+  <div class="footer">
+    <p>Gerado por /mockup-produto-funil, lendo offerbook.md (itens) e DESIGN.md (identidade visual). A skill entrega os prompts; a geração da imagem e a aprovação são suas.</p>
+  </div>
+
+</div>
+
+<script>
+function copyPrompt(id, btn){
+  var text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(function(){
+    var original = btn.textContent;
+    btn.textContent = "Copiado!";
+    setTimeout(function(){ btn.textContent = original; }, 2000);
+  });
+}
+</script>
+</body>
+</html>
