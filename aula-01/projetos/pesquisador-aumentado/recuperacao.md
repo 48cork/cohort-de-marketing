@@ -68,11 +68,11 @@ Duas opções:
 
 O acesso ao método continua reservado pra você. O link é o mesmo:
 
-[LINK DO CHECKOUT]
+https://pay.hotmart.com/O106631740D
 
 Prof. Dr. Sergio Rolemberg Farias
 
-**CTA:** "Concluir minha compra" → [LINK DO CHECKOUT]
+**CTA:** "Concluir minha compra" → https://pay.hotmart.com/O106631740D
 
 ### Mensagem 2 — 24h depois (se não resolveu)
 
@@ -84,7 +84,7 @@ Seu acesso ao Pesquisador Aumentado™ continua reservado, mas notei que o pagam
 
 Se foi problema com o cartão, o boleto ou o Pix resolvem na hora. [DONO: decidir se oferece desconto neste degrau, e qual percentual, a fonte não crava valor].
 
-[LINK DO CHECKOUT]
+https://pay.hotmart.com/O106631740D
 
 Prof. Dr. Sergio Rolemberg Farias
 
@@ -104,11 +104,11 @@ Prof. Dr. Sergio Rolemberg Farias
 
 O boleto do Pesquisador Aumentado™ vence amanhã. Se preferir não esperar a compensação, o cartão libera o acesso na hora.
 
-[LINK DO CHECKOUT]
+https://pay.hotmart.com/O106631740D
 
 Prof. Dr. Sergio Rolemberg Farias
 
-**CTA:** "Pagar com cartão e liberar agora" → [LINK DO CHECKOUT]
+**CTA:** "Pagar com cartão e liberar agora" → https://pay.hotmart.com/O106631740D
 
 ---
 
@@ -130,7 +130,7 @@ Se ficou alguma dúvida, sobre o método, sobre a garantia de 7 dias, ou sobre c
 
 Se preferir voltar direto, o link é este:
 
-[LINK DO CHECKOUT]
+https://pay.hotmart.com/O106631740D
 
 Prof. Dr. Sergio Rolemberg Farias
 

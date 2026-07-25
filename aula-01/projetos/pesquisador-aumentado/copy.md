@@ -183,6 +183,14 @@ Se algo aqui não estiver certo, é o momento de ajustar antes de gerar o banco 
 | 4 | C1 — "Roteiro Socrático + IA: a IA fica do seu lado..." | 3 | Neutraliza a objeção #1 ("IA vai incentivar o aluno a colar") na própria headline. Indicada para Google Ads, onde o público já busca solução e testa objeções mais cedo. |
 | 5 | A1 — "Você já recebeu o mesmo capítulo pela quarta vez..." | 2 | Pergunta de identificação pura, sem produto, sem mecanismo. Segue o padrão sw01 do swipe file (9/10, "problema + número + alívio emocional") já validado como winner de mercado adjacente. |
 
+### Headline final escolhida pelo dono (25/07/2026)
+
+O ranking acima é o resultado do exercício desta fundação, mas **não é a decisão final**: o dono da oferta escolheu a **headline de identidade** (já registrada em `offerbook.md` BLOCO 2, trazida do material do aiox_pro, não gerada neste banco de 25) como headline definitiva da página de vendas, substituindo **D2** (headline de contraste B2C) como #1:
+
+> "Você passou anos aprendendo a fazer perguntas certas. Agora existe um método para ensinar seus alunos a fazê-las, antes de chegar na sua sala."
+
+D2 fica registrada como variante testável (segue #1 do banco gerado nesta fundação), mas a headline de identidade acima é a que vai para a LP.
+
 ---
 
 ### Método Gary Bencivenga — Banco de 50 bullets
@@ -281,7 +289,9 @@ Se algo aqui não estiver certo, é o momento de ajustar antes de gerar o banco 
 
 ## CHECKPOINT — Headlines + Bullets (revisar antes de liberar para as skills de peça)
 
-**5 headlines selecionadas:** D2, B1, D1, C1, A1 (ver Fase 3 acima para o texto completo e a justificativa por nível).
+**5 headlines selecionadas (banco desta fundação):** D2, B1, D1, C1, A1 (ver Fase 3 acima para o texto completo e a justificativa por nível).
+
+**Headline final e definitiva (decisão do dono, 25/07/2026):** a de identidade ("Você passou anos aprendendo a fazer perguntas certas...", registrada em `offerbook.md` BLOCO 2), substituindo D2 como #1. Ver "Headline final escolhida pelo dono" acima.
 
 **15 bullets selecionados para a peça principal + 5 para anúncios:** ver tabelas acima.
 
@@ -300,6 +310,7 @@ Se alguma headline ou bullet não estiver alinhado com a voz que você quer para
 - Mecanismo do Problema ("Corretor Compulsivo") + Mecanismo da Solução ("Roteiro Socrático + IA") + Big Idea.
 - Banco de 25 headlines (4 blocos) com 5 selecionadas e justificadas por nível de consciência.
 - Banco de 50 bullets (30 fascination + 20 benefício) com 15 selecionados para a peça principal e 5 para anúncios.
+- Headline final e definitiva decidida pelo dono (25/07/2026): a de identidade, substituindo D2 como #1.
 
 **Frameworks aplicados:** Eugene Schwartz, Claude Hopkins, Dan Kennedy, Todd Brown, Gary Halbert, Gary Bencivenga.
 

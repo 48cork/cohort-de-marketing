@@ -199,7 +199,7 @@ Investimento: R$127 à vista. Um cálculo declarado, não prometido: R$4,23 por 
 
 Prof. Dr. Sergio Rolemberg Farias
 
-**CTA:** "Quero parar de corrigir e começar a provocar pensamento" → [LINK DO CHECKOUT]
+**CTA:** "Quero parar de corrigir e começar a provocar pensamento" → https://pay.hotmart.com/O106631740D
 
 ---
 
@@ -218,7 +218,7 @@ E se mesmo assim não valer o seu tempo, a garantia é de 7 dias, incondicional.
 
 Prof. Dr. Sergio Rolemberg Farias
 
-**CTA:** "Quero ver o método" → [LINK DO CHECKOUT]
+**CTA:** "Quero ver o método" → https://pay.hotmart.com/O106631740D
 
 ---
 
@@ -235,7 +235,7 @@ Uma coisa que não te contei ainda: esse método não resolve o sistema. Não va
 
 O que ele resolve são as suas próximas 3 reuniões de orientação. E, se funcionar como funcionou comigo, as próximas depois dessas também.
 
-Se você já decidiu, o link é esse: [LINK DO CHECKOUT]
+Se você já decidiu, o link é esse: https://pay.hotmart.com/O106631740D
 
 Se ainda não decidiu, tudo bem. As 7 perguntas que te enviei no primeiro e-mail continuam valendo, com ou sem o método completo.
 
@@ -243,7 +243,7 @@ Um abraço, e obrigado por ter lido até aqui.
 
 Prof. Dr. Sergio Rolemberg Farias
 
-**CTA:** "Quero o método completo" → [LINK DO CHECKOUT]
+**CTA:** "Quero o método completo" → https://pay.hotmart.com/O106631740D
 
 ---
 
@@ -252,7 +252,7 @@ Prof. Dr. Sergio Rolemberg Farias
 | Placeholder | Onde aparece | Depende de |
 |---|---|---|
 | `[LINK DA ISCA DIGITAL]` | E1 | Página de captura da isca (não existe ainda) |
-| `[LINK DO CHECKOUT]` | E8, E9, E10 | Checkout (Hotmart ou equivalente, não existe ainda) |
+| ~~`[LINK DO CHECKOUT]`~~ | E8, E9, E10 | **RESOLVIDO** (25/07/2026): `https://pay.hotmart.com/O106631740D` |
 | `[BÔNUS DE LANÇAMENTO A DEFINIR PELO DONO DA OFERTA]` | E8 | Decisão do dono da oferta |
 | `[SEM PROVA AINDA]` (depoimento de professor) | E6 | Coleta de depoimento real de professor |
 

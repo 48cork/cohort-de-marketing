@@ -38,6 +38,10 @@
   .item .files code{background:var(--tertiary);padding:1px 6px;border-radius:3px;font-size:0.82rem;}
   .answer-field{width:100%;margin-top:12px;padding:10px 12px;border:1px solid var(--border);border-radius:4px;font-family:inherit;font-size:0.92rem;background:var(--surface);color:var(--text);resize:vertical;min-height:44px;}
   .answer-field:focus{outline:2px solid var(--primary);outline-offset:1px;}
+  .applied-box{width:100%;margin-top:12px;padding:12px 14px;border:1px solid rgba(58,125,92,0.3);border-radius:4px;font-size:0.92rem;background:rgba(58,125,92,0.07);color:var(--text);}
+  .applied-box strong{color:#3a7d5c;}
+  .applied-box ul{margin:6px 0 0;padding-left:20px;}
+  .applied-box li{margin:4px 0;}
   .copy-bar{position:fixed;bottom:0;left:0;right:0;background:var(--secondary);padding:16px 24px;display:flex;justify-content:center;gap:14px;box-shadow:0 -2px 12px rgba(0,0,0,0.15);}
   .copy-btn{background:var(--primary);color:var(--secondary);border:none;border-radius:4px;padding:0.85rem 2rem;font-size:1rem;font-weight:600;cursor:pointer;}
   .copy-btn:hover{opacity:0.9;}
@@ -61,9 +65,9 @@
   <p class="subtitle">Agrupadas por decisão. Preencha os campos abaixo, clique em "Copiar respostas pro Claude" e cole de volta no chat.</p>
 
   <div class="placar">
-    <div class="stat aplicadas"><strong>0</strong>aplicadas</div>
-    <div class="stat parciais"><strong>2</strong>parciais</div>
-    <div class="stat abertas"><strong>7</strong>abertas</div>
+    <div class="stat aplicadas"><strong>4</strong>aplicadas</div>
+    <div class="stat parciais"><strong>1</strong>parciais</div>
+    <div class="stat abertas"><strong>5</strong>abertas</div>
   </div>
 
   <div class="item status-aberto" data-id="1">
@@ -96,14 +100,15 @@
     <textarea class="answer-field" data-question="Link da isca digital" placeholder="Cole a URL da página de captura ou do PDF direto assim que existir."></textarea>
   </div>
 
-  <div class="item status-parcial" data-id="4">
+  <div class="item status-aplicado" data-id="4">
     <div class="item-head">
       <div class="item-title">4. Link do checkout</div>
-      <span class="badge badge-parcial">Parcial</span>
+      <span class="badge badge-aplicado">Aplicada</span>
     </div>
-    <p>Você confirmou (25/07/2026) que o checkout já existe no Hotmart. Falta só colar a URL exata.</p>
-    <p class="files">Afeta: <code>emails/trilha-lancamento-email-8.html</code> · <code>-9.html</code> · <code>-10.html</code> · <code>emails/trilhas.md/.html</code> · <code>recuperacao.md/.html</code></p>
-    <textarea class="answer-field" data-question="Link do checkout" placeholder="Cole a URL do checkout Hotmart."></textarea>
+    <p class="files">Aplicado em: <code>emails/trilha-lancamento-email-8.html</code> · <code>-9.html</code> · <code>-10.html</code> · <code>emails/trilhas.md/.html</code> · <code>recuperacao.md/.html</code></p>
+    <div class="applied-box">
+      <strong>Valor aplicado:</strong> https://pay.hotmart.com/O106631740D
+    </div>
   </div>
 
   <div class="item status-aberto" data-id="5">
@@ -116,24 +121,35 @@
     <textarea class="answer-field" data-question="Sintaxe do link de descadastro" placeholder="Ex.: *|UNSUB|* (Mailchimp), {{unsubscribe_link}} (outra ferramenta)..."></textarea>
   </div>
 
-  <div class="item status-aberto" data-id="6">
+  <div class="item status-aplicado" data-id="6">
     <div class="item-head">
       <div class="item-title">6. Escolha final da headline</div>
-      <span class="badge badge-aberto">Aberto</span>
+      <span class="badge badge-aplicado">Aplicada</span>
     </div>
-    <p>Headline de identidade ("Você passou anos aprendendo a fazer perguntas certas...") vs. headline de contraste B2C ("Há um curso que ensina o aluno a parecer produtivo..."). O copy.md selecionou a de contraste como #1, mas a decisão final é sua.</p>
-    <p class="files">Afeta: <code>offerbook.md</code> · <code>copy.md</code></p>
-    <textarea class="answer-field" data-question="Escolha final da headline" placeholder="Ex.: testar as duas / já escolho a de contraste / já escolho a de identidade."></textarea>
+    <p class="files">Aplicado em: <code>offerbook.md</code> (BLOCO 2 + Lacunas) · <code>copy.md</code> (nova seção, Checkpoint, Resumo)</p>
+    <div class="applied-box">
+      <strong>Decisão:</strong> headline de identidade, substituindo D2 (contraste B2C) como #1.<br>
+      "Você passou anos aprendendo a fazer perguntas certas. Agora existe um método para ensinar seus alunos a fazê-las, antes de chegar na sua sala."<br>
+      D2 permanece registrada como variante testável. offerbook.html regenerado por completo, agora na identidade do DESIGN.md (a versão anterior usava tema genérico verde/serifado).
+    </div>
   </div>
 
-  <div class="item status-aberto" data-id="7">
+  <div class="item status-aplicado" data-id="7">
     <div class="item-head">
       <div class="item-title">7. Rastreio de comportamento no Hotmart</div>
-      <span class="badge badge-aberto">Aberto</span>
+      <span class="badge badge-aplicado">Aplicada</span>
     </div>
-    <p>O checkout existe no Hotmart, mas ainda não sabemos quais notificações estão ativas (cartão recusado e boleto normalmente são nativas; carrinho abandonado exige integração).</p>
-    <p class="files">Afeta: <code>recuperacao.md/.html</code> (a cascata inteira depende disso pra sair do modo "setup")</p>
-    <textarea class="answer-field" data-question="Rastreio de comportamento no Hotmart" placeholder="Ex.: cartão recusado e boleto ativos, carrinho abandonado ainda não configurado."></textarea>
+    <p>Confirmado direto no painel Hotmart em 25/07/2026.</p>
+    <p class="files">Afeta: <code>recuperacao.md/.html</code> (a cascata sai do modo "setup")</p>
+    <div class="applied-box">
+      <strong>Confirmado:</strong>
+      <ul>
+        <li>Carrinho abandonado: automação nativa via WhatsApp ativa (<code>Whatsapp_8075552</code>); solicitação de telefone no checkout confirmada ativa</li>
+        <li>Cartão recusado por saldo insuficiente: recuperação automática via Pix + Cartão de Crédito ativa nativamente</li>
+        <li>Chat de WhatsApp de suporte a pagamentos recusados: ativado agora, número provisório +55 83 99118-3123 (ver item 10)</li>
+        <li>Boleto: vence em 2 dias úteis, disponível de segunda a sexta</li>
+      </ul>
+    </div>
   </div>
 
   <div class="item status-aberto" data-id="8">
@@ -146,18 +162,30 @@
     <textarea class="answer-field" data-question="Produto de downsell" placeholder="Ex.: usar a recomendação (Capítulo 5 avulso) / outro produto: ... / preço: ..."></textarea>
   </div>
 
-  <div class="item status-aberto" data-id="9">
+  <div class="item status-aplicado" data-id="9">
     <div class="item-head">
       <div class="item-title">9. Canais de recuperação além de e-mail</div>
+      <span class="badge badge-aplicado">Aplicada</span>
+    </div>
+    <p>WhatsApp confirmado em 25/07/2026.</p>
+    <p class="files">Afeta: <code>recuperacao.md/.html</code> (mapa de disparos)</p>
+    <div class="applied-box">
+      <strong>Confirmado:</strong> WhatsApp já em uso nativo no Hotmart (automação de carrinho abandonado + chat de suporte de pagamento recusado). SMS não mencionado, considerado indisponível por ora.
+    </div>
+  </div>
+
+  <div class="item status-aberto" data-id="10">
+    <div class="item-head">
+      <div class="item-title">10. Trocar número de WhatsApp provisório do suporte</div>
       <span class="badge badge-aberto">Aberto</span>
     </div>
-    <p>Não foi confirmado se há WhatsApp ou SMS disponíveis para a cascata de recuperação, além do e-mail.</p>
-    <p class="files">Afeta: <code>recuperacao.md/.html</code> (mapa de disparos)</p>
-    <textarea class="answer-field" data-question="Canais de recuperação disponíveis" placeholder="Ex.: só e-mail / também tenho WhatsApp / também tenho SMS."></textarea>
+    <p>O chat de WhatsApp de suporte a pagamentos recusados está com o número provisório <strong>+55 83 99118-3123</strong> configurado no Hotmart.</p>
+    <p class="files">Afeta: configuração do checkout Hotmart (fora deste repositório) e qualquer menção ao número em <code>recuperacao.md/.html</code></p>
+    <textarea class="answer-field" data-question="Número definitivo de WhatsApp do suporte" placeholder="Cole o número definitivo assim que trocar no painel Hotmart."></textarea>
   </div>
 
   <div class="footer">
-    <p>Gerado/atualizado por /recuperacao-funil. Ao colar suas respostas de volta no chat, todos os arquivos afetados são atualizados de uma vez e este checklist é regenerado.</p>
+    <p>Atualizado com descobertas confirmadas direto no painel Hotmart, 25 de julho de 2026. Ao colar novas respostas de volta no chat, todos os arquivos afetados são atualizados de uma vez e este checklist é regenerado.</p>
   </div>
 
 </div>

@@ -63,6 +63,7 @@ Subtítulo: O método socrático com IA para transformar orientações corretiva
 
 **Headline de contraste (copy B2C vs B2B):**
 "Ha um curso que ensina o aluno a parecer produtivo na sua sala de orientacao. Este ensina voce a fazer perguntas que fazem ele pensar de verdade."
+**[SUPERADA, 25/07/2026]** O dono da oferta decidiu pela headline de identidade (ver BLOCO 2, "Headline de identidade") como escolha final e definitiva. Esta versão de contraste fica registrada como variante testável, não como headline principal.
 
 ### USP — Proposta Única de Venda
 
@@ -114,7 +115,7 @@ Estrutura real do e-book (arquivos em `~/aiox_pro/pesquisador-aumentado/`):
 **Origem do método (verbatim do autor — usar na copy):** "Não sou um coach de produtividade. Sou professor concursado de uma universidade federal do interior do Nordeste, com doutorado na França e pós-doutorado em Paris. Orientei TCCs em condições reais — sem estrutura, sem tempo, com orientandos que chegavam na sala sem ter lido o próprio projeto. Foi dessa experiência, e não de um curso de marketing, que nasceu o Pesquisador Aumentado. Um método que coloca a IA do lado do professor — não do aluno."
 **Por que essa credencial funciona para o avatar:** ele É o Dr. Marcelo. Não é coach externo, não é consultor, não é guru de método. É par — professor federal com doutorado europeu que viveu o mesmo problema. Isso resolve a objeção de desconfiança mais profunda do avatar.
 **Aplicações da copy de autoridade:** bio da LP (acima do CTA principal) · abertura do E7 ("o que vem aí") · rodapé de todos os e-mails · seção "quem escreveu isso?" da LP
-**Headline de identidade do aiox_pro:** "Você passou anos aprendendo a fazer perguntas certas. Agora existe um método para ensinar seus alunos a fazê-las — antes de chegar na sua sala." — Testar contra a Versão B de contraste B2C.
+**Headline de identidade (ESCOLHA FINAL E DEFINITIVA, 25/07/2026):** "Você passou anos aprendendo a fazer perguntas certas. Agora existe um método para ensinar seus alunos a fazê-las, antes de chegar na sua sala." Decidida pelo dono da oferta em substituição à headline de contraste B2C, que fica registrada como variante testável.
 **Prova social:** RESOLVIDA — depoimento real de Pedro, graduando em História, UFCG.
 
 > "Meu TCC é sobre crime organizado e religião no Rio de Janeiro. É um tema difícil, com teoria pesada. Eu trava toda vez que sentava para escrever.
@@ -540,13 +541,13 @@ Sequência de 10 e-mails em 14 dias disponível em `~/aiox_pro/pesquisador-aumen
 - [x] Depoimento real → Pedro, graduando em História, UFCG (sequencia-emails.md E6 PREENCHIDO)
 - [x] Exemplo sessão antes/depois → o depoimento do Pedro serve como prova qualitativa do método (cita Bourdieu, descreve pergunta socrática real, nomeia frustração e transformação)
 - [ ] Exemplo de transcrição literal de sessão (15-20 min) ainda ajudaria na LP para decisores racionais (Dr. Roberto)
-- [ ] Decidir entre headline de identidade (aiox_pro) e headline de contraste (offerbook) — ou testar as duas como Versão A e B
+- [x] Decidir entre headline de identidade e headline de contraste → RESOLVIDO (25/07/2026): headline de identidade escolhida como final e definitiva (ver BLOCO 2)
 
 ### Resolve a equipe de marketing
 
 - [ ] Criar URL do produto / domínio
 - [ ] Montar LP no ar (copy existe em copy-pagina-vendas.md — testar Versão B do offerbook primeiro)
-- [ ] Criar checkout (Hotmart ou equivalente)
+- [x] Criar checkout → RESOLVIDO (25/07/2026): Hotmart no ar, `https://pay.hotmart.com/O106631740D`
 - [ ] Criar PDF da isca digital ("As 7 Perguntas Socráticas...") e página de captura
 - [ ] Configurar sequência de 10 e-mails (sequencia-emails.md) na plataforma de e-mail
 - [ ] Publicar posts V5, V1A, V2A, V3A no LinkedIn orgânico antes de pagar tráfego (briefing-media-buyer.md)
