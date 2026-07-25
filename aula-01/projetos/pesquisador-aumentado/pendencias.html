@@ -62,8 +62,8 @@
 
   <div class="placar">
     <div class="stat aplicadas"><strong>0</strong>aplicadas</div>
-    <div class="stat parciais"><strong>1</strong>parciais</div>
-    <div class="stat abertas"><strong>5</strong>abertas</div>
+    <div class="stat parciais"><strong>2</strong>parciais</div>
+    <div class="stat abertas"><strong>7</strong>abertas</div>
   </div>
 
   <div class="item status-aberto" data-id="1">
@@ -96,14 +96,14 @@
     <textarea class="answer-field" data-question="Link da isca digital" placeholder="Cole a URL da página de captura ou do PDF direto assim que existir."></textarea>
   </div>
 
-  <div class="item status-aberto" data-id="4">
+  <div class="item status-parcial" data-id="4">
     <div class="item-head">
       <div class="item-title">4. Link do checkout</div>
-      <span class="badge badge-aberto">Aberto</span>
+      <span class="badge badge-parcial">Parcial</span>
     </div>
-    <p>Checkout (Hotmart ou equivalente) ainda não existe.</p>
-    <p class="files">Afeta: <code>emails/trilha-lancamento-email-8.html</code> · <code>-9.html</code> · <code>-10.html</code> · <code>emails/trilhas.md/.html</code></p>
-    <textarea class="answer-field" data-question="Link do checkout" placeholder="Cole a URL do checkout."></textarea>
+    <p>Você confirmou (25/07/2026) que o checkout já existe no Hotmart. Falta só colar a URL exata.</p>
+    <p class="files">Afeta: <code>emails/trilha-lancamento-email-8.html</code> · <code>-9.html</code> · <code>-10.html</code> · <code>emails/trilhas.md/.html</code> · <code>recuperacao.md/.html</code></p>
+    <textarea class="answer-field" data-question="Link do checkout" placeholder="Cole a URL do checkout Hotmart."></textarea>
   </div>
 
   <div class="item status-aberto" data-id="5">
@@ -126,8 +126,38 @@
     <textarea class="answer-field" data-question="Escolha final da headline" placeholder="Ex.: testar as duas / já escolho a de contraste / já escolho a de identidade."></textarea>
   </div>
 
+  <div class="item status-aberto" data-id="7">
+    <div class="item-head">
+      <div class="item-title">7. Rastreio de comportamento no Hotmart</div>
+      <span class="badge badge-aberto">Aberto</span>
+    </div>
+    <p>O checkout existe no Hotmart, mas ainda não sabemos quais notificações estão ativas (cartão recusado e boleto normalmente são nativas; carrinho abandonado exige integração).</p>
+    <p class="files">Afeta: <code>recuperacao.md/.html</code> (a cascata inteira depende disso pra sair do modo "setup")</p>
+    <textarea class="answer-field" data-question="Rastreio de comportamento no Hotmart" placeholder="Ex.: cartão recusado e boleto ativos, carrinho abandonado ainda não configurado."></textarea>
+  </div>
+
+  <div class="item status-aberto" data-id="8">
+    <div class="item-head">
+      <div class="item-title">8. Produto de downsell</div>
+      <span class="badge badge-aberto">Aberto</span>
+    </div>
+    <p>Não existe produto de downsell ainda. Recomendação registrada: recorte do e-book (ex.: só o Capítulo 5) ou a isca com complemento pago.</p>
+    <p class="files">Afeta: <code>recuperacao.md/.html</code> (degrau 4 da cascata)</p>
+    <textarea class="answer-field" data-question="Produto de downsell" placeholder="Ex.: usar a recomendação (Capítulo 5 avulso) / outro produto: ... / preço: ..."></textarea>
+  </div>
+
+  <div class="item status-aberto" data-id="9">
+    <div class="item-head">
+      <div class="item-title">9. Canais de recuperação além de e-mail</div>
+      <span class="badge badge-aberto">Aberto</span>
+    </div>
+    <p>Não foi confirmado se há WhatsApp ou SMS disponíveis para a cascata de recuperação, além do e-mail.</p>
+    <p class="files">Afeta: <code>recuperacao.md/.html</code> (mapa de disparos)</p>
+    <textarea class="answer-field" data-question="Canais de recuperação disponíveis" placeholder="Ex.: só e-mail / também tenho WhatsApp / também tenho SMS."></textarea>
+  </div>
+
   <div class="footer">
-    <p>Gerado/atualizado por /email-funil. Ao colar suas respostas de volta no chat, todos os arquivos afetados são atualizados de uma vez e este checklist é regenerado.</p>
+    <p>Gerado/atualizado por /recuperacao-funil. Ao colar suas respostas de volta no chat, todos os arquivos afetados são atualizados de uma vez e este checklist é regenerado.</p>
   </div>
 
 </div>

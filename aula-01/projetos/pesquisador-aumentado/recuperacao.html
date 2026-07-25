@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Recuperação de Checkout — Pesquisador Aumentado™</title>
+<style>
+  :root{
+    --primary:#d97757;--secondary:#141413;--tertiary:#f0eee6;
+    --neutral:#5e5d59;--surface:#faf9f5;--text:#141413;--text-muted:#5e5d59;
+    --border:#e3e2de;--card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--surface);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;font-size:1.02rem;line-height:1.65;}
+  .page{max-width:900px;margin:0 auto;padding:56px 24px 96px;}
+  .back-link{display:inline-block;font-family:ui-monospace,"SF Mono","Roboto Mono","JetBrains Mono","Consolas",monospace;font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--primary);text-decoration:none;margin-bottom:18px;}
+  .back-link:hover{text-decoration:underline;}
+  .label-mono{font-family:ui-monospace,monospace;font-size:0.74rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--primary);}
+  h1{font-size:2.3rem;font-weight:700;letter-spacing:-0.02em;margin:10px 0 6px;}
+  .subtitle{font-size:1.1rem;color:var(--text-muted);margin:0 0 24px;}
+  .meta-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:22px 26px;margin-bottom:24px;font-size:0.95rem;}
+  .meta-card p{margin:4px 0;}
+  .meta-card strong{color:var(--secondary);}
+  .callout{background:var(--tertiary);border-left:4px solid var(--primary);border-radius:0 8px 8px 0;padding:18px 22px;margin:0 0 32px;font-size:0.95rem;}
+  .callout p{margin:0 0 8px;}
+  .callout p:last-child{margin-bottom:0;}
+  .callout ul{margin:0;padding-left:20px;}
+  h2{font-size:1.6rem;font-weight:700;letter-spacing:-0.02em;margin:44px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--secondary);}
+  h3{font-size:1.15rem;font-weight:700;letter-spacing:-0.01em;margin:28px 0 10px;color:var(--primary);}
+  pre.cascade{background:var(--secondary);color:var(--surface);border-radius:8px;padding:24px 28px;font-family:ui-monospace,monospace;font-size:0.92rem;line-height:1.7;overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;margin:16px 0 26px;font-size:0.92rem;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+  th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--border);vertical-align:top;}
+  th{background:var(--secondary);color:var(--surface);font-family:ui-monospace,monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;}
+  tr:last-child td{border-bottom:none;}
+  tr:nth-child(even) td{background:var(--tertiary);}
+  .msg-block{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px 26px;margin:14px 0 24px;}
+  .msg-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:14px;}
+  .msg-tag{font-family:ui-monospace,monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--primary);}
+  .msg-subject{font-size:1.1rem;font-weight:700;letter-spacing:-0.01em;margin:0 0 12px;}
+  .msg-block p{margin:0 0 12px;}
+  .cta-tag{display:inline-block;background:var(--secondary);color:var(--surface);font-size:0.84rem;font-weight:500;padding:7px 16px;border-radius:4px;margin-top:4px;}
+  .tag{display:inline-block;font-family:ui-monospace,monospace;font-size:0.72rem;letter-spacing:0.08em;color:var(--primary);background:var(--tertiary);border-radius:4px;padding:2px 8px;}
+  .step-header{display:flex;align-items:baseline;gap:12px;margin:44px 0 6px;}
+  .step-num{font-family:ui-monospace,monospace;font-size:1.4rem;font-weight:700;color:var(--primary);}
+  .footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:0.85rem;color:var(--text-muted);}
+  @media (prefers-color-scheme: dark){
+    body{background:#141413;color:#f0eee6;}
+    .meta-card,.msg-block,table{background:#1e1d1b;border-color:#33322f;}
+    tr:nth-child(even) td{background:#26241f;}
+    td,th{border-color:#33322f;}
+    h2{border-bottom-color:#f0eee6;}
+    .msg-head{border-bottom-color:#33322f;}
+    .callout{background:#26241f;}
+    .tag{background:#26241f;}
+    .footer{color:#9a9890;border-top-color:#33322f;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back-link" href="./index.html">&larr; Book do Funil</a>
+  <div class="label-mono">Setup pré-lançamento · /recuperacao-funil</div>
+  <h1>Recuperação de Checkout</h1>
+  <p class="subtitle">Sequência de re-elevação de consciência: Pesquisador Aumentado™</p>
+
+  <div class="meta-card">
+    <p><strong>Skill:</strong> /recuperacao-funil</p>
+    <p><strong>Data:</strong> 25 de julho de 2026</p>
+    <p><strong>Fonte:</strong> KB-recuperacao.md (método e verbatim) + offerbook.md (oferta/ticket) + copy.md (Big Idea, mecanismos) + emails/trilhas.md (trilha de nutrição existente)</p>
+    <p><strong>Status:</strong> Checkout existe no Hotmart, mas o rastreio de comportamento ainda não foi confirmado. Este documento entrega o SETUP: a cascata pronta pra ativar, não uma sequência já disparando.</p>
+  </div>
+
+  <div class="callout">
+    <p><strong>O que está confirmado:</strong></p>
+    <ul>
+      <li>Checkout: já existe no Hotmart</li>
+      <li>Comportamentos rastreados hoje: nenhum confirmado ainda</li>
+      <li>Downsell: não existe ainda</li>
+      <li>Canais: não confirmados (assumindo e-mail, já que a trilha de /email-funil está pronta)</li>
+    </ul>
+    <p>Registrado em pendencias.md (itens 7, 8 e 9).</p>
+  </div>
+
+  <h2>O que cada degrau exige do Hotmart</h2>
+  <table>
+    <tr><th>Degrau</th><th>Rastreio necessário</th><th>Normalmente</th><th>Ação antes de ativar</th></tr>
+    <tr><td>Cartão recusado</td><td>Sinalizar falha de pagamento</td><td>Nativo do gateway</td><td>Confirmar webhook/notificação de "compra recusada"</td></tr>
+    <tr><td>Boleto gerado</td><td>Sinalizar emissão + vencimento</td><td>Nativo do gateway</td><td>Confirmar notificação de "boleto gerado"</td></tr>
+    <tr><td>Carrinho abandonado</td><td>Captura de contato antes do pagamento</td><td>Exige integração</td><td>Confirmar recuperação nativa do Hotmart ou conectar automação externa</td></tr>
+    <tr><td>Downsell</td><td>Produto existir</td><td>Decisão do dono</td><td>Definir o produto (pendência 8)</td></tr>
+    <tr><td>Re-nutrição</td><td>Nenhum, reaproveita a trilha existente</td><td>Já existe</td><td>Decidir o ponto de reentrada</td></tr>
+  </table>
+
+  <h2>A cascata (do mais quente ao mais frio)</h2>
+  <pre class="cascade">1. Cartão recusado      &rarr; quentíssimo, tentou pagar
+2. Boleto gerado         &rarr; muito quente, escolheu pagar
+3. Carrinho abandonado   &rarr; quente, mas com objeção
+4. Downsell              &rarr; esfriando, barreira de preço
+5. Re-nutrição (nível 4) &rarr; frio, reconstruir o caminho</pre>
+  <p>Cada degrau só dispara se o anterior não converteu.</p>
+
+  <div class="step-header"><span class="step-num">1</span><h2 style="margin:0;border:none;padding:0;">Cartão recusado</h2></div>
+  <p><strong>Leitura:</strong> tentou pagar, a intenção já foi provada. Degrau mais quente da cascata.<br><strong>Cadência:</strong> mensagem 1 imediata, mensagem 2 em 24h se não resolver.</p>
+
+  <div class="msg-block">
+    <div class="msg-head"><span class="msg-tag">Mensagem 1 · imediata</span></div>
+    <div class="msg-subject">Seu pagamento não passou, mas seu acesso está reservado</div>
+    <p>Prof. {{primeiro_nome}},</p>
+    <p>Seu pagamento do Pesquisador Aumentado™ não foi aprovado. Acontece por vários motivos, geralmente é rápido de resolver.</p>
+    <p>Duas opções: tentar de novo com outro cartão, ou pagar por boleto ou Pix.</p>
+    <p>O acesso ao método continua reservado pra você. O link é o mesmo: [LINK DO CHECKOUT]</p>
+    <p>Prof. Dr. Sergio Rolemberg Farias</p>
+    <span class="cta-tag">CTA: Concluir minha compra → [LINK DO CHECKOUT]</span>
+  </div>
+
+  <div class="msg-block">
+    <div class="msg-head"><span class="msg-tag">Mensagem 2 · 24h depois</span></div>
+    <div class="msg-subject">Ainda dá tempo de resolver o pagamento</div>
+    <p>{{primeiro_nome}},</p>
+    <p>Seu acesso ao Pesquisador Aumentado™ continua reservado, mas notei que o pagamento de ontem não foi concluído.</p>
+    <p>Se foi problema com o cartão, o boleto ou o Pix resolvem na hora. <span class="tag">DONO: definir se oferece desconto aqui, e qual percentual</span></p>
+    <p>[LINK DO CHECKOUT]</p>
+    <p>Prof. Dr. Sergio Rolemberg Farias</p>
+  </div>
+
+  <div class="step-header"><span class="step-num">2</span><h2 style="margin:0;border:none;padding:0;">Boleto gerado</h2></div>
+  <p><strong>Leitura:</strong> escolheu pagar, ainda não pagou. Interesse maior que carrinho abandonado.<br><strong>Cadência:</strong> 1 dia antes do vencimento.</p>
+
+  <div class="msg-block">
+    <div class="msg-head"><span class="msg-tag">Mensagem · 1 dia antes do vencimento</span></div>
+    <div class="msg-subject">Seu boleto vence amanhã, prefere já ter acesso hoje?</div>
+    <p>{{primeiro_nome}},</p>
+    <p>O boleto do Pesquisador Aumentado™ vence amanhã. Se preferir não esperar a compensação, o cartão libera o acesso na hora.</p>
+    <p>[LINK DO CHECKOUT]</p>
+    <p>Prof. Dr. Sergio Rolemberg Farias</p>
+    <span class="cta-tag">CTA: Pagar com cartão e liberar agora → [LINK DO CHECKOUT]</span>
+  </div>
+
+  <div class="step-header"><span class="step-num">3</span><h2 style="margin:0;border:none;padding:0;">Carrinho abandonado</h2></div>
+  <p><strong>Leitura:</strong> chegou ao checkout, não tentou pagar. Está com objeção.<br><strong>Cadência:</strong> 30 minutos depois (janela explícita na fonte).</p>
+
+  <div class="msg-block">
+    <div class="msg-head"><span class="msg-tag">Mensagem · 30 minutos depois</span></div>
+    <div class="msg-subject">Alguma dúvida antes de continuar?</div>
+    <p>{{primeiro_nome}},</p>
+    <p>Vi que você chegou até a página do Pesquisador Aumentado™ e não finalizou.</p>
+    <p>Se ficou alguma dúvida, sobre o método, sobre a garantia de 7 dias, ou sobre como funciona na prática, é só responder este e-mail. Eu leio e respondo pessoalmente.</p>
+    <p>Se preferir voltar direto, o link é este: [LINK DO CHECKOUT]</p>
+    <p>Prof. Dr. Sergio Rolemberg Farias</p>
+  </div>
+
+  <div class="step-header"><span class="step-num">4</span><h2 style="margin:0;border:none;padding:0;">Downsell</h2></div>
+  <p><strong>Leitura:</strong> não converteu nas 3 abordagens diretas. Barreira de preço, não de crença.<br><strong>Status:</strong> <span class="tag">PRODUTO DE DOWNSELL A DEFINIR PELO DONO DA OFERTA</span></p>
+  <p>Recomendação (não decisão): um recorte do e-book, como só o Capítulo 5 (roteiro pronto por fase do TCC), ou a isca digital com um pequeno complemento pago, a um ticket bem abaixo de R$127.</p>
+
+  <div class="msg-block">
+    <div class="msg-head"><span class="msg-tag">Mensagem · modelo, aguarda produto definido</span></div>
+    <div class="msg-subject">Uma versão mais enxuta do método, se o momento não é agora</div>
+    <p>{{primeiro_nome}},</p>
+    <p>Talvez R$127 não seja o momento certo agora. Entendo.</p>
+    <p>Separei uma versão mais enxuta: <span class="tag">NOME DO PRODUTO</span>, por <span class="tag">PREÇO</span>. <span class="tag">DESCRIÇÃO CURTA</span></p>
+    <p>[LINK DO CHECKOUT DO DOWNSELL]</p>
+    <p>Prof. Dr. Sergio Rolemberg Farias</p>
+  </div>
+
+  <div class="step-header"><span class="step-num">5</span><h2 style="margin:0;border:none;padding:0;">Re-nutrição</h2></div>
+  <p><strong>Leitura:</strong> não converteu nem no downsell. Esfriou, precisa reconstruir o caminho.<br><strong>Abordagem:</strong> joga o lead de volta para a consciência da dor (Corretor Compulsivo), não tenta vender direto de novo.</p>
+  <p><strong>Como:</strong> reaproveita a trilha já pronta em <code>emails/trilhas.md</code>, reentrando a partir do <strong>E2</strong> ("O problema não é o aluno que some"), não do E1 (isca já entregue). Sequência de reentrada: E2 → E3 → E4 → E5 → E6 → E7 → nova tentativa de E8-E10, com espaçamento dobrado.</p>
+
+  <h2>Mapa de disparos</h2>
+  <table>
+    <tr><th>Degrau</th><th>Canal</th><th>Momento</th></tr>
+    <tr><td>Cartão recusado (msg 1)</td><td>E-mail</td><td>Imediato após a falha</td></tr>
+    <tr><td>Cartão recusado (msg 2)</td><td>E-mail</td><td>24h depois, se não resolvido</td></tr>
+    <tr><td>Boleto gerado</td><td>E-mail</td><td>1 dia antes do vencimento</td></tr>
+    <tr><td>Carrinho abandonado</td><td>E-mail</td><td>30 minutos depois</td></tr>
+    <tr><td>Downsell</td><td>E-mail</td><td>48h após a última tentativa direta</td></tr>
+    <tr><td>Re-nutrição</td><td>E-mail (trilha existente)</td><td>Reentrada no E2, espaçamento dobrado</td></tr>
+  </table>
+  <p>WhatsApp e SMS não estão confirmados como canais disponíveis (pendência 9).</p>
+
+  <h2>Próximos passos</h2>
+  <ol>
+    <li>Confirmar no painel Hotmart quais notificações de comportamento estão ativas.</li>
+    <li>Decidir o produto de downsell.</li>
+    <li>Confirmar canais disponíveis além de e-mail.</li>
+    <li>Só depois, conectar esta cascata a uma automação real de disparo.</li>
+  </ol>
+
+  <div class="footer">
+    <p>Gerado por /recuperacao-funil, lendo KB-recuperacao.md + offerbook.md + copy.md + emails/trilhas.md.</p>
+  </div>
+
+</div>
+</body>
+</html>

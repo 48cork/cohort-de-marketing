@@ -5,7 +5,7 @@
 **Skill:** `/metodo-funil` — método de elevação de consciência (Alan Nicolas), base teórica Hormozi ($100M Offers)
 **Data:** 25 de julho de 2026
 **Fonte:** `offerbook.md` (aprovado pelo dono da oferta em 25/07/2026) + `briefing-media-buyer.md`
-**Status:** Diagnóstico aprovado. Copy (04) e E-mail (06) concluídos — ver Mapa de Execução abaixo para o que falta.
+**Status:** Diagnóstico aprovado. Copy (04), E-mail (06) e Recuperação (09, em modo setup) concluídos — ver Mapa de Execução abaixo para o que falta.
 
 ---
 
@@ -115,10 +115,12 @@ PEÇA            SKILL             STATUS E O QUE FALTA
                                   downsell definido. Não é bloqueante pro lançamento, mas
                                   limita o LTV — considerar depois da validação inicial.
 
-09 Recuperação  /recuperacao-funil    NÃO EXISTE AINDA. Sem checkout no ar ainda, não há o
-                                  que recuperar — mas a sequência (carrinho abandonado,
-                                  cartão recusado, boleto) deve ser desenhada ANTES de ativar
-                                  tráfego pago, para não perder o primeiro lote de leads.
+09 Recuperação  /recuperacao-funil    FEITO, EM MODO SETUP (25/07/2026). Checkout existe no
+                                  Hotmart, mas o rastreio de comportamento ainda não foi
+                                  confirmado. Cascata completa (cartão recusado → boleto →
+                                  carrinho abandonado → downsell → re-nutrição) pronta em
+                                  recuperacao.md, esperando a confirmação do rastreio
+                                  (pendências 7, 8 e 9) para virar disparo real.
 
 10 Teste/CRO    /cro-funil        PARCIAL. Thresholds de corte/escala já definidos no
                                   briefing-media-buyer.md (CTR, CPL, watch time) — falta só
@@ -126,12 +128,11 @@ PEÇA            SKILL             STATUS E O QUE FALTA
                                   → oferta → checkout → compras) mencionada no método.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ordem recomendada a partir daqui:
-04 FEITO → 06 FEITO → 05 (LP, sem skill própria ainda — montagem manual usando copy.md) →
-07 (publicar 4 posts orgânicos e medir) → 09 (recuperação, antes do 1º tráfego pago) →
-10 (formalizar planilha de KPIs) → só então ativar LinkedIn Ads (fase 2 do briefing).
-08 fica para depois da validação inicial.
-VOCÊ ESTÁ AQUI: 05 pendente (sem skill), com 09 (/recuperacao-funil) e mockups
-(/mockup-produto-funil) disponíveis em paralelo, sem depender da LP existir.
+04 FEITO → 06 FEITO → 09 FEITO (setup) → 05 (LP, sem skill própria ainda — montagem manual
+usando copy.md) → 07 (publicar 4 posts orgânicos e medir) → 10 (formalizar planilha de KPIs)
+→ só então ativar LinkedIn Ads (fase 2 do briefing). 08 fica para depois da validação inicial.
+VOCÊ ESTÁ AQUI: 09 pronto mas em modo setup (falta confirmar rastreio Hotmart, pendências
+7-9); 05 pendente (sem skill); mockups (/mockup-produto-funil) disponível em paralelo.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

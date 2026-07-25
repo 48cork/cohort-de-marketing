@@ -2,9 +2,9 @@
 
 # Pendências — Pesquisador Aumentado™
 
-Registro único de decisões do dono da oferta, agrupadas por decisão (uma decisão pode afetar vários arquivos). Atualizado pela última skill executada (`/email-funil`, 25 de julho de 2026).
+Registro único de decisões do dono da oferta, agrupadas por decisão (uma decisão pode afetar vários arquivos). Atualizado pela última skill executada (`/recuperacao-funil`, 25 de julho de 2026).
 
-**Placar:** 0 aplicadas · 1 parcial · 5 abertas
+**Placar:** 0 aplicadas · 2 parciais · 7 abertas
 
 ---
 
@@ -32,10 +32,11 @@ Registro único de decisões do dono da oferta, agrupadas por decisão (uma deci
 
 ## 4. Link do checkout
 
-- [ ] **Status:** Aberto
-- **O quê decidir:** checkout (Hotmart ou equivalente) ainda não existe.
-- **Onde aparece:** `emails/trilha-lancamento-email-8.html`, `-9.html`, `-10.html` e `emails/trilhas.md`/`.html` (placeholder `[LINK DO CHECKOUT]`).
-- **Como resolver:** cole aqui a URL do checkout assim que existir.
+- [~] **Status:** Parcial — checkout existe no Hotmart, falta a URL
+- **O que já foi feito:** você confirmou (25/07/2026) que o checkout já existe no Hotmart.
+- **O quê ainda falta decidir:** a URL exata do checkout ainda não foi colada aqui.
+- **Onde aparece:** `emails/trilha-lancamento-email-8.html`, `-9.html`, `-10.html`, `emails/trilhas.md`/`.html`, `recuperacao.md`/`.html` (todos os placeholders `[LINK DO CHECKOUT]`).
+- **Como resolver:** cole aqui a URL do checkout Hotmart.
 
 ## 5. Link de descadastro (compliance)
 
@@ -51,6 +52,27 @@ Registro único de decisões do dono da oferta, agrupadas por decisão (uma deci
 - **Onde aparece:** `offerbook.md` (BLOCO 2 e Lacunas), `copy.md` (Fase 3, top 5 headlines).
 - **Como resolver:** confirme se testa as duas (recomendado) ou se já escolhe uma para a página de vendas.
 
+## 7. Rastreio de comportamento no Hotmart (cartão recusado, boleto, carrinho)
+
+- [ ] **Status:** Aberto
+- **O quê decidir:** você confirmou que o checkout existe no Hotmart, mas ainda não sabe quais notificações de comportamento estão ativas (cartão recusado e boleto normalmente são nativas do gateway; carrinho abandonado exige integração).
+- **Onde aparece:** `recuperacao.md`/`.html` (toda a cascata depende disso pra sair do modo "setup" e virar disparo real).
+- **Como resolver:** confira no painel Hotmart quais notificações/webhooks estão habilitados e me diga o que encontrou.
+
+## 8. Produto de downsell
+
+- [ ] **Status:** Aberto
+- **O quê decidir:** não existe produto de downsell (oferta mais barata pra quem não fecha no R$127). Recomendação registrada em `recuperacao.md`: recorte do e-book (ex.: só o Capítulo 5) ou a isca com complemento pago.
+- **Onde aparece:** `recuperacao.md`/`.html` (degrau 4 da cascata, mensagem com placeholders `[NOME DO PRODUTO]`, `[PREÇO]`, `[DESCRIÇÃO]`).
+- **Como resolver:** decida o produto e o preço, ou responda "usar a recomendação".
+
+## 9. Canais de recuperação além de e-mail
+
+- [ ] **Status:** Aberto
+- **O quê decidir:** não foi confirmado se há WhatsApp ou SMS disponíveis para disparar as mensagens de recuperação, além do e-mail (que já está pronto na trilha do `/email-funil`).
+- **Onde aparece:** `recuperacao.md`/`.html` (mapa de disparos, hoje só com e-mail).
+- **Como resolver:** confirme se tem WhatsApp/SMS disponível; se sim, eu adapto as mensagens pra formato curto.
+
 ---
 
-*Pendências geradas/atualizadas por `/email-funil`. Cheque `pendencias.html` para o checklist clicável com campo de resposta e botão "Copiar respostas pro Claude".*
+*Pendências geradas/atualizadas por `/recuperacao-funil`. Cheque `pendencias.html` para o checklist clicável com campo de resposta e botão "Copiar respostas pro Claude".*
