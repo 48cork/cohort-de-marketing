@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico de Funil — Pesquisador Aumentado™</title>
+<style>
+  :root{
+    --primary:#d97757;
+    --ink:#141413;
+    --tertiary:#f0eee6;
+    --neutral:#5e5d59;
+    --surface:#faf9f5;
+    --card:#ffffff;
+    --border:#e3e2de;
+    --error:#c6613f;
+    --radius-sm:4px;
+    --radius-lg:8px;
+    --font-sans: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Roboto Mono", "JetBrains Mono", "Consolas", monospace;
+    --font-serif: "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--surface);
+    color:var(--ink);
+    font-family:var(--font-sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px 96px;}
+  header.hero{
+    padding:72px 24px 48px;
+    border-bottom:1px solid var(--border);
+    background:var(--surface);
+  }
+  header.hero .label{
+    font-family:var(--font-mono);
+    font-size:0.74rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--primary);
+    font-weight:500;
+  }
+  header.hero h1{
+    font-size:2.55rem;
+    font-weight:700;
+    line-height:1.12;
+    letter-spacing:-0.02em;
+    margin:12px 0 8px;
+  }
+  header.hero .sub{
+    font-size:1.12rem;
+    color:var(--neutral);
+    max-width:640px;
+  }
+  .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+    margin-top:28px;
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    color:var(--neutral);
+  }
+  .meta strong{color:var(--ink);font-weight:500;}
+  .status-pill{
+    display:inline-block;
+    margin-top:20px;
+    padding:6px 14px;
+    border-radius:var(--radius-sm);
+    background:var(--tertiary);
+    color:var(--ink);
+    font-family:var(--font-mono);
+    font-size:0.76rem;
+    letter-spacing:0.04em;
+  }
+  section{padding:48px 0;border-bottom:1px solid var(--border);}
+  section:last-of-type{border-bottom:none;}
+  h2{
+    font-size:1.9rem;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    margin:0 0 24px;
+  }
+  h3{
+    font-size:1.18rem;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    margin:32px 0 12px;
+  }
+  p{font-size:1.02rem;color:var(--ink);}
+  .muted{color:var(--neutral);}
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:16px 0 8px;
+    font-size:0.95rem;
+  }
+  th,td{
+    text-align:left;
+    padding:12px 14px;
+    border:1px solid var(--border);
+    vertical-align:top;
+  }
+  th{
+    background:var(--tertiary);
+    font-family:var(--font-mono);
+    font-size:0.74rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-weight:500;
+    color:var(--ink);
+  }
+  tr:nth-child(even) td{background:#fdfcfa;}
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:24px 28px;
+    margin:16px 0;
+  }
+  .callout{
+    background:var(--tertiary);
+    border-left:3px solid var(--primary);
+    border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+    padding:18px 22px;
+    margin:20px 0;
+    font-size:0.98rem;
+  }
+  .callout strong{color:var(--ink);}
+  .gap-flag{
+    display:inline-block;
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--error);
+    border:1px solid var(--error);
+    border-radius:var(--radius-sm);
+    padding:2px 8px;
+    margin-left:8px;
+  }
+  .quote{
+    font-family:var(--font-serif);
+    font-size:1.2rem;
+    line-height:1.55;
+    color:var(--ink);
+    border-left:2px solid var(--border);
+    padding-left:20px;
+    margin:20px 0;
+  }
+  .map-block{
+    background:var(--ink);
+    color:var(--surface);
+    border-radius:var(--radius-lg);
+    padding:32px;
+    font-family:var(--font-mono);
+    font-size:0.86rem;
+    line-height:1.7;
+    overflow-x:auto;
+    white-space:pre-wrap;
+  }
+  .map-block .status-done{color:#9cd6a8;}
+  .map-block .status-pending{color:#e0b06b;}
+  .map-block .status-gap{color:#e08a72;}
+  ul{padding-left:22px;}
+  li{margin-bottom:6px;}
+  .checklist td:first-child{font-family:var(--font-mono);font-size:0.85rem;width:60%;}
+  footer{
+    padding:40px 24px 60px;
+    text-align:center;
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    color:var(--neutral);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --surface:#1b1a18;
+      --ink:#f0eee6;
+      --card:#242320;
+      --tertiary:#2b2a27;
+      --border:#3a3834;
+      --neutral:#a9a79f;
+    }
+    .map-block{background:#0f0e0d;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap" style="padding:0;">
+    <span class="label">/metodo-funil — diagnóstico</span>
+    <h1>Pesquisador Aumentado™</h1>
+    <p class="sub">Diagnóstico de estágio de consciência + funil prescrito + mapa de execução, a partir do offerbook aprovado internamente e do briefing de mídia paga.</p>
+    <div class="meta">
+      <span><strong>Data:</strong> 25 de julho de 2026</span>
+      <span><strong>Fonte:</strong> offerbook.md + briefing-media-buyer.md</span>
+    </div>
+    <div class="status-pill">STATUS — aguarda revisão do dono antes de construir peças novas</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <h2>Parte 1 — Diagnóstico</h2>
+
+  <h3>0. Os 3 decisores do funil</h3>
+  <table>
+    <tr><th>Decisor</th><th>Resposta</th><th>Fonte</th></tr>
+    <tr>
+      <td>Origem do público</td>
+      <td>Multi-fase: (1) LinkedIn orgânico — rede/posts do autor, AGORA; (2) LinkedIn Ads frio por cargo, depois de validar orgânico; (3) Google Ads por intenção de busca, fase 3</td>
+      <td class="muted">briefing-media-buyer.md</td>
+    </tr>
+    <tr>
+      <td>Ticket + formato</td>
+      <td>R$127 à vista, e-book self-study (sem cohort ao vivo, sem consultoria, sem produto de entrada mais barato)</td>
+      <td class="muted">offerbook.md BLOCO 2</td>
+    </tr>
+    <tr>
+      <td>Prova disponível</td>
+      <td>Parcial — depoimento real forte, mas do aluno (Pedro, UFCG), não do professor (comprador)<span class="gap-flag">gap</span></td>
+      <td class="muted">offerbook.md BLOCO 2 + Lacunas</td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>Nota de honestidade de prova:</strong> o depoimento do Pedro é prova real e vale — mostra o efeito do método no aluno, exatamente o que o Dr. Marcelo quer ver do outro lado da mesa. Mas não substitui prova de que um professor aplicou o método. Estratégia até coletar isso: (a) usar o depoimento do aluno como prova do mecanismo, nunca apresentado como "depoimento de cliente"; (b) reforçar a garantia de 7 dias como redutor de risco; (c) apoiar-se na autoridade de par do autor. Marcar <strong>[SEM PROVA DIRETA DO COMPRADOR AINDA]</strong> em qualquer peça que hoje usaria "veja o que professores estão dizendo".
+  </div>
+
+  <h3>1. Estágio de consciência</h3>
+  <p>Público misto por fase — não existe nível único, porque o próprio plano de aquisição já é escalonado.</p>
+  <table>
+    <tr><th>Fase</th><th>Nível</th><th>Por quê</th></tr>
+    <tr><td>LinkedIn orgânico (agora)</td><td><strong>4-5</strong></td><td>Rede do autor conhece a dor, mas maioria nunca a nomeou como problema com solução possível</td></tr>
+    <tr><td>LinkedIn Ads frio</td><td><strong>5</strong></td><td>Público sem relação prévia com o autor — cargo/formação como único filtro</td></tr>
+    <tr><td>Google Ads (intent)</td><td><strong>3</strong></td><td>Já busca ativamente solução ("como orientar TCC") — só não conhece o produto</td></tr>
+  </table>
+
+  <h3>2. Funil prescrito</h3>
+  <p><strong>Funil de Conteúdo + Isca + Nutrição por E-mail → Página de Vendas Direta.</strong></p>
+  <ul>
+    <li>Ticket baixo (R$127) não paga o custo de um webinário ao vivo — webinário é indicado para produtos acima de R$1.000.</li>
+    <li>O formato já existe pronto: isca digital → sequência de 10 e-mails em 14 dias (já escrita) elevando consciência 5/4 → 3 → 2/1 → LP fecha a venda.</li>
+    <li>Variante mais leve que PLF completo, compatível com o ticket e com o material já produzido.</li>
+  </ul>
+
+  <h3>3. Anúncio que converte (casado ao nível, por fase)</h3>
+  <table>
+    <tr><th>Fase</th><th>Nível</th><th>Criativo certo</th><th>Por quê</th></tr>
+    <tr><td>LinkedIn orgânico</td><td>5-4</td><td>Hook de captação (V5, V1A, V2A, V3A)</td><td>Conteúdo de descoberta, não conversão direta</td></tr>
+    <tr><td>LinkedIn Ads</td><td>5</td><td>Hook de captação / estudo de caso</td><td>Depoimento pra público frio é "burrice total" (Alan) — só converte no nível 2</td></tr>
+    <tr><td>Google Ads</td><td>3</td><td>Estudo de caso / página direta</td><td>Já busca solução ativamente</td></tr>
+    <tr><td>Remarketing</td><td>2-1</td><td>Depoimento caberia aqui — falta prova direta do comprador</td><td>Regra de casamento nível↔criativo</td></tr>
+  </table>
+
+  <h3>4. Conteúdo orgânico que alimenta o funil</h3>
+  <p>LinkedIn é a única rede definida no offerbook/briefing. Carrossel fala com consciente do problema (nível 4); posts/stories falam com mais conscientes (níveis 1-2). Os 4 ângulos prioritários já estão roteirizados e ordenados (V5 → V1A → V2A → V3A), com thresholds de validação orgânica antes de qualquer ad pago.</p>
+
+  <h3>5. Esqueleto da oferta</h3>
+  <table>
+    <tr><td><strong>Dor</strong></td><td>Ciclo corretivo — 3-5h/aluno/semestre em retrabalho que não ensina o princípio subjacente</td></tr>
+    <tr><td><strong>Mecanismo único</strong></td><td>Roteiro Socrático + IA (IA do lado do professor, não do aluno)</td></tr>
+    <tr><td><strong>Entregáveis</strong></td><td>E-book (introdução + 5 capítulos) + isca digital ("As 7 Perguntas Socráticas...")</td></tr>
+    <tr><td><strong>Ancoragem</strong></td><td>R$4,23/hora (cálculo 15 orientandos) ou R$22/aluno (cálculo 6 orientandos/semestre)</td></tr>
+    <tr><td><strong>Bônus</strong></td><td>A DEFINIR pelo dono da oferta <span class="gap-flag">pendência</span></td></tr>
+    <tr><td><strong>Garantia</strong></td><td>7 dias incondicional — copy pronta e confirmada</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Parte 2 — Mapa de Execução</h2>
+  <div class="map-block">MAPA DE EXECUÇÃO — Pesquisador Aumentado™
+Estágio 5-4 (aquisição) → 3-2-1 (nutrição/conversão)
+Funil: Conteúdo + Isca + E-mail + LP direta
+─────────────────────────────────────────────
+
+01 Offerbook          <span class="status-done">[FEITO]</span>
+   Pendências do dono: bônus de lançamento, depoimento
+   de professor, escolha de headline (identidade x contraste)
+
+02 Funil (este doc)   <span class="status-done">[FEITO]</span>
+
+03 DESIGN.md           <span class="status-done">[FEITO]</span>
+   Extraído da landing page real do produto
+
+04 Copy (fundação)     <span class="status-gap">[PENDENTE — GAP REAL]</span>
+   copy-pagina-vendas.md e sequencia-emails.md já ESCRITOS,
+   mas nunca passaram pela fundação formal (/copy-funil).
+   Recomendação: consolidar retroativamente em copy.md
+
+05 Página de vendas    <span class="status-pending">[PENDENTE]</span>
+   Copy pronta (3 versões — B recomendada). LP não está no ar.
+   Falta mockup do e-book e da isca digital.
+
+06 E-mail               <span class="status-pending">[QUASE PRONTO]</span>
+   10 e-mails / 14 dias escritos. Falta só resolver o
+   placeholder de depoimento no E6.
+
+07 Conteúdo             <span class="status-pending">[DEFINIDO, NÃO PUBLICADO]</span>
+   4 ângulos roteirizados (V5, V1A, V2A, V3A).
+   Falta publicar e medir contra os thresholds do briefing.
+
+08 Back-end             <span class="status-gap">[NÃO EXISTE]</span>
+   Produto único, sem upsell/OTO/downsell. Não bloqueia
+   o lançamento — considerar depois da validação inicial.
+
+09 Recuperação           <span class="status-gap">[NÃO EXISTE AINDA]</span>
+   Desenhar ANTES de ativar tráfego pago.
+
+10 Teste / CRO           <span class="status-pending">[PARCIAL]</span>
+   Thresholds de corte/escala já definidos no briefing.
+   Falta formalizar a planilha de KPIs por etapa.
+─────────────────────────────────────────────
+ORDEM RECOMENDADA A PARTIR DAQUI:
+04 → 05 → 06 → 07 (publicar e medir) → 09 (antes do 1º
+tráfego pago) → 10 → só então LinkedIn Ads (fase 2).
+08 fica para depois da validação inicial.</div>
+</section>
+
+<section>
+  <h2>Veto conditions verificadas</h2>
+  <table class="checklist">
+    <tr><td>Nível de consciência desconhecido</td><td>Resolvido — diagnosticado por fase</td></tr>
+    <tr><td>Offerbook não existe</td><td>Resolvido — offerbook.md existe e foi lido</td></tr>
+    <tr><td>Pediram copy pronta nesta skill</td><td>Não — copy aplicada fica para /copy-funil e skills de peça</td></tr>
+    <tr><td>Subir sem revisar</td><td>Este documento é o checkpoint antes de qualquer peça nova</td></tr>
+  </table>
+
+  <h3>Gate de compliance</h3>
+  <p class="muted">Nicho (educação superior / orientação acadêmica) não é regulado pelas categorias de risco desta skill (saúde, finanças, jurídico, autoestima/relacionamento com promessa de resultado). Os números de ROI são estimativas de cálculo declarado, não promessas de resultado — nenhum ajuste de linguagem necessário.</p>
+</section>
+
+</div>
+
+<footer>
+  Diagnóstico gerado por /metodo-funil — Skill 1 da Aula 02 do Cohort de Marketing<br>
+  Inputs: offerbook.md, briefing-media-buyer.md · Regra-mãe: revisar com o dono da oferta antes de rodar qualquer skill de peça (03–10)
+</footer>
+
+</body>
+</html>
