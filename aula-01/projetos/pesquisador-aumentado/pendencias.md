@@ -4,7 +4,7 @@
 
 Registro único de decisões do dono da oferta, agrupadas por decisão (uma decisão pode afetar vários arquivos). Atualizado pela última skill executada (`/email-funil`, 25 de julho de 2026).
 
-**Placar:** 0 aplicadas · 0 parciais · 6 abertas
+**Placar:** 0 aplicadas · 1 parcial · 5 abertas
 
 ---
 
@@ -24,10 +24,11 @@ Registro único de decisões do dono da oferta, agrupadas por decisão (uma deci
 
 ## 3. Link da isca digital (página de captura)
 
-- [ ] **Status:** Aberto
-- **O quê decidir:** o PDF "As 7 Perguntas Socráticas..." está definido, mas a página de captura e o link de entrega ainda não existem.
+- [~] **Status:** Parcial — conteúdo escrito, falta hospedar
+- **O que já foi feito:** o conteúdo das "7 Perguntas Socráticas" foi escrito (`isca-7-perguntas-socraticas.md`/`.html`, 1 página, a partir dos 4 tipos de pergunta do Capítulo 2). PDF ainda não gerado automaticamente (sem Chrome nesta máquina) — use Ctrl+P no `.html` para salvar como PDF.
+- **O quê ainda falta decidir:** a página de captura (formulário de e-mail) e o link de entrega ainda não existem.
 - **Onde aparece:** `emails/trilha-lancamento-email-1.html` e `emails/trilhas.md`/`.html` (E1, placeholder `[LINK DA ISCA DIGITAL]`).
-- **Como resolver:** cole aqui a URL da página de captura (ou do PDF direto) assim que existir.
+- **Como resolver:** gere o PDF do `isca-7-perguntas-socraticas.html`, suba numa página de captura, e cole aqui a URL final.
 
 ## 4. Link do checkout
 
