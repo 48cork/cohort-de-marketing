@@ -1,3 +1,5 @@
+[← Book do Funil](./index.html)
+
 # Fundação de Copy: Pesquisador Aumentado™
 ## O Método Socrático com IA para Professores Orientadores de TCC
 

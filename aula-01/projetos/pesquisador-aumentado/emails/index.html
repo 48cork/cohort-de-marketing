@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Trilha de E-mails — Pesquisador Aumentado™</title>
+<style>
+  :root{
+    --primary:#d97757;--secondary:#141413;--tertiary:#f0eee6;
+    --neutral:#5e5d59;--surface:#faf9f5;--text:#141413;--text-muted:#5e5d59;
+    --border:#e3e2de;--card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--surface);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;line-height:1.6;}
+  .page{max-width:920px;margin:0 auto;padding:56px 24px 96px;}
+  .back-link{
+    display:inline-block;font-family:ui-monospace,"SF Mono","Roboto Mono","JetBrains Mono","Consolas",monospace;
+    font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--primary);
+    text-decoration:none;margin-bottom:18px;
+  }
+  .back-link:hover{text-decoration:underline;}
+  .label-mono{font-family:ui-monospace,"SF Mono","Roboto Mono","JetBrains Mono","Consolas",monospace;font-size:0.74rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--primary);}
+  h1{font-size:2.3rem;font-weight:700;letter-spacing:-0.02em;margin:10px 0 6px;}
+  .subtitle{font-size:1.1rem;color:var(--text-muted);margin:0 0 32px;}
+  .shortcuts{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
+  .shortcuts a{
+    font-size:0.85rem;padding:8px 16px;border-radius:4px;background:var(--tertiary);
+    color:var(--secondary);text-decoration:none;border:1px solid var(--border);font-weight:500;
+  }
+  .shortcuts a:hover{background:var(--border);}
+  h2{font-size:1.3rem;font-weight:700;letter-spacing:-0.01em;margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--secondary);}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:8px;
+    padding:22px 22px;text-decoration:none;color:var(--text);display:block;
+    transition:border-color .15s;
+  }
+  .card:hover{border-color:var(--secondary);}
+  .card .day{font-family:ui-monospace,"SF Mono","Roboto Mono","JetBrains Mono","Consolas",monospace;font-size:0.72rem;letter-spacing:0.1em;color:var(--primary);text-transform:uppercase;margin-bottom:8px;display:block;}
+  .card .subject{font-size:1.05rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:8px;}
+  .card .objective{font-size:0.9rem;color:var(--text-muted);}
+  .badge{display:inline-block;font-size:0.68rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-top:10px;}
+  .badge-nutricao{background:var(--tertiary);color:var(--neutral);}
+  .badge-lancamento{background:var(--secondary);color:var(--surface);}
+  .footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);font-size:0.85rem;color:var(--text-muted);}
+  @media (prefers-color-scheme: dark){
+    body{background:#141413;color:#f0eee6;}
+    .card{background:#1e1d1b;border-color:#33322f;}
+    .shortcuts a{background:#26241f;border-color:#33322f;color:#f0eee6;}
+    h2{border-bottom-color:#f0eee6;}
+    .badge-nutricao{background:#26241f;color:#9a9890;}
+    .footer{color:#9a9890;border-top-color:#33322f;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back-link" href="../index.html">&larr; Book do Funil</a>
+  <div class="label-mono">Trilha de e-mails · 10 mensagens · Dia 0 ao dia 16</div>
+  <h1>Pesquisador Aumentado™</h1>
+  <p class="subtitle">Sequência de isca, nutrição e lançamento — cada card abre o e-mail pronto pra copiar.</p>
+
+  <div class="shortcuts">
+    <a href="trilhas.html">Documento de revisão (copy completa)</a>
+    <a href="../copy.html">Fundação de copy</a>
+    <a href="../pendencias.html">Pendências</a>
+    <a href="../funil.html">Mapa do funil</a>
+  </div>
+
+  <h2>Nutrição (E1–E7)</h2>
+  <div class="grid">
+    <a class="card" href="trilha-lancamento-email-1.html">
+      <span class="day">Dia 0 · imediato</span>
+      <div class="subject">Seu guia chegou. Uma pergunta antes de abrir</div>
+      <div class="objective">Entrega da isca + pergunta de identificação</div>
+      <span class="badge badge-nutricao">Nutrição</span>
+    </a>
+    <a class="card" href="trilha-lancamento-email-2.html">
+      <span class="day">Dia 2</span>
+      <div class="subject">O problema não é o aluno que some</div>
+      <div class="objective">Dor estrutural (Mecanismo do Problema)</div>
+      <span class="badge badge-nutricao">Nutrição</span>
+    </a>
+    <a class="card" href="trilha-lancamento-email-3.html">
+      <span class="day">Dia 4</span>
+      <div class="subject">Anos de carreira, e você virou revisor de texto</div>
+      <div class="objective">Reframing de identidade</div>
+      <span class="badge badge-nutricao">Nutrição</span>
+    </a>
+    <a class="card" href="trilha-lancamento-email-4.html">
+      <span class="day">Dia 6</span>
+      <div class="subject">O protocolo de 3 camadas que mudou minhas orientações</div>
+      <div class="objective">Método (Mecanismo da Solução)</div>
+      <span class="badge badge-nutricao">Nutrição</span>
+    </a>
+    <a class="card" href="trilha-lancamento-email-5.html">
+      <span class="day">Dia 8</span>
+      <div class="subject">Usar IA na orientação não seria cumplicidade?</div>
+      <div class="objective">Objeção #1 neutralizada</div>
+      <span class="badge badge-nutricao">Nutrição</span>
+    </a>
+    <a class="card" href="trilha-lancamento-email-6.html">
+      <span class="day">Dia 10</span>
+      <div class="subject">O que mudou depois da primeira sessão socrática</div>
+      <div class="objective">Prova (rotulada, aluno não comprador)</div>
+      <span class="badge badge-nutricao">Nutrição</span>
+    </a>
+    <a class="card" href="trilha-lancamento-email-7.html">
+      <span class="day">Dia 12</span>
+      <div class="subject">O que vem aí, e por que eu construí isso</div>
+      <div class="objective">Pré-lançamento + autoridade</div>
+      <span class="badge badge-nutricao">Nutrição</span>
+    </a>
+  </div>
+
+  <h2>Lançamento (E8–E10)</h2>
+  <div class="grid">
+    <a class="card" href="trilha-lancamento-email-8.html">
+      <span class="day">Dia 14</span>
+      <div class="subject">Pesquisador Aumentado™ está disponível</div>
+      <div class="objective">Lançamento direto: oferta completa + CTA</div>
+      <span class="badge badge-lancamento">Lançamento</span>
+    </a>
+    <a class="card" href="trilha-lancamento-email-9.html">
+      <span class="day">Dia 15</span>
+      <div class="subject">Não tenho tempo para ler mais um livro</div>
+      <div class="objective">Objeção de tempo + garantia de 7 dias</div>
+      <span class="badge badge-lancamento">Lançamento</span>
+    </a>
+    <a class="card" href="trilha-lancamento-email-10.html">
+      <span class="day">Dia 16</span>
+      <div class="subject">Último dia, e uma coisa que não disse antes</div>
+      <div class="objective">Urgência final + narrativa pessoal</div>
+      <span class="badge badge-lancamento">Lançamento</span>
+    </a>
+  </div>
+
+  <div class="footer">
+    <p>Gerado por /email-funil, lendo copy.md (fundação aprovada em /copy-funil) e o esqueleto de offerbook.md BLOCO 7.</p>
+    <p>Cada e-mail tem um botão "Copiar HTML do e-mail" no canto superior direito para colar direto na sua ferramenta de disparo.</p>
+  </div>
+
+</div>
+</body>
+</html>

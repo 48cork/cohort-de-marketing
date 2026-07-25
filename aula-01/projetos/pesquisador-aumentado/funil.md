@@ -1,9 +1,11 @@
+[← Book do Funil](./index.html)
+
 # Diagnóstico de Funil — Pesquisador Aumentado™
 
 **Skill:** `/metodo-funil` — método de elevação de consciência (Alan Nicolas), base teórica Hormozi ($100M Offers)
 **Data:** 25 de julho de 2026
-**Fonte:** `offerbook.md` (aprovação do dono da oferta ainda pendente) + `briefing-media-buyer.md`
-**Status:** Diagnóstico — aguarda revisão do dono antes de qualquer peça ser construída/publicada
+**Fonte:** `offerbook.md` (aprovado pelo dono da oferta em 25/07/2026) + `briefing-media-buyer.md`
+**Status:** Diagnóstico aprovado. Copy (04) e E-mail (06) concluídos — ver Mapa de Execução abaixo para o que falta.
 
 ---
 
@@ -85,23 +87,23 @@ PEÇA            SKILL             STATUS E O QUE FALTA
                                   (~/aiox_pro/pesquisador-aumentado/landing-page.html)
                                   em projetos/pesquisador-aumentado/DESIGN.md.
 
-04 Copy         /copy-funil       PENDENTE — GAP REAL. Existem copy-pagina-vendas.md e
-   (fundação)                     sequencia-emails.md ESCRITOS, mas nunca passaram pela
-                                  fundação formal (Big Idea, mecanismos nomeados, banco de
-                                  headlines/bullets, validação Hopkins/Sugarman) que vira
-                                  copy.md. Recomendação: rodar /copy-funil em modo retroativo
-                                  — consolidar o que já foi escrito em copy.md antes de criar
-                                  peça nova, pra manter uma fonte única.
+04 Copy         /copy-funil       FEITO (25/07/2026, modo retroativo). copy.md consolida
+   (fundação)                     Big Idea, mecanismos nomeados (Corretor Compulsivo /
+                                  Roteiro Socrático + IA), banco de 25 headlines e 50 bullets.
+                                  Fase 6 (validação Hopkins/Sugarman) fica pendente até a
+                                  página de vendas existir.
 
-05 Página       /pagina-vendas-funil   PENDENTE. Copy já escrita (3 versões de headline no
-                /mockup-produto-funil  offerbook — Versão B recomendada pelo briefing de mídia
-                                  por maior diferenciação). LP ainda não existe no ar.
-                                  Falta também: mockup do e-book (capa) e da isca digital.
+05 Página       /pagina-vendas-funil   PENDENTE — SEM SKILL neste cohort ainda. Copy já
+                /mockup-produto-funil  escrita (3 versões de headline no offerbook; copy.md
+                                  selecionou a de contraste como #1 do banco). LP ainda não
+                                  existe no ar — montagem manual por enquanto. Falta também:
+                                  mockup do e-book (capa) e da isca digital (/mockup-produto-funil).
 
-06 Email        /email-funil      QUASE PRONTO. sequencia-emails.md já tem 10 e-mails / 14
-                                  dias escritos. Falta apenas o depoimento do E6 (hoje é
-                                  placeholder — usar o depoimento do Pedro como substituto
-                                  documentado, não como "depoimento de professor").
+06 Email        /email-funil      FEITO (25/07/2026). 10 e-mails em emails/, com índice
+                                  clicável e documento de revisão. Depoimento do E6 usa o
+                                  relato do Pedro, rotulado como prova de mecanismo, não como
+                                  depoimento de professor (esse segue [SEM PROVA AINDA] em
+                                  pendencias.md).
 
 07 Conteúdo     /conteudo-funil   DEFINIDO, NÃO PUBLICADO. 4 ângulos prioritários (V5, V1A,
                                   V2A, V3A) já roteirizados em variacoes-teste-2026-06-27.md.
@@ -124,10 +126,12 @@ PEÇA            SKILL             STATUS E O QUE FALTA
                                   → oferta → checkout → compras) mencionada no método.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ordem recomendada a partir daqui:
-04 (consolidar copy.md) → 05 (LP no ar) → 06 (ativar sequência de e-mail) →
+04 FEITO → 06 FEITO → 05 (LP, sem skill própria ainda — montagem manual usando copy.md) →
 07 (publicar 4 posts orgânicos e medir) → 09 (recuperação, antes do 1º tráfego pago) →
 10 (formalizar planilha de KPIs) → só então ativar LinkedIn Ads (fase 2 do briefing).
 08 fica para depois da validação inicial.
+VOCÊ ESTÁ AQUI: 05 pendente (sem skill), com 09 (/recuperacao-funil) e mockups
+(/mockup-produto-funil) disponíveis em paralelo, sem depender da LP existir.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

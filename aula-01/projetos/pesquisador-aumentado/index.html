@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Book do Funil — Pesquisador Aumentado™</title>
+<style>
+  :root{
+    --primary:#d97757;--secondary:#141413;--tertiary:#f0eee6;
+    --neutral:#5e5d59;--surface:#faf9f5;--text:#141413;--text-muted:#5e5d59;
+    --border:#e3e2de;--card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--surface);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;line-height:1.6;}
+  .page{max-width:1000px;margin:0 auto;padding:56px 24px 96px;}
+  .label-mono{font-family:ui-monospace,"SF Mono","Roboto Mono","JetBrains Mono","Consolas",monospace;font-size:0.74rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--primary);}
+  h1{font-size:2.5rem;font-weight:700;letter-spacing:-0.02em;margin:10px 0 6px;}
+  .subtitle{font-size:1.15rem;color:var(--text-muted);margin:0 0 8px;}
+  .here-banner{
+    background:var(--secondary);color:var(--surface);border-radius:8px;padding:22px 26px;
+    margin:24px 0 40px;
+  }
+  .here-banner .tag{font-family:ui-monospace,monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);display:block;margin-bottom:8px;}
+  .here-banner p{margin:4px 0;font-size:0.98rem;}
+  .here-banner a{color:var(--surface);text-decoration:underline;}
+  h2{font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;margin:48px 0 18px;padding-bottom:10px;border-bottom:2px solid var(--secondary);}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px 22px;text-decoration:none;color:var(--text);display:block;transition:border-color .15s;}
+  .card:hover{border-color:var(--secondary);}
+  .card .skill{font-family:ui-monospace,monospace;font-size:0.7rem;letter-spacing:0.08em;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;display:block;}
+  .card .title{font-size:1.02rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:10px;}
+  .badge{display:inline-block;font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:3px 10px;border-radius:4px;}
+  .badge-feito{background:rgba(58,125,92,0.12);color:#3a7d5c;}
+  .badge-revisao{background:rgba(184,134,59,0.12);color:#b8863b;}
+  .badge-acao{background:rgba(198,97,63,0.14);color:#c6613f;}
+  .badge-fila{background:var(--tertiary);color:var(--text-muted);}
+  .card.disabled{opacity:0.6;cursor:default;}
+  .card.disabled:hover{border-color:var(--border);}
+  .footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);font-size:0.85rem;color:var(--text-muted);}
+  @media (prefers-color-scheme: dark){
+    body{background:#141413;color:#f0eee6;}
+    .card{background:#1e1d1b;border-color:#33322f;}
+    h2{border-bottom-color:#f0eee6;}
+    .badge-fila{background:#26241f;}
+    .footer{color:#9a9890;border-top-color:#33322f;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="label-mono">Book do Funil</div>
+  <h1>Pesquisador Aumentado™</h1>
+  <p class="subtitle">O Método Socrático com IA para Professores Orientadores de TCC</p>
+
+  <div class="here-banner">
+    <span class="tag">Você está aqui</span>
+    <p><strong>E-mails (06) feito.</strong> A trilha de 10 e-mails está pronta em <a href="emails/index.html">emails/index.html</a>.</p>
+    <p>A <strong>página de vendas (05)</strong> ainda não tem skill própria neste cohort: a copy já existe em 3 versões dentro do offerbook, mas a montagem da LP fica manual por enquanto.</p>
+    <p>Próximo passo com skill disponível: <strong>/recuperacao-funil</strong> (desenhar a recuperação de checkout antes do primeiro tráfego pago, como o mapa do funil recomenda) ou <strong>/mockup-produto-funil</strong> (mockups do e-book e da isca).</p>
+  </div>
+
+  <h2>Pesquisa</h2>
+  <div class="grid">
+    <a class="card" href="relatorio-avatar.html">
+      <span class="skill">/avatar-funil</span>
+      <div class="title">Pesquisa de avatar</div>
+      <span class="badge badge-feito">Feito</span>
+    </a>
+    <a class="card" href="dossie-monografis-mercado-tcc.html">
+      <span class="skill">/espiao-do-concorrente</span>
+      <div class="title">Dossiê: Monografis (mercado)</div>
+      <span class="badge badge-feito">Feito</span>
+    </a>
+    <a class="card" href="dossie-camila-isaton-tcc-sem-neura.html">
+      <span class="skill">/espiao-do-concorrente</span>
+      <div class="title">Dossiê: Camila Isaton</div>
+      <span class="badge badge-feito">Feito</span>
+    </a>
+    <a class="card" href="dossie-amilton-quintela-tcc-sem-drama.html">
+      <span class="skill">/espiao-do-concorrente</span>
+      <div class="title">Dossiê: Amilton Quintela</div>
+      <span class="badge badge-feito">Feito</span>
+    </a>
+    <a class="card" href="swipe-file-index.html">
+      <span class="skill">/swipe-file</span>
+      <div class="title">Swipe file (5 criativos)</div>
+      <span class="badge badge-feito">Feito</span>
+    </a>
+    <a class="card" href="trends-professores-orientadores-tcc-2026-06-27.html">
+      <span class="skill">/trend-hunting</span>
+      <div class="title">Tendências e formatos</div>
+      <span class="badge badge-feito">Feito</span>
+    </a>
+    <a class="card" href="variacoes-teste-2026-06-27.html">
+      <span class="skill">/trend-hunting</span>
+      <div class="title">Variações de teste</div>
+      <span class="badge badge-feito">Feito</span>
+    </a>
+  </div>
+
+  <h2>Oferta e Fundação</h2>
+  <div class="grid">
+    <a class="card" href="offerbook.html">
+      <span class="skill">/offerbook</span>
+      <div class="title">Offerbook</div>
+      <span class="badge badge-feito">Feito · aprovado 25/07</span>
+    </a>
+    <a class="card" href="DESIGN.md">
+      <span class="skill">/design-md</span>
+      <div class="title">DESIGN.md (identidade visual)</div>
+      <span class="badge badge-feito">Feito</span>
+    </a>
+    <a class="card" href="funil.html">
+      <span class="skill">/metodo-funil</span>
+      <div class="title">Diagnóstico de funil + mapa</div>
+      <span class="badge badge-feito">Feito</span>
+    </a>
+    <a class="card" href="copy.html">
+      <span class="skill">/copy-funil</span>
+      <div class="title">Fundação de copy</div>
+      <span class="badge badge-revisao">Feito · Fase 6 pendente</span>
+    </a>
+  </div>
+
+  <h2>Peças do funil</h2>
+  <div class="grid">
+    <a class="card" href="emails/index.html">
+      <span class="skill">/email-funil</span>
+      <div class="title">Trilha de e-mails (10)</div>
+      <span class="badge badge-acao">Feito · ação do dono</span>
+    </a>
+  </div>
+
+  <h2>Próximas peças</h2>
+  <div class="grid">
+    <div class="card disabled">
+      <span class="skill">sem skill própria ainda</span>
+      <div class="title">Página de vendas</div>
+      <span class="badge badge-fila">Fila · copy pronta no offerbook</span>
+    </div>
+    <a class="card" href="#">
+      <span class="skill">/mockup-produto-funil</span>
+      <div class="title">Mockups do e-book e da isca</div>
+      <span class="badge badge-fila">Fila</span>
+    </a>
+    <a class="card" href="#">
+      <span class="skill">/recuperacao-funil</span>
+      <div class="title">Recuperação de checkout</div>
+      <span class="badge badge-fila">Fila · antes do tráfego pago</span>
+    </a>
+    <div class="card disabled">
+      <span class="skill">publicação manual</span>
+      <div class="title">Conteúdo orgânico LinkedIn (4 ângulos)</div>
+      <span class="badge badge-fila">Fila · já roteirizado</span>
+    </div>
+    <div class="card disabled">
+      <span class="skill">sem skill própria ainda</span>
+      <div class="title">Planilha de KPIs / Teste A-B</div>
+      <span class="badge badge-fila">Fila</span>
+    </div>
+  </div>
+
+  <h2>Pendências e mapa</h2>
+  <div class="grid">
+    <a class="card" href="pendencias.html">
+      <span class="skill">checklist do dono</span>
+      <div class="title">Pendências (6 abertas)</div>
+      <span class="badge badge-acao">Ação do dono</span>
+    </a>
+    <a class="card" href="funil.html">
+      <span class="skill">/metodo-funil</span>
+      <div class="title">Mapa de execução completo</div>
+      <span class="badge badge-feito">Ver mapa</span>
+    </a>
+  </div>
+
+  <div class="footer">
+    <p>Book do Funil: hub único do projeto. Toda peça nova gerada por uma skill ganha um card aqui.</p>
+    <p>Gerado/atualizado por /email-funil em 25 de julho de 2026.</p>
+  </div>
+
+</div>
+</body>
+</html>
