@@ -1,5 +1,5 @@
 ---
-name: mockup-produto
+name: mockup-produto-funil
 description: "Gera mockups visuais dos produtos e bônus da sua oferta — capa de ebook/PDF, tela de módulo/área de membros, box/caixa do produto, bundle de bônus empilhado, device mockup — na identidade visual da SUA marca (extraída via DESIGN.md da skill design-md). Os produtos/bônus vêm do offerbook; o estilo (cores, fontes, tom visual) vem do DESIGN.md. A skill monta PROMPTS de geração de imagem prontos, parametrizados pela sua marca, pra você gerar numa ferramenta de geração de imagem à sua escolha. Use quando quiser aumentar o valor percebido da oferta com mockups visuais na página de vendas e nos criativos. Gatilhos: 'mockup', 'capa de ebook', 'box do produto', 'empilhar bônus', 'mockup dos módulos', 'visual do produto pra página de vendas'."
 user_invocable: true
 ---

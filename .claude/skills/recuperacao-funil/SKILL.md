@@ -1,5 +1,5 @@
 ---
-name: recuperacao
+name: recuperacao-funil
 description: "Estrutura a sequência de recuperação de um funil — o que fazer quando o lead chega no checkout e não compra. Cada comportamento tem uma abordagem diferente: carrinho abandonado, cartão recusado, boleto gerado, downsell e re-elevação de consciência (jogar o lead de volta pro nível do problema). Funciona pelo princípio de que recuperar um lead que já chegou no checkout é mais barato do que adquirir um lead novo. Use quando precisar montar/diagnosticar a recuperação de um funil, decidir como abordar cada tipo de lead que não converteu, ou estruturar a cascata de re-engajamento. A skill estrutura a sequência e gera a copy aplicada das mensagens a partir do copy.md (quando ele existe); o aluno revisa e aprova."
 user_invocable: true
 ---
