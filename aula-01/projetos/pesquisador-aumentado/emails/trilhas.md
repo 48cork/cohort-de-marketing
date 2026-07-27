@@ -25,7 +25,7 @@ Este é o documento de leitura/revisão da copy completa. Cada e-mail também sa
 
 Oi, {{primeiro_nome}}.
 
-Seu PDF com As 7 Perguntas Socráticas que Todo Orientador Deveria Fazer Antes de Qualquer Sessão de TCC está aqui: [LINK DA ISCA DIGITAL].
+Seu PDF com As 7 Perguntas Socráticas que Todo Orientador Deveria Fazer Antes de Qualquer Sessão de TCC está aqui: https://48cork.github.io/pesquisador-aumentado-landing/isca/As-7-Perguntas-Socraticas-Pesquisador-Aumentado.pdf.
 
 Antes de abrir, uma pergunta.
 
@@ -40,7 +40,7 @@ Nos próximos dias eu vou te contar por que a orientação nunca te ensinaram a 
 Um abraço,
 Prof. Dr. Sergio Rolemberg Farias
 
-**CTA:** "Baixar as 7 perguntas" → [LINK DA ISCA DIGITAL]
+**CTA:** "Baixar as 7 perguntas" → https://48cork.github.io/pesquisador-aumentado-landing/isca/As-7-Perguntas-Socraticas-Pesquisador-Aumentado.pdf
 
 ---
 
@@ -192,7 +192,7 @@ O que você recebe:
 - Um roteiro de 5 a 7 perguntas socráticas calibradas para o bloqueio específico do seu orientando, gerado antes de cada sessão
 - Um e-book de introdução mais 5 capítulos práticos, sem enrolação teórica
 - Isca digital com as 7 perguntas socráticas que todo orientador deveria fazer antes de qualquer sessão (você já recebeu a sua)
-- Bônus de lançamento: **[A DEFINIR PELO DONO DA OFERTA]**
+- Bônus de lançamento: acesso antecipado com desconto ao próximo produto, **Publicar ou Perecer**
 - Garantia incondicional de 7 dias: aplique, e se não sentir que valeu, o valor volta sem perguntas
 
 Investimento: R$127 à vista. Um cálculo declarado, não prometido: R$4,23 por hora de orientação transformada, para quem tem 15 orientandos.
@@ -251,9 +251,9 @@ Prof. Dr. Sergio Rolemberg Farias
 
 | Placeholder | Onde aparece | Depende de |
 |---|---|---|
-| `[LINK DA ISCA DIGITAL]` | E1 | Página de captura da isca (não existe ainda) |
+| ~~`[LINK DA ISCA DIGITAL]`~~ | E1 | **RESOLVIDO** (27/07/2026): PDF publicado em `https://48cork.github.io/pesquisador-aumentado-landing/isca/As-7-Perguntas-Socraticas-Pesquisador-Aumentado.pdf` |
 | ~~`[LINK DO CHECKOUT]`~~ | E8, E9, E10 | **RESOLVIDO** (25/07/2026): `https://pay.hotmart.com/O106631740D` |
-| `[BÔNUS DE LANÇAMENTO A DEFINIR PELO DONO DA OFERTA]` | E8 | Decisão do dono da oferta |
+| ~~`[BÔNUS DE LANÇAMENTO A DEFINIR PELO DONO DA OFERTA]`~~ | E8 | **RESOLVIDO** (25/07/2026): acesso antecipado com desconto a "Publicar ou Perecer" |
 | `[SEM PROVA AINDA]` (depoimento de professor) | E6 | Coleta de depoimento real de professor |
 
 Todos os itens acima estão registrados em `../pendencias.md`.

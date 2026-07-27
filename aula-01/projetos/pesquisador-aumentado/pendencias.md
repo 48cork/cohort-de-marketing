@@ -2,18 +2,17 @@
 
 # Pendências — Pesquisador Aumentado™
 
-Registro único de decisões do dono da oferta, agrupadas por decisão (uma decisão pode afetar vários arquivos). Atualizado com o link do checkout e a escolha final de headline (25 de julho de 2026).
+Registro único de decisões do dono da oferta, agrupadas por decisão (uma decisão pode afetar vários arquivos). Atualizado com a página de captura da isca publicada no ar (27 de julho de 2026).
 
-**Placar:** 4 aplicadas · 1 parcial · 5 abertas
+**Placar:** 6 aplicadas · 0 parciais · 4 abertas
 
 ---
 
 ## 1. Bônus de lançamento pago
 
-- [ ] **Status:** Aberto
-- **O quê decidir:** o offerbook recomenda "acesso a grupo de professores usando o método" (cria prova social e comunidade), mas precisa de confirmação ou de outra ideia do dono.
-- **Onde aparece:** `offerbook.md` (BLOCO 2), `copy.md` (Fase 2, oferta), `emails/trilha-lancamento-email-8.html` e `emails/trilhas.md`/`.html` (E8, lançamento).
-- **Como resolver:** responda com o bônus escolhido (ou "usar a recomendação do offerbook").
+- [x] **Status:** Aplicada (25/07/2026)
+- **Decisão:** acesso antecipado com desconto ao próximo produto do dono da oferta, "Publicar ou Perecer" (substitui a recomendação original do offerbook, "acesso a grupo de professores").
+- **Onde foi aplicado:** `offerbook.md` (BLOCO 2, BLOCO 5, LP Versão A, Lacunas) + `offerbook.html` · `copy.md` (regra de honestidade, Fase 2) + `copy.html` · `emails/trilha-lancamento-email-8.html` e `emails/trilhas.md`/`.html` (E8, lançamento).
 
 ## 2. Depoimento direto de professor
 
@@ -24,8 +23,13 @@ Registro único de decisões do dono da oferta, agrupadas por decisão (uma deci
 
 ## 3. Link da isca digital (página de captura)
 
-- [~] **Status:** Parcial — conteúdo escrito, falta hospedar
-- **O que já foi feito:** o conteúdo das "7 Perguntas Socráticas" foi escrito (`isca-7-perguntas-socraticas.md`/`.html`, 1 página, a partir dos 4 tipos de pergunta do Capítulo 2). PDF ainda não gerado automaticamente (sem Chrome nesta máquina) — use Ctrl+P no `.html` para salvar como PDF.
+- [x] **Status:** Aplicada (27/07/2026)
+- **O que foi feito:** conteúdo escrito (`isca-7-perguntas-socraticas.md`/`.html`, a partir dos 4 tipos de pergunta do Capítulo 2), PDF gerado via `weasyprint` (`isca-7-perguntas-socraticas.pdf`, 1 página), e uma página de captura nova (`isca/index.html`, formulário nome+e-mail) publicada dentro do repositório real `48cork/pesquisador-aumentado-landing`, no mesmo sistema visual do `index.html` do site.
+- **URLs no ar:**
+  - Página de captura: `https://48cork.github.io/pesquisador-aumentado-landing/isca/`
+  - PDF direto: `https://48cork.github.io/pesquisador-aumentado-landing/isca/As-7-Perguntas-Socraticas-Pesquisador-Aumentado.pdf`
+- **Onde foi aplicado:** `emails/trilha-lancamento-email-1.html` e `emails/trilhas.md`/`.html` (E1, CTA aponta direto pro PDF, já que quem recebe o E1 já deu o e-mail antes).
+- **Nota:** a captura da página `isca/` ainda não tem CRM/webhook real conectado (placeholder `[PLUG: WEBHOOK_CRM]` comentado no código, mesmo padrão já usado no `quiz/` do site). O formulário funciona (revela o botão de download), mas o lead não é salvo em lugar nenhum ainda.
 - **O quê ainda falta decidir:** a página de captura (formulário de e-mail) e o link de entrega ainda não existem.
 - **Onde aparece:** `emails/trilha-lancamento-email-1.html` e `emails/trilhas.md`/`.html` (E1, placeholder `[LINK DA ISCA DIGITAL]`).
 - **Como resolver:** gere o PDF do `isca-7-perguntas-socraticas.html`, suba numa página de captura, e cole aqui a URL final.

@@ -24,7 +24,7 @@ Nicho (educação superior / orientação acadêmica) não é um nicho regulado 
 
 - O depoimento do Pedro (graduando em História, UFCG) é prova real, mas é prova do **mecanismo** (o que acontece com quem passa pela sessão socrática), não prova do **comprador** (nenhum professor com depoimento direto ainda). Toda vez que este documento usa esse depoimento, ele aparece rotulado dessa forma.
 - Depoimento direto de professor: **[SEM PROVA AINDA]**. Não inventar.
-- Bônus de lançamento: **[A DEFINIR PELO DONO DA OFERTA]**. Não inventar.
+- Bônus de lançamento: **DEFINIDO (25/07/2026)** — acesso antecipado com desconto ao próximo produto do dono da oferta, "Publicar ou Perecer".
 
 ---
 
@@ -83,7 +83,7 @@ Nicho (educação superior / orientação acadêmica) não é um nicho regulado 
 
 **Mídia:** LinkedIn orgânico (agora) → LinkedIn Ads frio por cargo → Google Ads por intenção de busca. Ordem de "esquenta antes de vender" já documentada em `briefing-media-buyer.md` e `funil.md`.
 
-**Oferta:** e-book (introdução + 5 capítulos, todos escritos) + isca digital gratuita ("As 7 Perguntas Socráticas...") + bônus de lançamento **[A DEFINIR PELO DONO DA OFERTA]** + garantia de 7 dias incondicional + R$127 à vista.
+**Oferta:** e-book (introdução + 5 capítulos, todos escritos) + isca digital gratuita ("As 7 Perguntas Socráticas...") + bônus de lançamento (acesso antecipado com desconto ao próximo produto, "Publicar ou Perecer") + garantia de 7 dias incondicional + R$127 à vista.
 
 ### Método Todd Brown (Unique Mechanism, Big Marketing Idea)
 

@@ -3,7 +3,7 @@
 # Mockups de Produto: Pesquisador Aumentado™
 
 **Skill:** `/mockup-produto-funil`
-**Data:** 25 de julho de 2026
+**Data:** 25 de julho de 2026 (bundle atualizado com o bônus em 25/07/2026)
 **Fonte dos itens:** `offerbook.md` BLOCO 2 (produto, módulos, isca digital, bônus)
 **Fonte da identidade visual:** `DESIGN.md` (cores, fontes, raio de borda, tom visual)
 **Status:** Prompts prontos pra gerar. Esta skill não gera imagem nem publica: você gera na ferramenta de sua escolha e aprova.
@@ -27,8 +27,7 @@
 **Itens do offerbook mockupados nesta rodada:**
 - Produto principal: e-book **Pesquisador Aumentado™** (introdução + 5 capítulos)
 - Isca digital: **"As 7 Perguntas Socráticas que Todo Orientador Deveria Fazer Antes de Qualquer Sessão de TCC"** (já escrita em `isca-7-perguntas-socraticas.md`)
-
-**Item deixado de fora:** o bônus de lançamento pago ainda não foi definido pelo dono da oferta (pendência 1 em `pendencias.md`). Sem o item existir no offerbook, não há o que mockupar. Quando for definido, rode esta skill de novo só para esse item.
+- Bônus de lançamento (definido em 25/07/2026, pendência 1 resolvida): **acesso antecipado com desconto ao próximo produto, "Publicar ou Perecer"** — mockupado no bundle (item 5) como voucher/selo de acesso antecipado, não como capa de e-book completo, já que o conteúdo de "Publicar ou Perecer" ainda não existe (nada foi inventado além do nome do produto e da natureza do bônus, ambos confirmados pelo dono).
 
 ---
 
@@ -117,24 +116,32 @@ resolução, proporção de folha A4/Letter, sem marca-d'água.
 
 ---
 
-## 5. Bundle de bônus empilhado — Produto + isca
+## 5. Bundle de bônus empilhado — Produto + isca + bônus de lançamento
 
 **Tipo:** Bundle de bônus empilhado
-**Por quê:** mostra o que o professor recebe de uma vez (produto principal + isca), reforçando volume e valor. O bônus de lançamento pago fica de fora até ser definido.
+**Por quê:** mostra o que o professor recebe de uma vez (produto principal + isca + bônus de lançamento), reforçando volume e valor. Atualizado em 25/07/2026: o bônus de lançamento foi definido (pendência 1 resolvida) e entra como terceiro elemento.
+
+**Nota de honestidade:** o bônus é "acesso antecipado com desconto ao próximo produto, Publicar ou Perecer", não um e-book pronto. O terceiro elemento é mockupado como um **voucher/selo de acesso antecipado**, não como capa de e-book completo, porque o conteúdo de "Publicar ou Perecer" ainda não existe. Nada além do nome do produto e da natureza do bônus (confirmados pelo dono) entrou no prompt.
 
 ```
-Mockup de bundle/kit: composição com 2 elementos agrupados e levemente sobrepostos —
-1 box de produto fechado com o título "Pesquisador Aumentado™" e 1 folha/PDF de 1
-página com o título "As 7 Perguntas Socráticas...", ambos com a mesma identidade:
-cor de destaque #141413, acento #d97757 usado só como marca, fundo #faf9f5, tipografia
-system-ui peso 700 nos títulos, marca "Pesquisador Aumentado™" visível em cada peça.
-Composição organizada mostrando volume e valor ("tudo que vem junto"), sem
-sobreposição que esconda os títulos. Estilo visual: editorial minimalista, zero
-gradiente, sombras de estúdio suaves e realistas.
-Alta resolução, sem texto solto fora das peças, sem marca-d'água.
+Mockup de bundle/kit: composição com 3 elementos agrupados e levemente sobrepostos:
 
-Nota: quando o bônus de lançamento pago for definido (pendência 1 em pendencias.md),
-adicionar um terceiro elemento a este bundle mantendo os mesmos tokens de cor e fonte.
+1. Um box de produto fechado com o título "Pesquisador Aumentado™"
+2. Uma folha/PDF de 1 página com o título "As 7 Perguntas Socráticas..."
+3. Um cartão/voucher retangular, menor que os outros dois, com um selo circular
+   escrito "ACESSO ANTECIPADO" em tipografia uppercase, tracking aberto, cor #d97757
+   sobre fundo #faf9f5, e abaixo do selo o texto "Publicar ou Perecer" em tipografia
+   system-ui peso 700, cor #141413. Sem mais nenhum elemento gráfico no voucher
+   (nada de capa de livro, nada de conteúdo inventado, é um cartão de acesso, não um produto).
+
+Todos os 3 elementos com a mesma identidade: cor de destaque #141413, acento #d97757
+usado só como marca, fundo #faf9f5, tipografia system-ui peso 700 nos títulos, marca
+"Pesquisador Aumentado™" visível no box e na folha da isca (o voucher do bônus não
+precisa repetir a marca, já que é um selo de acesso a um produto futuro diferente).
+Composição organizada mostrando volume e valor ("tudo que vem junto"), sem
+sobreposição que esconda os títulos ou o selo. Estilo visual: editorial minimalista,
+zero gradiente, sombras de estúdio suaves e realistas.
+Alta resolução, sem texto solto fora das peças, sem marca-d'água.
 ```
 
 ---
@@ -157,16 +164,15 @@ adicionar um terceiro elemento a este bundle mantendo os mesmos tokens de cor e 
 
 **Aderência ao offerbook**
 - [ ] Os 5 capítulos do índice (mockup 3) batem com a estrutura real do e-book (offerbook.md BLOCO 2)
-- [ ] Nenhum bônus inventado entrou no bundle: só produto principal + isca confirmada
+- [ ] Nenhum bônus inventado entrou no bundle: produto principal + isca + bônus de lançamento, todos confirmados no offerbook
 
 ---
 
 ## Próximos passos
 
-1. Gerar as 5 imagens na ferramenta de geração de imagem de sua escolha, usando os prompts acima.
+1. Gerar as 5 imagens na ferramenta de geração de imagem de sua escolha, usando os prompts acima (o bundle, item 5, foi atualizado e precisa ser regerado com os 3 elementos).
 2. Rodar o checklist de qualidade em cada uma.
-3. Quando o bônus de lançamento pago for definido (pendência 1), voltar aqui pra adicionar o mockup dele ao bundle.
-4. Usar as imagens aprovadas na página de vendas (quando ela existir) e nos criativos de anúncio.
+3. Usar as imagens aprovadas na página de vendas (quando ela existir) e nos criativos de anúncio.
 
 ---
 

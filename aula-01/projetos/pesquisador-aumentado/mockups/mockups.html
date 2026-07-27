@@ -88,8 +88,8 @@
   </table>
 
   <div class="callout">
-    <p><strong>Itens mockupados:</strong> produto principal (e-book Pesquisador Aumentado™) e isca digital (7 Perguntas Socráticas).</p>
-    <p><strong>Item deixado de fora:</strong> o bônus de lançamento pago ainda não foi definido pelo dono da oferta (pendência 1). Sem o item existir no offerbook, não há o que mockupar.</p>
+    <p><strong>Itens mockupados:</strong> produto principal (e-book Pesquisador Aumentado™), isca digital (7 Perguntas Socráticas) e bônus de lançamento (acesso antecipado com desconto a "Publicar ou Perecer", definido em 25/07/2026).</p>
+    <p><strong>Nota de honestidade:</strong> o bônus é mockupado como um voucher/selo de acesso antecipado no bundle (item 5), não como capa de e-book completo, já que o conteúdo de "Publicar ou Perecer" ainda não existe.</p>
   </div>
 
   <h2>1. Capa de ebook — Produto principal</h2>
@@ -165,22 +165,28 @@ resolução, proporção de folha A4/Letter, sem marca-d'água.</pre>
     <button class="copy-btn" onclick="copyPrompt('prompt-4', this)">Copiar prompt</button>
   </div>
 
-  <h2>5. Bundle de bônus empilhado — Produto + isca</h2>
+  <h2>5. Bundle de bônus empilhado — Produto + isca + bônus de lançamento</h2>
   <div class="mock-block">
-    <div class="mock-head"><span class="mock-num">5</span><span class="mock-tag">Bundle empilhado</span></div>
-    <p>Mostra o que o professor recebe de uma vez (produto principal + isca). O bônus de lançamento pago fica de fora até ser definido.</p>
-    <pre class="prompt" id="prompt-5">Mockup de bundle/kit: composição com 2 elementos agrupados e levemente sobrepostos —
-1 box de produto fechado com o título "Pesquisador Aumentado™" e 1 folha/PDF de 1
-página com o título "As 7 Perguntas Socráticas...", ambos com a mesma identidade:
-cor de destaque #141413, acento #d97757 usado só como marca, fundo #faf9f5, tipografia
-system-ui peso 700 nos títulos, marca "Pesquisador Aumentado™" visível em cada peça.
-Composição organizada mostrando volume e valor ("tudo que vem junto"), sem
-sobreposição que esconda os títulos. Estilo visual: editorial minimalista, zero
-gradiente, sombras de estúdio suaves e realistas.
-Alta resolução, sem texto solto fora das peças, sem marca-d'água.
+    <div class="mock-head"><span class="mock-num">5</span><span class="mock-tag">Bundle empilhado · atualizado 25/07/2026</span></div>
+    <p>Mostra o que o professor recebe de uma vez (produto principal + isca + bônus de lançamento). O bônus é mockupado como um voucher/selo de acesso antecipado, não como e-book completo, já que o conteúdo de "Publicar ou Perecer" ainda não existe. Nada além do nome do produto e da natureza do bônus (confirmados pelo dono) entrou no prompt.</p>
+    <pre class="prompt" id="prompt-5">Mockup de bundle/kit: composição com 3 elementos agrupados e levemente sobrepostos:
 
-Nota: quando o bônus de lançamento pago for definido (pendência 1 em pendencias.md),
-adicionar um terceiro elemento a este bundle mantendo os mesmos tokens de cor e fonte.</pre>
+1. Um box de produto fechado com o título "Pesquisador Aumentado™"
+2. Uma folha/PDF de 1 página com o título "As 7 Perguntas Socráticas..."
+3. Um cartão/voucher retangular, menor que os outros dois, com um selo circular
+   escrito "ACESSO ANTECIPADO" em tipografia uppercase, tracking aberto, cor #d97757
+   sobre fundo #faf9f5, e abaixo do selo o texto "Publicar ou Perecer" em tipografia
+   system-ui peso 700, cor #141413. Sem mais nenhum elemento gráfico no voucher
+   (nada de capa de livro, nada de conteúdo inventado, é um cartão de acesso, não um produto).
+
+Todos os 3 elementos com a mesma identidade: cor de destaque #141413, acento #d97757
+usado só como marca, fundo #faf9f5, tipografia system-ui peso 700 nos títulos, marca
+"Pesquisador Aumentado™" visível no box e na folha da isca (o voucher do bônus não
+precisa repetir a marca, já que é um selo de acesso a um produto futuro diferente).
+Composição organizada mostrando volume e valor ("tudo que vem junto"), sem
+sobreposição que esconda os títulos ou o selo. Estilo visual: editorial minimalista,
+zero gradiente, sombras de estúdio suaves e realistas.
+Alta resolução, sem texto solto fora das peças, sem marca-d'água.</pre>
     <button class="copy-btn" onclick="copyPrompt('prompt-5', this)">Copiar prompt</button>
   </div>
 
@@ -205,14 +211,13 @@ adicionar um terceiro elemento a este bundle mantendo os mesmos tokens de cor e 
   <p><strong>Aderência ao offerbook</strong></p>
   <ul class="checklist">
     <li>Os 5 capítulos do índice batem com a estrutura real do e-book</li>
-    <li>Nenhum bônus inventado entrou no bundle</li>
+    <li>Nenhum bônus inventado entrou no bundle: produto principal + isca + bônus de lançamento, todos confirmados no offerbook</li>
   </ul>
 
   <h2>Próximos passos</h2>
   <ol>
-    <li>Gerar as 5 imagens na ferramenta de geração de imagem de sua escolha, usando os prompts acima.</li>
+    <li>Gerar as 5 imagens na ferramenta de geração de imagem de sua escolha, usando os prompts acima (o bundle, item 5, foi atualizado e precisa ser regerado com os 3 elementos).</li>
     <li>Rodar o checklist de qualidade em cada uma.</li>
-    <li>Quando o bônus de lançamento pago for definido, voltar aqui pra adicionar o mockup dele ao bundle.</li>
     <li>Usar as imagens aprovadas na página de vendas (quando ela existir) e nos criativos de anúncio.</li>
   </ol>
 

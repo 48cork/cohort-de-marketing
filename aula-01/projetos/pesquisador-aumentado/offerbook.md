@@ -90,8 +90,7 @@ Custo por hora salva: R$127 / 30h = R$4,23 por hora de orientação transformada
 **Isca digital (pré-venda):** "As 7 Perguntas Socráticas que Todo Orientador Deveria Fazer Antes de Qualquer Sessão de TCC" — PDF de 1 página. Captura e-mail qualificado. CTA de todos os posts das semanas 1-3. Quem baixa entra na sequência de 14 e-mails.
 (Fonte: posts-linkedin.md — DEFINIDA)
 
-**Bônus de lançamento:** A DEFINIR pelo dono da oferta
-(Recomendação: acesso a grupo de professores usando o método — cria prova social e comunidade ao mesmo tempo)
+**Bônus de lançamento (DEFINIDO, 25/07/2026):** acesso antecipado com desconto ao próximo produto do dono da oferta, "Publicar ou Perecer".
 
 ### Conteúdo do treinamento (e-book — estrutura CONFIRMADA)
 
@@ -333,8 +332,7 @@ O professor usa esse tempo recuperado para escrever o artigo que estava parado h
 ### Bônus com escassez
 
 **Isca digital (pré-lançamento, gratuita):** "As 7 Perguntas Socráticas..." — PDF 1 página, já definida.
-**Bônus de lançamento pago:** A DEFINIR pelo dono da oferta.
-(Recomendação: acesso a grupo de professores usando o método — cria prova social e comunidade ao mesmo tempo)
+**Bônus de lançamento pago (DEFINIDO, 25/07/2026):** acesso antecipado com desconto ao próximo produto do dono da oferta, "Publicar ou Perecer".
 
 ### Objeções principais
 
@@ -475,7 +473,7 @@ CTA: "Calcular o meu ROI"
 "A IA deste método está do seu lado — não do aluno. Antes da sessão de orientação, você descreve o bloqueio do orientando para a IA. Ela gera o roteiro de perguntas. Você pergunta. O aluno pensa. O texto que vem depois é diferente porque o pensamento foi diferente."
 
 **Seção de oferta:**
-Pesquisador Aumentado™ — e-book + [bônus A DEFINIR]
+Pesquisador Aumentado™ — e-book + acesso antecipado com desconto ao próximo produto, "Publicar ou Perecer"
 R$127 à vista
 
 [Garantia A CONFIRMAR]
@@ -537,7 +535,7 @@ Sequência de 10 e-mails em 14 dias disponível em `~/aiox_pro/pesquisador-aumen
 - [x] Definir quem assina → Prof. Dr. Sergio Rolemberg Farias (CONFIRMADO)
 - [x] Confirmar credencial de par → Professor concursado federal (interior do Nordeste), doutor pela França, pós-doutor em Paris — credencial de par máxima para o avatar
 - [x] Escrever capítulos do e-book → intro + 5 capítulos escritos (~/aiox_pro/pesquisador-aumentado/)
-- [ ] Definir bônus de lançamento pago (além da isca gratuita já definida)
+- [x] Definir bônus de lançamento pago → RESOLVIDO (25/07/2026): acesso antecipado com desconto ao próximo produto, "Publicar ou Perecer"
 - [x] Depoimento real → Pedro, graduando em História, UFCG (sequencia-emails.md E6 PREENCHIDO)
 - [x] Exemplo sessão antes/depois → o depoimento do Pedro serve como prova qualitativa do método (cita Bourdieu, descreve pergunta socrática real, nomeia frustração e transformação)
 - [ ] Exemplo de transcrição literal de sessão (15-20 min) ainda ajudaria na LP para decisores racionais (Dr. Roberto)
