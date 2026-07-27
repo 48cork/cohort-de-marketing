@@ -100,10 +100,12 @@ Estrutura real do e-book (arquivos em `~/aiox_pro/pesquisador-aumentado/`):
 |---|---|---|
 | `introducao.md` | Introdução: "Você passou anos aprendendo a fazer perguntas certas" | ESCRITO |
 | `capitulo-01.md` | Cap. 1 — O Problema Estrutural: por que a orientação de TCC foi desenhada para consumir orientadores | ESCRITO |
-| `capitulo-02.md` | Cap. 2 — Metodologia Socrática Aplicada: os 4 tipos de perguntas (origem, premissa, justificativa metodológica, originalidade) | ESCRITO |
-| `capitulo-03.md` | Cap. 3 — IA como Interlocutor Socrático: ghostwriter vs. orientador intermediário | ESCRITO |
+| `capitulo-02.md` | Cap. 2 — Metodologia Socrática Aplicada: os 4 tipos de perguntas (origem, premissa, justificativa metodológica, originalidade), cada um com calibragem para aluno sem repertório acadêmico (método híbrido, não puramente socrático) | ESCRITO (atualizado 27/07/2026) |
+| `capitulo-03.md` | Cap. 3 — IA como Interlocutor Híbrido: ghostwriter vs. orientador intermediário; system prompt permite reformular a ideia do aluno quando ela já existe mas está mal formulada, nunca antes de uma tentativa de resposta | ESCRITO (atualizado 27/07/2026) |
 | `capitulo-04.md` | Cap. 4 — Protocolo de Orientação em 3 Camadas: antes, durante e depois da sessão | ESCRITO |
 | `capitulo-05.md` | Cap. 5 — Implementação Imediata: templates, prompts e perguntas por fase do TCC | ESCRITO |
+
+**Nota sobre método híbrido (27/07/2026):** os Capítulos 2 e 3 deixaram de descrever um método puramente socrático. A calibragem nasceu do caso real do Pedro (orientando): quando o aluno já tem uma ideia mas ela sai mal formulada, o orientador (ou a IA configurada pelo system prompt do Capítulo 3) reformula com apoio e propõe o próximo passo, em vez de insistir em pergunta pura sem repertório nenhum por trás. A isca digital ("As 7 Perguntas Socráticas...") foi atualizada na mesma linha.
 
 **Nota sobre ROI de ancoragem da LP (aiox_pro):** "Para um professor que orienta 6 TCCs por semestre, isso representa menos de R$22 por aluno orientado." (complementa a âncora R$4,23/hora do offerbook — usar conforme contexto: página = R$22/aluno; e-mail = R$4,23/hora)
 
