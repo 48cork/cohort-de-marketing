@@ -22,9 +22,10 @@
   .howto{background:var(--tertiary);border-radius:8px;padding:16px 20px;font-size:0.92rem;color:var(--text-muted);margin:0 0 28px;}
   .howto strong{color:var(--secondary);}
   .type-label{font-family:ui-monospace,monospace;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);margin:22px 0 10px;display:block;border-bottom:1px solid var(--border);padding-bottom:6px;}
-  .q{display:flex;gap:14px;margin:0 0 16px;align-items:baseline;}
+  .q{display:flex;gap:14px;margin:0 0 10px;align-items:baseline;}
   .q .num{font-family:ui-monospace,monospace;font-size:1rem;font-weight:700;color:var(--primary);min-width:22px;}
   .q p{margin:0;font-size:1.04rem;line-height:1.5;color:var(--secondary);}
+  .tip{font-size:0.88rem;line-height:1.45;color:var(--text-muted);font-style:italic;margin:0 0 14px;padding-left:36px;}
   .closing{margin-top:32px;padding-top:20px;border-top:1px solid var(--border);}
   .closing p{font-size:0.98rem;color:var(--text-muted);margin:0 0 14px;}
   .signature{font-family:ui-monospace,monospace;font-size:0.8rem;letter-spacing:0.08em;color:var(--secondary);}
@@ -38,16 +39,18 @@
     .signature{color:#f0eee6;}
   }
   @media print{
-    body{background:#fff;line-height:1.35;}
-    .sheet{max-width:none;padding:0.3in 0.5in;}
-    h1{margin-bottom:12px;}
-    .eyebrow{margin-bottom:12px;}
-    .lede{margin-bottom:6px;}
-    .howto{margin-bottom:18px;padding:10px 16px;}
-    .type-label{margin:12px 0 6px;}
-    .q{margin-bottom:9px;}
-    .closing{margin-top:14px;padding-top:10px;}
-    .closing p{margin-bottom:8px;}
+    body{background:#fff;line-height:1.25;font-size:0.95rem;}
+    .sheet{max-width:none;padding:0.25in 0.5in;}
+    h1{font-size:1.55rem;margin-bottom:8px;}
+    .eyebrow{margin-bottom:8px;}
+    .lede{font-size:0.98rem;margin-bottom:4px;}
+    .howto{margin-bottom:14px;padding:8px 14px;font-size:0.82rem;}
+    .type-label{margin:8px 0 4px;font-size:0.66rem;}
+    .q{margin-bottom:3px;}
+    .q p{font-size:0.92rem;}
+    .tip{margin-bottom:7px;font-size:0.76rem;padding-left:32px;line-height:1.3;}
+    .closing{margin-top:8px;padding-top:6px;}
+    .closing p{margin-bottom:5px;font-size:0.86rem;}
     @page{size:A4;margin:0;}
   }
 </style>
@@ -63,25 +66,29 @@
   <p class="lede">Corrigir o texto que o aluno traz ensina ele a reescrever. Perguntar antes ensina ele a pensar.</p>
   <p class="lede muted">As 7 perguntas abaixo vêm de 4 tipos de pergunta socrática (origem, premissa, justificativa metodológica, originalidade) e servem para qualquer fase do TCC, do problema de pesquisa à defesa na banca.</p>
 
-  <div class="howto"><strong>Como usar:</strong> peça ao aluno que responda por escrito antes da próxima reunião, ou faça as perguntas em voz alta no início da sessão. Não corrija a resposta dele. Deixe a pergunta seguinte nascer da resposta anterior.</div>
+  <div class="howto"><strong>Como usar:</strong> peça ao aluno que responda por escrito antes da próxima reunião, ou faça as perguntas em voz alta no início da sessão. Se ele travar por falta de repertório, ofereça o apoio mínimo indicado em cada bloco antes de repetir a pergunta pura. Se ele já tem uma ideia mas ela sai mal formulada, reformule com ele e proponha o próximo passo, em vez de insistir em silêncio.</div>
 
   <span class="type-label">Perguntas de origem</span>
   <div class="q"><span class="num">1</span><p>De onde vem essa afirmação que você acabou de escrever? Aponte o autor, o argumento exato e a página.</p></div>
   <div class="q"><span class="num">2</span><p>Se eu fechasse o texto agora, você consegue me explicar essa ideia com suas próprias palavras, sem reler?</p></div>
+  <p class="tip">Se a fonte for frágil (vídeo, reportagem, rede social), não descarte de cara: pergunte se ela sustenta o tipo de afirmação que ele está fazendo num TCC.</p>
 
   <span class="type-label">Perguntas de premissa</span>
   <div class="q"><span class="num">3</span><p>O que aconteceria se o contrário da sua hipótese fosse verdade?</p></div>
   <div class="q"><span class="num">4</span><p>Que evidência você aceitaria como prova de que a sua ideia está errada?</p></div>
+  <p class="tip">Se travar na abstração, ancore num caso concreto antes: "se alguém te mostrasse um caso onde isso não aconteceu, o que você diria?"</p>
 
   <span class="type-label">Perguntas de justificativa metodológica</span>
   <div class="q"><span class="num">5</span><p>Por que esse método, e não outro, responde à sua pergunta de pesquisa?</p></div>
   <div class="q"><span class="num">6</span><p>Se você tivesse escolhido o método mais comum da sua área em vez do seu, o que mudaria na sua resposta?</p></div>
+  <p class="tip">Sem repertório comparativo, apresente 2-3 opções de método com a diferença em uma frase cada, antes de perguntar qual faz mais sentido.</p>
 
   <span class="type-label">Pergunta de originalidade</span>
   <div class="q"><span class="num">7</span><p>Depois de tudo que você já leu sobre o tema, o que a sua pesquisa responde que nenhuma outra ainda respondeu?</p></div>
+  <p class="tip">Sem levantamento bibliográfico suficiente, prepare o terreno antes: "quais os 2-3 trabalhos mais próximos que você já leu, e o que eles não cobrem?"</p>
 
   <div class="closing">
-    <p>Nenhuma dessas perguntas corrige o texto do aluno. Todas fazem ele pensar antes de escrever de novo. Isso é o começo do Roteiro Socrático + IA, o método por trás do Pesquisador Aumentado&trade;.</p>
+    <p>Nenhuma dessas perguntas corrige o texto do aluno de cara. Mas nem toda pergunta pura sozinha resolve, principalmente para quem ainda não tem repertório. Isso é o começo do Roteiro Socrático + IA, o método híbrido por trás do Pesquisador Aumentado&trade;: pergunta primeiro, mas reformula com apoio quando a ideia já existe, só está mal formulada.</p>
     <div class="signature">Prof. Dr. Sergio Rolemberg Farias</div>
   </div>
 
