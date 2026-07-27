@@ -91,11 +91,11 @@ Nicho (educação superior / orientação acadêmica) não é um nicho regulado 
 O professor não vira corretor por escolha. Vira porque o doutorado ensinou a fazer pesquisa, não a ensinar alguém a fazer pesquisa, e porque a orientação de TCC de graduação não conta ponto no Lattes, não computa em bolsa CNPq, não aparece em relatório de produtividade — então nunca recebeu método formal, nunca recebeu tempo institucional dedicado, e "corrigir o texto que chegou" é a única ferramenta que sobrou. O ciclo corretivo não é falha de caráter. É a ausência estrutural de outra ferramenta.
 
 **Mecanismo da Solução — nome: "Roteiro Socrático + IA".**
-A IA entra do lado do professor, antes da sessão: o professor descreve o bloqueio do orientando, a IA gera um roteiro de 5 a 7 perguntas socráticas calibradas para aquele bloqueio específico. Na reunião, o professor pergunta, não corrige. O aluno fala, argumenta, chega à própria conclusão. Isso resolve de saída a objeção mais previsível ("IA vai incentivar o aluno a colar") porque o aluno nunca vê a IA — só o professor usa, e só para preparar perguntas, nunca para gerar texto.
+A IA entra do lado do professor, antes da sessão: o professor descreve o bloqueio do orientando, a IA gera um roteiro de 5 a 7 perguntas socráticas calibradas para aquele bloqueio específico (com o apoio mínimo certo para quem ainda não tem repertório). Na reunião, o professor pergunta primeiro, não corrige o texto pronto. Mas quando o aluno já chega com uma ideia, ainda que mal formulada, o professor reformula com ele e propõe o próximo passo, em vez de insistir em silêncio. O aluno fala, argumenta, chega à própria conclusão, com ou sem esse apoio. Isso resolve de saída a objeção mais previsível ("IA vai incentivar o aluno a colar") porque o aluno nunca vê a IA — só o professor usa, e só para preparar perguntas e reformulações, nunca para gerar texto final.
 
 **Big Marketing Idea:**
 
-> "Você não tem um aluno que não pensa. Você tem um método que ninguém te ensinou a trocar: de corretor para questionador. E a pergunta certa, feita no minuto certo, faz mais numa sessão do que a sexta correção nunca fez."
+> "Você não tem um aluno que não pensa. Você tem um método que ninguém te ensinou: perguntar primeiro, e reformular com apoio quando a ideia dele já existe, só está mal formulada. Isso faz mais numa sessão do que a sexta correção nunca fez."
 
 Por que funciona nos 3 critérios de Todd Brown:
 - **Intelectualmente interessante:** reformula o problema (não é o aluno, é a ferramenta do professor) de um jeito que o avatar reconhece mas nunca tinha nomeado assim.
@@ -116,9 +116,9 @@ Por que funciona nos 3 critérios de Todd Brown:
 
 **Mecanismo do Problema:** Corretor Compulsivo (o sistema nunca ensinou a ensinar).
 
-**Mecanismo da Solução:** Roteiro Socrático + IA (IA do lado do professor, nunca do aluno).
+**Mecanismo da Solução:** Roteiro Socrático + IA (IA do lado do professor, nunca do aluno; pergunta primeiro, reformula com apoio quando a ideia do aluno já existe).
 
-**Big Idea:** "Você não tem um aluno que não pensa. Você tem um método que ninguém te ensinou a trocar: de corretor para questionador."
+**Big Idea:** "Você não tem um aluno que não pensa. Você tem um método que ninguém te ensinou: perguntar primeiro, e reformular com apoio quando a ideia dele já existe, só está mal formulada."
 
 Se algo aqui não estiver certo, é o momento de ajustar antes de gerar o banco de headlines e bullets da Fase 3.
 
@@ -209,7 +209,7 @@ D2 fica registrada como variante testável (segue #1 do banco gerado nesta funda
 | F8 | O nome que a ciência da educação dá para o ciclo que consome dezenas de horas do seu semestre sem ensinar nada | Nomeação |
 | F9 | Por que um método de 2.400 anos nunca foi empacotado para orientador de TCC de graduação, até agora | Bambu chinês |
 | F10 | A pergunta que separa "aluno que reescreve mecanicamente" de "aluno que chega pensando" | Contraste |
-| F11 | O que muda quando você troca a ferramenta de corretor para questionador, sem mudar o aluno | Mecanismo |
+| F11 | O que muda quando você troca a ferramenta de corretor para questionador que também sabe reformular, sem mudar o aluno | Mecanismo |
 | F12 | Por que seu doutorado te ensinou a fazer pesquisa, mas nunca a ensinar alguém a fazer pesquisa | Causa oculta |
 | F13 | A frase que dezenas de professores de universidades federais repetiram, sem nunca ter se falado | Prova social/pesquisa |
 | F14 | O motivo pelo qual "os alunos de hoje não sabem pensar" é a armadilha que mantém o ciclo corretivo vivo | Armadilha nomeada |
