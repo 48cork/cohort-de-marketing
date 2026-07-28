@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesquisador Aumentado™ — Case Study para os Mentores</title>
+<style>
+  :root{
+    --canvas:#faf9f5;
+    --ink:#141413;
+    --ink-fg:#faf9f5;
+    --accent:#d97757;
+    --muted:#5e5d59;
+    --border:rgba(20,20,19,.12);
+    --border-strong:rgba(20,20,19,.2);
+    --card:#ffffff;
+    --font-display:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --font-mono:ui-monospace,"SF Mono","Roboto Mono","JetBrains Mono","Consolas",monospace;
+    --font-serif:"Iowan Old Style","Palatino Linotype",Georgia,"Times New Roman",serif;
+  }
+  :root[data-theme="dark"]{
+    --canvas:#141413; --ink:#f0eee6; --ink-fg:#141413; --card:#1e1d1b;
+    --border:rgba(240,238,230,.14); --border-strong:rgba(240,238,230,.24); --muted:#9a9890;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --canvas:#141413; --ink:#f0eee6; --ink-fg:#141413; --card:#1e1d1b;
+      --border:rgba(240,238,230,.14); --border-strong:rgba(240,238,230,.24); --muted:#9a9890;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--font-display);font-size:1.05rem;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:52rem;margin:0 auto;padding:0 1.6rem;}
+  .wrap-wide{max-width:64rem;margin:0 auto;padding:0 1.6rem;}
+  section{padding:3.2rem 0;}
+  h1,h2,h3{font-family:var(--font-display);font-weight:700;letter-spacing:-0.02em;text-wrap:balance;color:var(--ink);}
+  p{margin:0 0 1.05rem;max-width:62ch;}
+  .eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:500;display:block;margin-bottom:1rem;}
+  .rule{width:2.4rem;height:2px;background:var(--accent);border:none;margin:0 0 1.4rem;border-radius:99px;}
+
+  header.masthead{border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--canvas);z-index:5;}
+  .masthead-inner{max-width:64rem;margin:0 auto;padding:0 1.6rem;min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+  .wordmark{font-weight:700;font-size:1rem;letter-spacing:-0.02em;}
+  .wordmark span{color:var(--accent);}
+  .masthead-note{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+
+  .hero{padding:3.6rem 0 2.4rem;}
+  .hero h1{font-size:2.05rem;line-height:1.18;margin:0 0 1.2rem;max-width:20ch;}
+  .hero .lede{font-size:1.15rem;line-height:1.55;color:var(--ink);border-left:3px solid var(--accent);padding-left:1.1rem;font-weight:500;max-width:56ch;}
+  .author-line{display:flex;gap:.9rem;align-items:baseline;margin-top:1.6rem;font-size:.92rem;color:var(--muted);flex-wrap:wrap;}
+  .author-line strong{color:var(--ink);}
+
+  h2.section-title{font-size:1.5rem;margin-bottom:.4rem;}
+  .section-sub{color:var(--muted);font-size:.98rem;margin-bottom:1.8rem;max-width:58ch;}
+
+  .pipeline{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem;}
+  @media (max-width:760px){.pipeline{grid-template-columns:1fr;}}
+  .pipeline-col{position:relative;padding-left:1.6rem;border-left:2px solid var(--border-strong);}
+  .pipeline-col h3.aula{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1.2rem;}
+  .stage{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:1.15rem 1.3rem;margin-bottom:.9rem;position:relative;}
+  .stage::before{content:attr(data-n);position:absolute;left:-2.05rem;top:1.15rem;font-family:var(--font-mono);font-size:.7rem;color:var(--accent);font-weight:600;background:var(--canvas);width:1.5rem;text-align:right;}
+  .stage .skill{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:.3rem;}
+  .stage .title{font-weight:700;font-size:.98rem;letter-spacing:-0.01em;margin-bottom:.35rem;}
+  .stage .desc{font-size:.88rem;color:var(--muted);margin:0;max-width:none;}
+  .stage a.artifact-link{font-size:.82rem;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);display:inline-block;margin-top:.5rem;}
+  .stage a.artifact-link:hover{opacity:.75;}
+
+  .live-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem;}
+  .live-chip{display:inline-flex;align-items:center;gap:.5rem;background:var(--card);border:1px solid var(--border-strong);border-radius:99px;padding:.5rem 1rem .5rem .7rem;font-size:.84rem;text-decoration:none;color:var(--ink);}
+  .live-chip:hover{border-color:var(--accent);}
+  .live-dot{width:7px;height:7px;border-radius:99px;background:var(--accent);flex-shrink:0;}
+
+  .stage-band{background:var(--ink);color:var(--ink-fg);}
+  .stage-band h2{color:var(--ink-fg);}
+  .stage-band .section-sub{color:var(--muted);}
+  .honest-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:1.6rem;}
+  @media (max-width:760px){.honest-grid{grid-template-columns:1fr;}}
+  .honest-col h4{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 .8rem;}
+  .honest-col ul{margin:0;padding-left:1.2rem;}
+  .honest-col li{margin-bottom:.5rem;font-size:.94rem;}
+
+  blockquote{font-family:var(--font-serif);font-size:1.22rem;line-height:1.55;font-style:italic;border-left:3px solid var(--accent);padding-left:1.2rem;margin:1.6rem 0;max-width:56ch;}
+  cite{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;font-style:normal;display:block;margin-top:.6rem;}
+
+  .ask-card{background:var(--card);border:1px solid var(--border-strong);border-radius:8px;padding:1.8rem 2rem;margin-top:1rem;}
+  .ask-card ol{margin:1rem 0 0;padding-left:1.3rem;}
+  .ask-card li{margin-bottom:.6rem;}
+
+  footer{border-top:1px solid var(--border);padding:2.4rem 0;}
+  footer p{font-size:.86rem;color:var(--muted);margin:0 0 .4rem;}
+  footer a{color:var(--muted);}
+
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="wordmark">Pesquisador <span>A</span>umentado&trade;</div>
+    <div class="masthead-note">Case study &middot; Cohort de Marketing</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Apresentação aos mentores &middot; Academia Lendária</span>
+    <h1>Do avatar ao checkout, aplicando cada skill da Aula 01 e da Aula 02</h1>
+    <p class="lede">Isto não é uma proposta pedindo aprovação para começar. É um case completo: pesquisa real, oferta estruturada, copy fundamentada, funil de e-mail, isca publicada, checkout ativo, recuperação configurada. Construído passo a passo com a metodologia do curso.</p>
+    <div class="author-line">
+      <strong>Prof. Dr. Sergio Rolemberg Farias</strong>
+      <span>Professor de Sociologia, UFCG (Cajazeiras, PB)</span>
+      <span>Doutorado, Université Paul-Valéry Montpellier III</span>
+      <span>Pós-doutorado, EHESS Paris</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Por que este case, e por que agora</span>
+    <div class="rule"></div>
+    <p>O avatar do produto sou eu. Não é um público imaginado: é a dor que eu mesmo carrego há anos de orientação, o ciclo corretivo que consome tempo de pesquisa. Isso resolve, de saída, a objeção de credibilidade mais difícil de qualquer produto B2B.</p>
+    <blockquote>
+      Você não tem um aluno que não pensa. Você tem um método que ninguém te ensinou: perguntar primeiro, e reformular com apoio quando a ideia dele já existe, só está mal formulada.
+      <cite>Big Idea — copy.md</cite>
+    </blockquote>
+    <p>O que segue é o pipeline real que produziu esse resultado, skill por skill, com o artefato que cada etapa deixou.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap-wide">
+    <h2 class="section-title">O pipeline</h2>
+    <p class="section-sub">Nove etapas, duas aulas. Cada card é um artefato real, verificável — não um resumo de intenção.</p>
+
+    <div class="pipeline">
+      <div class="pipeline-col">
+        <h3 class="aula">Aula 01 &mdash; Pesquisa e oferta</h3>
+
+        <div class="stage" data-n="01">
+          <span class="skill">/avatar-funil</span>
+          <div class="title">Pesquisa de avatar</div>
+          <p class="desc">38 trechos, 3 frentes de pesquisa (reviews, comunidades, redes). Avatar "Dr. Marcelo" com dores rankeadas e verbatim real, não hipótese.</p>
+          <a class="artifact-link" href="https://github.com/48cork/cohort-de-marketing/blob/main/aula-01/projetos/pesquisador-aumentado/relatorio-avatar.md" target="_blank" rel="noopener">Ver relatório completo &rarr;</a>
+        </div>
+
+        <div class="stage" data-n="02">
+          <span class="skill">/espiao-do-concorrente</span>
+          <div class="title">Dossiê de 3 concorrentes</div>
+          <p class="desc">Monografis, Camila Isaton, Amilton Quintela. Confirmou o vácuo: mercado 100% B2C, nenhum concorrente falando com o professor.</p>
+          <a class="artifact-link" href="https://github.com/48cork/cohort-de-marketing/blob/main/aula-01/projetos/pesquisador-aumentado/dossie-monografis-mercado-tcc.md" target="_blank" rel="noopener">Ver dossiê &rarr;</a>
+        </div>
+
+        <div class="stage" data-n="03">
+          <span class="skill">/swipe-file</span>
+          <div class="title">Biblioteca de criativos</div>
+          <p class="desc">5 criativos catalogados dos concorrentes, com o padrão que virou a headline de contraste testada no focus group sintético.</p>
+          <a class="artifact-link" href="https://github.com/48cork/cohort-de-marketing/blob/main/aula-01/projetos/pesquisador-aumentado/swipe-file-index.md" target="_blank" rel="noopener">Ver swipe file &rarr;</a>
+        </div>
+
+        <div class="stage" data-n="04">
+          <span class="skill">/offerbook</span>
+          <div class="title">Offerbook aprovado</div>
+          <p class="desc">Oferta, preço (R$127), garantia, bônus e ancoragem de ROI, todos definidos e aprovados pelo dono da oferta.</p>
+          <a class="artifact-link" href="https://github.com/48cork/cohort-de-marketing/blob/main/aula-01/projetos/pesquisador-aumentado/offerbook.md" target="_blank" rel="noopener">Ver offerbook &rarr;</a>
+        </div>
+      </div>
+
+      <div class="pipeline-col">
+        <h3 class="aula">Aula 02 &mdash; Funil e execução</h3>
+
+        <div class="stage" data-n="05">
+          <span class="skill">/metodo-funil</span>
+          <div class="title">Diagnóstico de funil</div>
+          <p class="desc">Nível de consciência por canal, funil prescrito (conteúdo + isca + e-mail), mapa de execução de 11 etapas.</p>
+          <a class="artifact-link" href="https://github.com/48cork/cohort-de-marketing/blob/main/aula-01/projetos/pesquisador-aumentado/funil.md" target="_blank" rel="noopener">Ver diagnóstico &rarr;</a>
+        </div>
+
+        <div class="stage" data-n="06">
+          <span class="skill">/copy-funil</span>
+          <div class="title">Fundação de copy</div>
+          <p class="desc">Big Idea, mecanismo nomeado, banco de 25 headlines e 50 bullets, atualizado para o método híbrido dos capítulos 2 a 5.</p>
+          <a class="artifact-link" href="https://github.com/48cork/cohort-de-marketing/blob/main/aula-01/projetos/pesquisador-aumentado/copy.md" target="_blank" rel="noopener">Ver fundação &rarr;</a>
+        </div>
+
+        <div class="stage" data-n="07">
+          <span class="skill">/email-funil</span>
+          <div class="title">Trilha de 10 e-mails</div>
+          <p class="desc">Da entrega da isca ao fechamento, 16 dias, cada e-mail em HTML pronto pra disparo real.</p>
+          <a class="artifact-link" href="https://github.com/48cork/cohort-de-marketing/blob/main/aula-01/projetos/pesquisador-aumentado/emails/trilhas.md" target="_blank" rel="noopener">Ver trilha &rarr;</a>
+        </div>
+
+        <div class="stage" data-n="08">
+          <span class="skill">/mockup-produto-funil</span>
+          <div class="title">5 mockups de produto</div>
+          <p class="desc">Capa, box, índice, isca e bundle com o bônus de lançamento, prompts prontos na identidade da marca.</p>
+          <a class="artifact-link" href="https://github.com/48cork/cohort-de-marketing/blob/main/aula-01/projetos/pesquisador-aumentado/mockups/mockups.md" target="_blank" rel="noopener">Ver mockups &rarr;</a>
+        </div>
+
+        <div class="stage" data-n="09">
+          <span class="skill">/recuperacao-funil</span>
+          <div class="title">Cascata de recuperação</div>
+          <p class="desc">Cartão recusado, boleto e carrinho abandonado mapeados sobre o rastreio real do Hotmart, com WhatsApp nativo confirmado.</p>
+          <a class="artifact-link" href="https://github.com/48cork/cohort-de-marketing/blob/main/aula-01/projetos/pesquisador-aumentado/recuperacao.md" target="_blank" rel="noopener">Ver cascata &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="live-row">
+      <a class="live-chip" href="https://48cork.github.io/pesquisador-aumentado-landing/" target="_blank" rel="noopener"><span class="live-dot"></span>Página de vendas ao vivo</a>
+      <a class="live-chip" href="https://pay.hotmart.com/O106631740D" target="_blank" rel="noopener"><span class="live-dot"></span>Checkout Hotmart ativo</a>
+      <a class="live-chip" href="https://48cork.github.io/pesquisador-aumentado-landing/isca/" target="_blank" rel="noopener"><span class="live-dot"></span>Isca digital publicada</a>
+    </div>
+  </div>
+</section>
+
+<section class="stage-band">
+  <div class="wrap">
+    <span class="eyebrow">Estágio real, sem inflar</span>
+    <h2>Construído e publicado. Não vendido ainda.</h2>
+    <p class="section-sub">Um case de metodologia mostra o processo com precisão, inclusive o que ainda não aconteceu.</p>
+    <div class="honest-grid">
+      <div class="honest-col">
+        <h4>Já resolvido</h4>
+        <ul>
+          <li>Checkout Hotmart real, com Pix, cartão e recuperação nativa configurados</li>
+          <li>Bônus de lançamento definido (acesso antecipado a "Publicar ou Perecer")</li>
+          <li>E-book com os 5 capítulos revisados para o método híbrido, a partir de um caso real de orientação</li>
+          <li>Isca publicada com página de captura própria</li>
+        </ul>
+      </div>
+      <div class="honest-col">
+        <h4>Em aberto</h4>
+        <ul>
+          <li>Zero venda até o momento</li>
+          <li>Zero post orgânico publicado ainda</li>
+          <li>Depoimento de professor comprador (só existe o do aluno orientado)</li>
+          <li>Produto de downsell ainda não definido</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">O pedido aos mentores</span>
+    <div class="rule"></div>
+    <p>Tenho poucas conexões pessoais no LinkedIn. Orgânico-no-perfil, sozinho, não sustenta volume. Já mapeei uma alternativa real: 3 associações da minha própria área acadêmica (SBS, ANPOCS, ANPEd), verificadas, com canal de contato confirmado, além do que só eu sei (rede pessoal, grupos de pesquisa, colegas de doutorado).</p>
+    <div class="ask-card">
+      <p style="margin:0;"><strong>O que eu gostaria de validar com vocês:</strong></p>
+      <ol>
+        <li>Esse plano de comunidades e parcerias é a prioridade certa antes de considerar tráfego pago, dado o ticket de R$127 e um avatar que decide devagar?</li>
+        <li>Entre as 3 associações mapeadas, qual sequência de abordagem vocês recomendam?</li>
+        <li>Faz sentido documentar esse processo completo (do avatar ao checkout) como um segundo produto — um guia de como professores-pesquisadores lançam infoprodutos a partir do próprio trabalho acadêmico?</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong style="color:var(--ink);">Prof. Dr. Sergio Rolemberg Farias</strong> &middot; UACS/CFP/UFCG, Campus Cajazeiras-PB</p>
+    <p>Membro da Academia Lendária desde novembro de 2025 &middot; Cohort de Marketing com IA</p>
+    <p><a href="mailto:ai66tools@gmail.com">ai66tools@gmail.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
